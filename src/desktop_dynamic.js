@@ -1,5 +1,9 @@
 // Only recognized UI sentences are transformed; arbitrary numbers and content are untouched.
 function translateDynamic(text) {
+  const enabledTools = /^(\d+) tools? enabled$/.exec(text);
+  if (enabledTools) return enabledTools[1] + ' Araç Etkin';
+  const seeMore = /^(\+\s*)?See (\d+) more$/.exec(text);
+  if (seeMore) return (seeMore[1] || '') + seeMore[2] + ' Tane Daha Göster';
   const workedDuration = /^Worked for (\d+h(?: \d+m)?|\d+m(?: \d+s)?)$/.exec(text);
   if (workedDuration) return workedDuration[1].replace(/[hms]/g, unit => ({h:' saat',m:' dakika',s:' saniye'}[unit])) + ' çalıştı';
   const ago = /^(\d+)(s|m|h|d) ago$/.exec(text);

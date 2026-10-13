@@ -1,5 +1,13 @@
 # Değişiklikler
 
+## 1.0.12 — 2026-10-13
+
+- Konuşma araması, geçmiş menüleri ve parçalı arşiv açıklaması tamamlandı.
+- Proje izin açıklamaları ve özelleştirme menüleri Türkçeleştirildi.
+- MCP araç sayıları dinamik çevrildi; dosya yolu araç ipucu kısaltıldı.
+- 38 otomatik test geçti; izin seçimleri, sorgular, kod ve eklenti kimlikleri korundu.
+
+
 ## 1.0.11 — 2026-10-13
 
 - Desktop 2.23.0 desteği eklendi.

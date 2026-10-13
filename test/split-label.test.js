@@ -10,7 +10,7 @@ test('split UI labels translate while plugin identifiers and code stay intact', 
     label.append(doc.createTextNode('No projects '), doc.createTextNode('found'));
     dom.window.eval(transformDesktopSources(new Map([['dist/preload.js', '"use strict";']])).get('dist/preload.js'));
     await new Promise(resolve => dom.window.setTimeout(resolve, 20));
-    assert.equal(label.textContent, 'Proje bulunamadı');
+    assert.equal(label.textContent, 'Proje Bulunamadı');
     assert.equal(doc.querySelector('b').textContent, 'Science');
     assert.equal(doc.querySelector('code').textContent, 'No projects found');
   } finally { dom.window.close(); }
