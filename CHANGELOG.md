@@ -1,5 +1,12 @@
 # Değişiklikler
 
+## 1.0.11 — 2026-10-13
+
+- Desktop 2.23.0 desteği eklendi.
+- Parçalı URL okuma reddetme seçeneği ve Gemini model önerisi açıklaması çevrildi.
+- 35 test geçti; gerçek 2.23.0 dosyalarında sözdizimi ve tekrar yama tutarlılığı doğrulandı.
+
+
 ## 1.0.10 — 2026-10-10
 
 - Desktop 2.22.0 desteği eklendi.

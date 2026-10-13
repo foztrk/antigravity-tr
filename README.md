@@ -4,8 +4,8 @@
 <div align="center">
 
 [![GitHub License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Tested On](https://img.shields.io/badge/Antigravity%20Desktop-v2.17.0%20%7C%20v2.19.1%20%7C%20v2.21.1%20%7C%20v2.22.0-purple.svg)](https://antigravity.google)
-[![Tests Passing](https://img.shields.io/badge/Tests-33%2F33%20Passing-brightgreen.svg)](test/)
+[![Tested On](https://img.shields.io/badge/Antigravity%20Desktop-v2.17.0%20%7C%20v2.19.1%20%7C%20v2.21.1%20%7C%20v2.22.0%20%7C%20v2.23.0-purple.svg)](https://antigravity.google)
+[![Tests Passing](https://img.shields.io/badge/Tests-35%2F35%20Passing-brightgreen.svg)](test/)
 [![Platform](https://img.shields.io/badge/Platform-Windows-lightgrey.svg)](#-kurulum)
 [![GitHub stars](https://img.shields.io/github/stars/gmzoztr/antigravity-tr?style=social)](https://github.com/gmzoztr/antigravity-tr)
 
@@ -23,12 +23,12 @@
 
 Google Antigravity Desktop ve Antigravity IDE için topluluk tarafından geliştirilen kapsamlı Türkçe yerelleştirme araçları. Google'ın resmi ürünü veya resmi dil paketi değildir.
 
-Mevcut IDE çevirileri, ayar sözlükleri ve Türkçe asistan kuralları korunmuştur. **1.0.10 sürümü; Desktop ayarları, beceri ve MCP açıklamaları, yerel sağ tık menüleri ve alt menü çevirilerini genişletir. Eklenti adları korunur.**
+Mevcut IDE çevirileri, ayar sözlükleri ve Türkçe asistan kuralları korunmuştur. **1.0.11 sürümü; Desktop ayarları, beceri ve MCP açıklamaları, yerel sağ tık menüleri ve alt menü çevirilerini genişletir. Eklenti adları korunur.**
 
 
 ## Doğrulanmış kapsam
 
-- Windows, kullanıcı dizinine kurulmuş **Antigravity Desktop 2.17.0, 2.18.1, 2.19.1, 2.21.1 ve 2.22.0**.
+- Windows, kullanıcı dizinine kurulmuş **Antigravity Desktop 2.17.0, 2.18.1, 2.19.1, 2.21.1, 2.22.0 ve 2.23.0**.
 
 - Node.js **22.12 veya üstü** ve npm.
 - Desktop menüleri, sözlükteki düğmeler, ayar metinleri ve araç ipuçları.

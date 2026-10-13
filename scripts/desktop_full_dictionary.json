@@ -843,7 +843,7 @@
   "Yes, and always allow in this conversation": "Evet, Bu Konuşmada Her Zaman İzin Ver",
   "Yes, and always allow when not in a project": "Evet, Proje Dışında Her Zaman İzin Ver",
   "Yes, and always allow": "Evet, Her Zaman İzin Ver",
-  "No (tell the agent what to do instead)": "Hayır, Ne Yapılacağını Belirtin",
+  "No (tell the agent what to do instead)": "Hayır (Bunun Yerine Ne Yapılacağını Belirtin)",
   "Skip": "Atla",
   "(Recommended)": "(Önerilen)",
   "Other (write your answer)": "Diğer (Yanıtınızı Yazın)",
@@ -912,5 +912,9 @@
   "Match Whole Word": "Tam Sözcük Eşleştir",
   "Use Regular Expression": "Düzenli İfade Kullan",
   "Restart to Update": "Güncellemek İçin Yeniden Başlat",
-  "Ran commands, edited files": "Komutlar Çalıştırıldı, Dosyalar Düzenlendi"
+  "Ran commands, edited files": "Komutlar Çalıştırıldı, Dosyalar Düzenlendi",
+  "No": "Hayır",
+  "(tell the agent what to do instead)": "(Bunun Yerine Ne Yapılacağını Belirtin)",
+  "tell the agent what to do instead": "Bunun Yerine Ne Yapılacağını Belirtin",
+  "Use Gemini 3.8 Flash! As a newer model, it delivers more intelligence at 2x the speed for 70% less cost than Gemini 3.1 Pro.": "Gemini 3.8 Flash’ı Kullanın! Bu yeni model, Gemini 3.1 Pro’ya göre 2 kat hız ve %70 daha düşük maliyetle daha gelişmiş zekâ sunar."
 }

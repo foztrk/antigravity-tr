@@ -189,3 +189,14 @@ test('find bar option tooltips translate together without changing search settin
  const dom=new JSDOM('<body><input value="a.*b">'+pairs.map(([text])=>'<button title="'+text+'" aria-label="'+text+'" aria-pressed="false">icon</button>').join('')+'</body>',{runScripts:'outside-only'});
  try{dom.window.eval(transformDesktopSources(fixture()).get('dist/preload.js'));await new Promise(r=>dom.window.setTimeout(r,20));const d=dom.window.document;pairs.forEach(([,expected],i)=>{const b=d.querySelectorAll('button')[i];assert.equal(b.title,expected);assert.equal(b.getAttribute('aria-label'),expected);assert.equal(b.getAttribute('aria-pressed'),'false');});assert.equal(d.querySelector('input').value,'a.*b');}finally{dom.window.close();}
 });
+
+test('split negative URL approval preserves radio selection and URL',async()=>{
+ const dom=new JSDOM('<body><label><input type="radio" value="deny"><span>No</span> <span>(tell the agent what to do instead)</span></label><code>memories.ai</code><div class="markdown">No</div></body>',{runScripts:'outside-only'});
+ try{dom.window.eval(transformDesktopSources(fixture()).get('dist/preload.js'));await new Promise(r=>dom.window.setTimeout(r,20));const d=dom.window.document;assert.equal(d.querySelector('label').textContent,'Hayır (Bunun Yerine Ne Yapılacağını Belirtin)');assert.equal(d.querySelector('input').value,'deny');assert.equal(d.querySelector('input').checked,false);assert.equal(d.querySelector('code').textContent,'memories.ai');assert.equal(d.querySelector('.markdown').textContent,'No');}finally{dom.window.close();}
+});
+
+test('Gemini model recommendation tooltip tolerates wrapped text without changing model name',async()=>{
+ const english='Use Gemini 3.8 Flash! As a newer model, it delivers more intelligence at 2x the speed for 70% less cost than Gemini 3.1 Pro.';
+ const dom=new JSDOM('<body><span>Gemini 3.1 Pro</span><div role="tooltip">'+english.replace('As a newer','As a\nnewer')+'</div><button title="'+english+'">Model</button></body>',{runScripts:'outside-only'});
+ try{dom.window.eval(transformDesktopSources(fixture()).get('dist/preload.js'));await new Promise(r=>dom.window.setTimeout(r,20));const d=dom.window.document;assert.equal(d.querySelector('span').textContent,'Gemini 3.1 Pro');assert.ok(d.querySelector('[role=tooltip]').textContent.startsWith('Gemini 3.8 Flash’ı Kullanın!'));assert.ok(d.querySelector('button').title.includes('%70'));assert.ok(d.querySelector('[role=tooltip]').textContent.includes('2 kat'));}finally{dom.window.close();}
+});

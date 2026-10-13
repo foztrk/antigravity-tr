@@ -1,6 +1,6 @@
 {
   "name": "antigravity-tr",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Google Antigravity ve Antigravity IDE için Kapsamlı Türkçe Dil Paketi ve Otomatik Yama Aracı",
   "main": "src/installer.js",
   "bin": {
