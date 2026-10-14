@@ -1,5 +1,12 @@
 # Değişiklikler
 
+## 1.0.13 — 2026-10-14
+
+- Genel bakış bölüm ayarları, hedef/belge/bağlantı başlıkları ve değiştirilen dosya etiketleri tamamlandı.
+- Model erişim açıklaması, Kullanılamıyor ve eklenti boş durumu çevrildi.
+- 39 test geçti; bölüm seçimleri, model adları ve kullanıcı içeriği korundu.
+
+
 ## 1.0.12 — 2026-10-13
 
 - Konuşma araması, geçmiş menüleri ve parçalı arşiv açıklaması tamamlandı.

@@ -950,5 +950,14 @@
   "Restart": "Yeniden Başlat",
   "Custom Order": "Özel Sıralama",
   "tools enabled": "Araç Etkin",
-  "tool enabled": "Araç Etkin"
+  "tool enabled": "Araç Etkin",
+  "Gemini 4 Argon is currently available to Ultra plan subscribers.": "Gemini 4 Argon şu anda Ultra planı abonelerinin kullanımına açıktır.",
+  "Unavailable": "Kullanılamıyor",
+  "Implementation Plan": "Uygulama Planı",
+  "Modified Files": "Değiştirilen Dosyalar",
+  "Customize Sections": "Bölümleri Özelleştir",
+  "Goals": "Hedefler",
+  "Documents": "Belgeler",
+  "Links": "Bağlantılar",
+  "No plugins available": "Kullanılabilir Eklenti Yok"
 }
