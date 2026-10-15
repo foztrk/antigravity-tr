@@ -1,5 +1,12 @@
 # Değişiklikler
 
+## 1.0.15 — 2026-10-15
+
+- Geri bildirim kategorilerinin açıklamaları ve yer tutucuları Türkçeleştirildi.
+- Hesapla gönderim etiketi, günlük ekleme önerisi ve hukuki yardım metinleri çevrildi.
+- Rapor içeriği, günlük onayı ve bağlantılar korundu; 40 test geçti.
+
+
 ## 1.0.14 — 2026-10-15
 
 - Desktop 2.23.1 desteği eklendi.

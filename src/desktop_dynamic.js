@@ -1,5 +1,7 @@
 // Only recognized UI sentences are transformed; arbitrary numbers and content are untouched.
 function translateDynamic(text) {
+  const feedbackAccount = /^Send feedback as (.+@[^ ]+)$/.exec(text);
+  if (feedbackAccount) return feedbackAccount[1] + ' Hesabıyla Geri Bildirim Gönder';
   const enabledTools = /^(\d+) tools? enabled$/.exec(text);
   if (enabledTools) return enabledTools[1] + ' Araç Etkin';
   const seeMore = /^(\+\s*)?See (\d+) more$/.exec(text);
