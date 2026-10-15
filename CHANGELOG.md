@@ -1,5 +1,12 @@
 # Değişiklikler
 
+## 1.0.14 — 2026-10-15
+
+- Desktop 2.23.1 desteği eklendi.
+- 39 test geçti; gerçek 2.23.1 dosyalarında sözdizimi ve tekrar kurulum tutarlılığı doğrulandı.
+- Yerel güncellenmiş arayüz kullanıcı tarafından kabul edildi.
+
+
 ## 1.0.13 — 2026-10-14
 
 - Genel bakış bölüm ayarları, hedef/belge/bağlantı başlıkları ve değiştirilen dosya etiketleri tamamlandı.

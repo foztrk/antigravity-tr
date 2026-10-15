@@ -7,7 +7,7 @@ async function main() {
   if (['help', '--help', '-h'].includes(command)) {
     console.log(`Antigravity Türkçe Yama
 Kullanım: node bin/antigravity-tr.js <komut>
-  install-desktop      Masaüstü arayüzünü Türkçeleştir (2.17.0–2.23.0)
+  install-desktop      Masaüstü arayüzünü Türkçeleştir (2.17.0–2.23.1)
   repair-desktop       Eski Türkçe yamadaki siyah ekran döngüsünü düzelt
   restore-desktop      Masaüstü yedeğini geri yükle (isteğe bağlı yedek yolu)
   install              IDE + Desktop + dil kuralları (mevcut kapsamlı kurucu)
