@@ -1,30 +1,58 @@
 # 🇹🇷 Google Antigravity & Antigravity IDE Türkçe Dil Paketi
-### (Community Turkish Localization & Engineering Infrastructure for Google Antigravity)
+### Independent Turkish localization for Google Antigravity on Windows
 
 <div align="center">
 
 [![GitHub License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Tested On](https://img.shields.io/badge/Antigravity%20Desktop-v2.17.0%20%7C%20v2.19.1%20%7C%20v2.21.1%20%7C%20v2.22.0%20%7C%20v2.23.0%20%7C%20v2.23.1-purple.svg)](https://antigravity.google)
 [![Tests Passing](https://img.shields.io/badge/Tests-39%2F39%20Passing-brightgreen.svg)](test/)
-[![Platform](https://img.shields.io/badge/Platform-Windows-lightgrey.svg)](#-kurulum)
-[![GitHub stars](https://img.shields.io/github/stars/gmzoztr/antigravity-tr?style=social)](https://github.com/gmzoztr/antigravity-tr)
+[![Platform](https://img.shields.io/badge/Platform-Windows-lightgrey.svg)](#kurulum)
+[![GitHub stars](https://img.shields.io/github/stars/foztrk/antigravity-tr?style=social)](https://github.com/foztrk/antigravity-tr)
 
-[⭐ **Yıldız Ver (Star)**](https://github.com/gmzoztr/antigravity-tr) • 
-[💬 **Geri Bildirim / Hata Bildir**](https://github.com/gmzoztr/antigravity-tr/issues) • 
-[📥 **Sürümler (Releases)**](https://github.com/gmzoztr/antigravity-tr/releases)
+[⭐ **Yıldız Ver (Star)**](https://github.com/foztrk/antigravity-tr) •
+[💬 **Geri Bildirim / Hata Bildir**](https://github.com/foztrk/antigravity-tr/issues) •
+[📥 **Sürümler (Releases)**](https://github.com/foztrk/antigravity-tr/releases)
 
 </div>
 
 ---
 
 > [!TIP]
-> 🌟 **Bu projeyi faydalı bulduysanız ve Antigravity'yi Türkçe kullanmaktan memnunsanız, sağ üst köşeden projeye bir Yıldız (Star ⭐) vererek destek olabilirsiniz!**  
-> GitHub yıldızlarınız projenin görünürlüğünü artırır ve Google Antigravity ekibinin Türkçe dil desteğini doğrudan çekirdeğe (native) eklemesini hızlandırır.
+> 🌟 **Bu projeyi faydalı bulduysanız ve Antigravity'yi Türkçe kullanmaktan memnunsanız, sağ üst köşeden projeye bir Yıldız (Star ⭐) vererek destek olabilirsiniz!**
+> Projeye yıldız vermeniz, çalışmanın ve Türkçe arayüz talebinin görünürlüğüne katkı sağlar.
 
 Google Antigravity Desktop ve Antigravity IDE için topluluk tarafından geliştirilen kapsamlı Türkçe yerelleştirme araçları. Google'ın resmi ürünü veya resmi dil paketi değildir.
 
 Mevcut IDE çevirileri, ayar sözlükleri ve Türkçe asistan kuralları korunmuştur. **1.0.14 sürümü; Desktop ayarları, beceri ve MCP açıklamaları, yerel sağ tık menüleri ve alt menü çevirilerini genişletir. Eklenti adları korunur.**
 
+
+## English overview
+
+Antigravity TR is an independent, open-source Turkish UI patch maintained by [Faruk Öztürk (@foztrk)](https://github.com/foztrk). It translates recognized interface labels in Antigravity Desktop on Windows, including menus, settings, permission dialogs, review panels, and dynamic status messages.
+
+**Current release: v1.0.14 · Desktop 2.23.1 · 39 automated tests.** The installer backs up the application archive and supports restoration. Tests cover translation behavior, repeated installation, and preservation of controls and user content. They do not establish complete visual coverage of every screen.
+
+This project is **not affiliated with or endorsed by Google**. It modifies local application resources and needs compatibility checks after updates. The latest release validates Desktop; the retained IDE installer has a separate, broader scope described below.
+
+## İndir / Download
+
+[**Download the latest Windows patch / Son Windows yamasını indir**](https://github.com/foztrk/antigravity-tr/releases/latest)
+
+Open the latest release and download the named patch ZIP plus its SHA256SUMS file. Extract the ZIP, install Node.js 22.12 or later with npm, close Antigravity, and run `install.ps1`. Turkish installation and rollback instructions follow below.
+
+Son sürüm sayfasından yama ZIP’ini indirin; GitHub’ın otomatik kaynak ZIP’iyle karıştırmayın. SHA256SUMS dosyası indirme bütünlüğünü kontrol etmek içindir.
+
+## Çeviri örnekleri / Translation examples
+
+![Examples of interface labels before and after Turkish localization](docs/translation-examples.svg)
+
+Bu görsel gerçek uygulama ekran görüntüsü değil, sözlükteki çevirilerden hazırlanmış bir karşılaştırmadır. / This is a comparison of translation entries, not an application screenshot.
+
+## Katkı ve iletişim / Contribute & contact
+
+- **Users:** report missing labels with the Desktop version and a screenshot in [Issues](https://github.com/foztrk/antigravity-tr/issues). Hide account details and private conversation content.
+- **Contributors:** see [CONTRIBUTING.md](CONTRIBUTING.md) for translation and testing guidance.
+- **Antigravity team:** I would welcome guidance on supported localization contributions and would be happy to share translation resources and help test an official Turkish interface. Contact me through a [GitHub issue](https://github.com/foztrk/antigravity-tr/issues) or my [profile](https://github.com/foztrk).
 
 ## Doğrulanmış kapsam
 
@@ -106,4 +134,3 @@ Projenin kendi kaynak kodu [MIT](LICENSE) lisanslıdır. Antigravity, Google ve 
 
 ## 1.0.3 — Desktop 2.19.1
 Desktop 2.19.1 kurulumu ve yama uygulaması doğrulandı; 14 otomatik test geçti, ana arayüz canlı olarak açıldı. Her alt ekranın yeniden kontrol edildiği iddia edilmez. IDE bu güncellemede yamalanmadı.
-
