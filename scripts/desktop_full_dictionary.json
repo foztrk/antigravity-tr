@@ -980,5 +980,10 @@
   "Visit Legal Help to ask for content changes for legal reasons.": "Hukuki nedenlerle içerik değişikliği istemek için Hukuki Yardım sayfasını ziyaret edin.",
   "Visit": "Ziyaret Edin",
   "Legal Help": "Hukuki Yardım",
-  "to ask for content changes for legal reasons.": "Hukuki nedenlerle içerik değişikliği istemek için."
+  "to ask for content changes for legal reasons.": "Hukuki nedenlerle içerik değişikliği istemek için.",
+  "Sends after agent finishes working": "Ajan İşini Bitirdikten Sonra Gönderilir",
+  "Empty message": "Boş İleti",
+  "Send Now": "Şimdi Gönder",
+  "Walkthrough": "Uygulama Özeti",
+  "Task": "Görev"
 }

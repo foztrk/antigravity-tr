@@ -1,5 +1,12 @@
 # Değişiklikler
 
+## 1.0.16 — 2026-10-15
+
+- Kuyruk açıklaması, boş ileti ve Şimdi Gönder etiketleri çevrildi.
+- Walkthrough ve Task çıktı başlıkları Türkçeleştirildi.
+- 41 test geçti; kuyruktaki içerik ve gönderim davranışı korundu.
+
+
 ## 1.0.15 — 2026-10-15
 
 - Geri bildirim kategorilerinin açıklamaları ve yer tutucuları Türkçeleştirildi.
