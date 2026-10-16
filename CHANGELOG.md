@@ -1,5 +1,12 @@
 # Değişiklikler
 
+## 1.0.17 — 2026-10-16
+
+- Gemini 4 Argon haftalık limit etiketi ve sürüm/güncelleme menüsü çevrildi.
+- Ultra planı önerisi içeren kota bildiriminde tarih ile açıklamanın karışması düzeltildi.
+- 42 test geçti; yerel yama kullanıcı tarafından kabul edildi.
+
+
 ## 1.0.16 — 2026-10-15
 
 - Kuyruk açıklaması, boş ileti ve Şimdi Gönder etiketleri çevrildi.

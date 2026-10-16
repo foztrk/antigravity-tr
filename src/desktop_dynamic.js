@@ -1,5 +1,9 @@
 // Only recognized UI sentences are transformed; arbitrary numbers and content are untouched.
 function translateDynamic(text) {
+  const versionLabel = /^Version (\d+\.\d+\.\d+)$/.exec(text);
+  if (versionLabel) return 'Sürüm ' + versionLabel[1];
+  const ultraQuota = /^Your plan's baseline quota will refresh on (.+?)\. You can upgrade to a Google AI Ultra plan to receive higher rate limits\.(?: See plans\.)?$/.exec(text);
+  if (ultraQuota) return 'Planınızın temel kotası ' + ultraQuota[1] + ' tarihinde yenilenecek. Daha yüksek kullanım limitleri için Google AI Ultra planına geçebilirsiniz.' + (text.endsWith('See plans.') ? ' Planları Görüntüle.' : '');
   const feedbackAccount = /^Send feedback as (.+@[^ ]+)$/.exec(text);
   if (feedbackAccount) return feedbackAccount[1] + ' Hesabıyla Geri Bildirim Gönder';
   const enabledTools = /^(\d+) tools? enabled$/.exec(text);
