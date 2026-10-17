@@ -1,5 +1,13 @@
 # Değişiklikler
 
+## 1.0.18 — 2026-10-17
+
+- Desktop 2.24.0 desteği eklendi.
+- Komut, dosya arama, web arama ve görsel oluşturma durum kalıpları Türkçeleştirildi.
+- Sayısız etkinlik özetleri (Explored files, ran commands) tamamlandı.
+- Dosya yolları, sorgular, komutlar ve konuşma içerikleri korunur; 45 test geçti.
+
+
 ## 1.0.17 — 2026-10-16
 
 - Gemini 4 Argon haftalık limit etiketi ve sürüm/güncelleme menüsü çevrildi.

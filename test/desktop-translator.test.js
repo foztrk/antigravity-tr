@@ -240,3 +240,35 @@ test('quota upgrade sentence keeps date separate and translates application vers
  const dom=new JSDOM('<body><p>'+original+'</p><a>See plans.</a><span>Gemini 4 Argon Weekly Limit</span><button>Version 2.23.1</button><button>Check for Updates</button></body>',{runScripts:'outside-only'});
  try{dom.window.eval(transformDesktopSources(fixture()).get('dist/preload.js'));await new Promise(r=>dom.window.setTimeout(r,20));const d=dom.window.document;assert.equal(d.querySelector('p').textContent,'Planınızın temel kotası 23.10.2026 11:19:10 tarihinde yenilenecek. Daha yüksek kullanım limitleri için Google AI Ultra planına geçebilirsiniz.');assert.equal(d.querySelector('a').textContent,'Planları Görüntüle.');assert.equal(d.querySelector('span').textContent,'Gemini 4 Argon Haftalık Limiti');assert.equal(d.querySelectorAll('button')[0].textContent,'Sürüm 2.23.1');assert.equal(d.querySelectorAll('button')[1].textContent,'Güncellemeleri Denetle');}finally{dom.window.close();}
 });
+
+ test('tool statuses follow live updates while commands and messages remain unchanged', async () => {
+  const dom = new JSDOM('<body><span id="status">Running command</span><pre>Running command</pre><div class="markdown">Searching</div><div data-message-author-role="user">Generating image</div><input value="Searching"></body>', {runScripts:'outside-only'});
+  try {
+    dom.window.eval(transformDesktopSources(fixture()).get('dist/preload.js'));
+    await new Promise(r=>dom.window.setTimeout(r,20));
+    const d=dom.window.document;
+    assert.equal(d.querySelector('#status').textContent,'Komut çalıştırılıyor');
+    assert.equal(d.querySelector('pre').textContent,'Running command');
+    assert.equal(d.querySelector('.markdown').textContent,'Searching');
+    assert.equal(d.querySelector('[data-message-author-role]').textContent,'Generating image');
+    assert.equal(d.querySelector('input').value,'Searching');
+    d.querySelector('#status').textContent='Searching the web for "Antigravity 2.24.0"';
+    await new Promise(r=>dom.window.setTimeout(r,20));
+    assert.equal(d.querySelector('#status').textContent,'Web’de aranıyor: "Antigravity 2.24.0"');
+  } finally {dom.window.close();}
+});
+
+test('completed activity summaries translate whole and split labels without changing generated titles', async () => {
+  const dom = new JSDOM('<body><span id="summary"></span><span id="commands">Ran commands</span><span id="title">tool-action-labels.js içeriğinin okunması</span><div class="markdown">Explored files, ran commands</div><pre>Ran commands</pre></body>', {runScripts:'outside-only'});
+  try {
+    const d=dom.window.document;
+    for(const text of ['Explored files', ', ', 'ran commands']) d.querySelector('#summary').append(d.createTextNode(text));
+    dom.window.eval(transformDesktopSources(fixture()).get('dist/preload.js'));
+    await new Promise(r=>dom.window.setTimeout(r,20));
+    assert.equal(d.querySelector('#summary').textContent,'Dosyalar İncelendi, Komutlar Çalıştırıldı');
+    assert.equal(d.querySelector('#commands').textContent,'Komutlar Çalıştırıldı');
+    assert.equal(d.querySelector('#title').textContent,'tool-action-labels.js içeriğinin okunması');
+    assert.equal(d.querySelector('.markdown').textContent,'Explored files, ran commands');
+    assert.equal(d.querySelector('pre').textContent,'Ran commands');
+  } finally {dom.window.close();}
+});

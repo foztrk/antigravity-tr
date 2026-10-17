@@ -1,5 +1,14 @@
 // Only recognized UI sentences are transformed; arbitrary numbers and content are untouched.
 function translateDynamic(text) {
+  // Translate known tool status templates, preserving their paths and queries verbatim.
+  const toolLabels = { 'Running command': 'Komut çalıştırılıyor', 'Searching': 'Aranıyor', 'Generating image': 'Görsel oluşturuluyor' };
+  if (Object.prototype.hasOwnProperty.call(toolLabels, text)) return toolLabels[text];
+  let toolStatus = /^Finding files in (.+)$/.exec(text);
+  if (toolStatus) return 'Dosyalar aranıyor: ' + toolStatus[1];
+  toolStatus = /^Searching the web for ("(?:[^"\\]|\\.)*")$/.exec(text);
+  if (toolStatus) return 'Web’de aranıyor: ' + toolStatus[1];
+  toolStatus = /^Searching (.+) for ("(?:[^"\\]|\\.)*")$/.exec(text);
+  if (toolStatus) return toolStatus[1] + ' içinde aranıyor: ' + toolStatus[2];
   const versionLabel = /^Version (\d+\.\d+\.\d+)$/.exec(text);
   if (versionLabel) return 'Sürüm ' + versionLabel[1];
   const ultraQuota = /^Your plan's baseline quota will refresh on (.+?)\. You can upgrade to a Google AI Ultra plan to receive higher rate limits\.(?: See plans\.)?$/.exec(text);
@@ -33,6 +42,9 @@ function translateDynamic(text) {
   if (text.startsWith('(Recommended) ')) return '(Önerilen) ' + text.slice('(Recommended) '.length);
   const worked = /^Worked for (\d+)s$/.exec(text);
   if (worked) return worked[1] + ' saniye çalıştı';
+  const completedActivities = { 'Explored files': 'Dosyalar İncelendi', 'Ran commands': 'Komutlar Çalıştırıldı', 'ran commands': 'Komutlar Çalıştırıldı' };
+  const completedParts = text.split(', ');
+  if (completedParts.every(part => Object.prototype.hasOwnProperty.call(completedActivities, part))) return completedParts.map(part => completedActivities[part]).join(', ');
   const activityParts = text.split(', ');
   const activities = { 'Exploring file': 'Dosya inceleniyor', 'Exploring files': 'Dosyalar inceleniyor', 'running commands': 'komutlar çalıştırılıyor', 'editing file': 'dosya düzenleniyor', 'editing files': 'dosyalar düzenleniyor' };
   if (activityParts.length && activityParts.every(part => Object.prototype.hasOwnProperty.call(activities, part))) return activityParts.map(part => activities[part]).join(', ');

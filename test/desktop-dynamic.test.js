@@ -24,3 +24,13 @@ test('weekly limit notice preserves the changing refresh duration', () => {
   const {translateDynamic}=require('../src/desktop_dynamic');
   assert.equal(translateDynamic('You have hit your weekly limit, the 5-hour limit does not currently apply. Your weekly limit will fully refresh in 4 days, 23 hours.'), 'Haftalık limitinize ulaştınız; beş saatlik limit şu anda geçerli değil. Haftalık limitiniz 4 gün, 23 saat sonra tamamen yenilenir.');
 });
+
+test('tool status templates preserve paths, quoted queries, and unknown text', () => {
+  const cases = [
+    ['Finding files in C:/Work/My Project','Dosyalar aranıyor: C:/Work/My Project'],
+    ['Searching src for "Save"','src içinde aranıyor: "Save"'],
+    ['Generating image','Görsel oluşturuluyor']
+  ];
+  for(const [input,output] of cases) {assert.equal(translateDynamic(input),output);assert.equal(translateDynamic(output),output);}
+  for(const input of ['Searching for a solution is useful','Searching src for unquoted text','git status','Reading file timed out.']) assert.equal(translateDynamic(input),input);
+});
