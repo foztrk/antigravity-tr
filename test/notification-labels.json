@@ -1,0 +1,10 @@
+{
+  "Manage your notification preferences.": "Bildirim tercihlerinizi yönetin.",
+  "Enable Notifications for Agent": "Ajan Bildirimlerini Etkinleştir",
+  "Show system notifications when your action is needed or the agent finishes.": "İşlem yapmanız gerektiğinde veya ajan işini bitirdiğinde sistem bildirimlerini göster.",
+  "Sound": "Ses",
+  "Enable Sounds for Agent": "Ajan Seslerini Etkinleştir",
+  "Play a sound when your action is needed or the agent finishes.": "İşlem yapmanız gerektiğinde veya ajan işini bitirdiğinde ses çal.",
+  "Volume": "Ses Düzeyi",
+  "Set the volume of agent sounds.": "Ajan seslerinin düzeyini ayarlayın."
+}

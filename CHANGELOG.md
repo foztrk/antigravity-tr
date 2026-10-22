@@ -1,5 +1,14 @@
 # Değişiklikler
 
+## 1.0.19 — 2026-10-22
+
+- Desktop 2.25.0 desteği eklendi.
+- Bildirim ve ses ayarlarının açıklamaları Türkçeleştirildi; anahtarlar ve ses düzeyi korunur.
+- Güncellenen Spark, Python bağımlılıkları ve dinamik iş akışı beceri açıklamaları tamamlandı.
+- Android CLI ve Google Cloud Developer pazar yeri açıklamaları çevrildi.
+- 47 otomatik test geçti.
+
+
 ## 1.0.18 — 2026-10-17
 
 - Desktop 2.24.0 desteği eklendi.

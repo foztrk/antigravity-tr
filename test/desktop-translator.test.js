@@ -272,3 +272,31 @@ test('completed activity summaries translate whole and split labels without chan
     assert.equal(d.querySelector('pre').textContent,'Ran commands');
   } finally {dom.window.close();}
 });
+
+test('notification settings labels translate without changing toggle and volume values', async () => {
+ const labels=require('./notification-labels.json');
+ const dom=new JSDOM('<body><section></section><input type="checkbox" checked><input type="range" min="0" max="100" value="100"><textarea></textarea></body>',{runScripts:'outside-only'});
+ try {
+  const d=dom.window.document;
+  for(const label of Object.keys(labels)){const p=d.createElement('p');p.textContent=label;d.querySelector('section').append(p);}
+  d.querySelector('textarea').value='Manage your notification preferences.';
+  dom.window.eval(transformDesktopSources(fixture()).get('dist/preload.js'));
+  await new Promise(r=>dom.window.setTimeout(r,20));
+  assert.deepEqual([...d.querySelectorAll('p')].map(p=>p.textContent),Object.values(labels));
+  assert.equal(d.querySelector('[type="checkbox"]').checked,true);
+  assert.equal(d.querySelector('[type="range"]').value,'100');
+  assert.equal(d.querySelector('textarea').value,'Manage your notification preferences.');
+ }finally{dom.window.close();}
+});
+
+test('updated marketplace descriptions translate while product names stay unchanged', async () => {
+ const labels=['Core tools and knowledge required to develop for Android.','Google Cloud guidance for coding agents: first-project onboarding, authentication and credential selection, and safety-critical validation for gcloud CLI commands. Includes the Google Developer Knowledge MCP server for grounded, up-to-date Google Cloud documentation.'];
+ const dom=new JSDOM('<body><h3>Android CLI</h3><h3>Google Cloud Developer</h3><section></section></body>',{runScripts:'outside-only'});
+ try{const d=dom.window.document;for(const text of labels){const p=d.createElement('p');p.textContent=text;d.querySelector('section').append(p);}
+ dom.window.eval(transformDesktopSources(fixture()).get('dist/preload.js'));
+ await new Promise(r=>dom.window.setTimeout(r,20));
+ assert.equal(d.querySelector('p').textContent,'Android geliştirmek için gereken temel araçlar ve bilgiler.');
+ assert.match(d.querySelectorAll('p')[1].textContent,/^Kodlama ajanları için Google Cloud rehberi:/);
+ assert.deepEqual([...d.querySelectorAll('h3')].map(n=>n.textContent),['Android CLI','Google Cloud Developer']);
+ }finally{dom.window.close();}
+});
