@@ -1,5 +1,14 @@
 # Değişiklikler
 
+## 1.0.20 — 2026-10-24
+
+- Desktop 2.26.0 desteği eklendi.
+- Geçersiz medya ve ek sayısı sınırı hata mesajları Türkçeleştirildi.
+- Konuşma izinleri, otomatik mod ve boş MCP listesi açıklamaları tamamlandı.
+- Bağlantılar arasında ayrı React metin düğümlerine bölünen cümleler, bağlantılara dokunulmadan çevrilir.
+- 51 otomatik test geçti; izin cümlesi gerçek 2.26.0 ekranında doğrulandı.
+
+
 ## 1.0.19 — 2026-10-22
 
 - Desktop 2.25.0 desteği eklendi.

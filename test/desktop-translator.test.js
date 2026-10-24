@@ -300,3 +300,52 @@ test('updated marketplace descriptions translate while product names stay unchan
  assert.deepEqual([...d.querySelectorAll('h3')].map(n=>n.textContent),['Android CLI','Google Cloud Developer']);
  }finally{dom.window.close();}
 });
+
+test('attachment error labels translate while attached media and typed content stay intact', async () => {
+ const dom=new JSDOM('<body><div role="alert"><strong>Invalid Media</strong><p>Maximum number of attachments reached</p><button aria-label="Close">×</button></div><img src="attachment.png"><textarea>Invalid Media</textarea></body>',{runScripts:'outside-only'});
+ try{const d=dom.window.document;
+ dom.window.eval(transformDesktopSources(fixture()).get('dist/preload.js'));
+ await new Promise(r=>dom.window.setTimeout(r,20));
+ assert.equal(d.querySelector('strong').textContent,'Geçersiz Medya');
+ assert.equal(d.querySelector('p').textContent,'En fazla ek sayısına ulaşıldı');
+ assert.equal(d.querySelector('img').getAttribute('src'),'attachment.png');
+ assert.equal(d.querySelector('textarea').value,'Invalid Media');
+ assert.equal(d.querySelector('button').textContent,'×');
+ }finally{dom.window.close();}
+});
+
+test('conversation permission labels and linked fragments translate without changing permissions', async () => {
+ const labels={"Permission Settings":"İzin Ayarları","Permission Preset":"İzin Ön Ayarı","Give Feedback":"Geri Bildirimde Bulun","Auto (Preview)":"Otomatik (Önizleme)","Automatically decide if commands run.":"Komutların çalıştırılıp çalıştırılmayacağına otomatik karar verir.","Inherits your Global Permissions when working in these conversations.":"Bu konuşmalarda çalışırken genel izinlerinizi kullanır.","when working in these conversations.":"bu konuşmalarda çalışırken de geçerlidir.","No MCP servers yet. Use Add to browse the store.":"Henüz MCP sunucusu yok. Mağazaya göz atmak için Ekle düğmesini kullanın.","Also includes Global Permissions when working in these conversations. Learn more.":"Bu konuşmalarda çalışırken Genel İzinler de geçerlidir. Daha fazla bilgi edinin."};
+ const dom=new JSDOM('<body><section></section><p id="linked">Also includes <a href="/permissions">Global Permissions</a> when working in these conversations. <a href="/help">Learn more.</a></p><select><option value="turbo" selected>Turbo</option><option value="auto">Auto (Preview)</option></select><div data-message-author-role="user">Give Feedback</div></body>',{runScripts:'outside-only'});
+ try{const d=dom.window.document;for(const text of Object.keys(labels)){const p=d.createElement('p');p.textContent=text;d.querySelector('section').append(p);}
+ dom.window.eval(transformDesktopSources(fixture()).get('dist/preload.js'));
+ await new Promise(r=>dom.window.setTimeout(r,20));
+ assert.deepEqual([...d.querySelectorAll('section p')].map(n=>n.textContent),Object.values(labels));
+ assert.doesNotMatch(d.querySelector('#linked').textContent,/when working|Also includes|Global Permissions/);
+ assert.equal(d.querySelector('#linked a').getAttribute('href'),'/permissions');
+ assert.equal(d.querySelector('select').value,'turbo');
+ assert.equal(d.querySelector('[data-message-author-role]').textContent,'Give Feedback');
+ }finally{dom.window.close();}
+});
+
+test('permission suffix translates with punctuation in a separate React node', async () => {
+ const dom=new JSDOM('<body><p>Also includes <a href="/permissions">Global Permissions</a><span id="suffix"></span> <a href="/help">Learn more.</a></p></body>',{runScripts:'outside-only'});
+ try{const d=dom.window.document;for(const text of [' when working in these conversations','.'])d.querySelector('#suffix').append(d.createTextNode(text));
+ dom.window.eval(transformDesktopSources(fixture()).get('dist/preload.js'));
+ await new Promise(r=>dom.window.setTimeout(r,20));
+ assert.equal(d.querySelector('#suffix').textContent,' bu konuşmalarda çalışırken de geçerlidir.');
+ assert.equal(d.querySelector('a').getAttribute('href'),'/permissions');
+ }finally{dom.window.close();}
+});
+
+test('permission sentence split into adjacent React nodes around inline links translates', async () => {
+ const dom=new JSDOM('<body><p id="row">Also includes <span id="link">Global Permissions</span></p></body>',{runScripts:'outside-only'});
+ try{const d=dom.window.document,row=d.querySelector('#row');for(const text of [' ','when working ','in these conversations','. '])row.append(d.createTextNode(text));const a=d.createElement('a');a.href='/permissions';a.textContent='Learn more';row.append(a);
+ dom.window.eval(transformDesktopSources(fixture()).get('dist/preload.js'));
+ await new Promise(r=>dom.window.setTimeout(r,20));
+ assert.doesNotMatch(row.textContent,/when working|in these conversations/);
+ assert.match(row.textContent,/bu konuşmalarda çalışırken de geçerlidir/);
+ assert.equal(d.querySelector('a').getAttribute('href'),'/permissions');
+ assert.equal(d.querySelector('#link').textContent,'Genel İzinler');
+ }finally{dom.window.close();}
+});

@@ -215,13 +215,21 @@ function rebuildLocalizedMenu(menu) {
     const normalized = trimmed.replace(/\\s+/g, ' ');
     const translated = Object.prototype.hasOwnProperty.call(dictionary, trimmed) ? dictionary[trimmed] :
       Object.prototype.hasOwnProperty.call(dictionary, normalized) ? dictionary[normalized] : translateDynamic(normalized);
-    if (translated === trimmed && parent.childNodes.length > 1 && Array.from(parent.childNodes).every(n => n.nodeType === 3)) {
-      const combined = parent.textContent.trim().replace(/\\s+/g, ' ');
-      const combinedTranslation = Object.prototype.hasOwnProperty.call(dictionary, combined) ? dictionary[combined] : translateDynamic(combined);
-      if (combinedTranslation !== combined) {
-        parent.childNodes[0].nodeValue = combinedTranslation;
-        for (let i = 1; i < parent.childNodes.length; i++) parent.childNodes[i].nodeValue = '';
-        return;
+    if (translated === trimmed) {
+      // React splits sentences around inline links and dynamic scope names.
+      let first = node;
+      while (first.previousSibling && first.previousSibling.nodeType === 3) first = first.previousSibling;
+      const parts = [];
+      for (let part = first; part && part.nodeType === 3; part = part.nextSibling) parts.push(part);
+      if (parts.length > 1) {
+        const raw = parts.map(part => part.nodeValue).join('');
+        const combined = raw.trim().replace(/\\s+/g, ' ');
+        const combinedTranslation = Object.prototype.hasOwnProperty.call(dictionary, combined) ? dictionary[combined] : translateDynamic(combined);
+        if (combinedTranslation !== combined) {
+          first.nodeValue = raw.replace(raw.trim(), combinedTranslation);
+          for (let i = 1; i < parts.length; i++) parts[i].nodeValue = '';
+          return;
+        }
       }
     }
     if (['Enter Queues after the turn', 'Alt+Enter Sends immediately', 'Alt+Enter On empty prompt, sends next in queue', 'Queues after the turn', 'Sends immediately', 'On empty prompt, sends next in queue'].includes(trimmed)) {
@@ -365,7 +373,7 @@ async function patchDesktopApp(paths) {
     const archive = path.join(paths.desktop.appPath, 'resources', 'app.asar');
     asar.uncacheAll();
     const version = JSON.parse(asar.extractFile(archive, 'package.json').toString()).version;
-    if (!['2.17.0', '2.18.1', '2.19.1', '2.21.1', '2.22.0', '2.23.0', '2.23.1', '2.24.0', '2.25.0'].includes(version)) throw new Error(`Desktop ${version} henüz doğrulanmadı; desteklenen sürümler: 2.17.0, 2.18.1, 2.19.1, 2.21.1, 2.22.0, 2.23.0, 2.23.1, 2.24.0, 2.25.0.`);
+    if (!['2.17.0', '2.18.1', '2.19.1', '2.21.1', '2.22.0', '2.23.0', '2.23.1', '2.24.0', '2.25.0', '2.26.0'].includes(version)) throw new Error(`Desktop ${version} henüz doğrulanmadı; desteklenen sürümler: 2.17.0, 2.18.1, 2.19.1, 2.21.1, 2.22.0, 2.23.0, 2.23.1, 2.24.0, 2.25.0, 2.26.0.`);
     const names = ['loadingOverlay.js', 'provisionSplash.js', 'tray.js', 'menu.js', 'preload.js', 'main.js', 'ipcHandlers.js', 'updater.js'];
     const sources = new Map();
     for (const name of names) {
