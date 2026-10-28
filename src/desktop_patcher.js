@@ -211,6 +211,13 @@ function rebuildLocalizedMenu(menu) {
     if (!val) return;
     const trimmed = val.trim();
     if (!trimmed) return;
+    if (parent.matches('span[data-screenshot-volatile="true"].min-w-4') && parent.closest('.select-none.cursor-pointer')) {
+      const timestamp = /^(\\d+)(mo|d|h|m|s)$/.exec(trimmed);
+      if (timestamp) {
+        node.nodeValue = val.replace(trimmed, timestamp[1] + ' ' + ({mo:'ay',d:'gün',h:'sa',m:'dk',s:'sn'}[timestamp[2]]));
+        return;
+      }
+    }
 
     const normalized = trimmed.replace(/\\s+/g, ' ');
     const translated = Object.prototype.hasOwnProperty.call(dictionary, trimmed) ? dictionary[trimmed] :
@@ -373,7 +380,7 @@ async function patchDesktopApp(paths) {
     const archive = path.join(paths.desktop.appPath, 'resources', 'app.asar');
     asar.uncacheAll();
     const version = JSON.parse(asar.extractFile(archive, 'package.json').toString()).version;
-    if (!['2.17.0', '2.18.1', '2.19.1', '2.21.1', '2.22.0', '2.23.0', '2.23.1', '2.24.0', '2.25.0', '2.26.0'].includes(version)) throw new Error(`Desktop ${version} henüz doğrulanmadı; desteklenen sürümler: 2.17.0, 2.18.1, 2.19.1, 2.21.1, 2.22.0, 2.23.0, 2.23.1, 2.24.0, 2.25.0, 2.26.0.`);
+    if (!['2.17.0', '2.18.1', '2.19.1', '2.21.1', '2.22.0', '2.23.0', '2.23.1', '2.24.0', '2.25.0', '2.26.0', '2.27.0'].includes(version)) throw new Error(`Desktop ${version} henüz doğrulanmadı; desteklenen sürümler: 2.17.0, 2.18.1, 2.19.1, 2.21.1, 2.22.0, 2.23.0, 2.23.1, 2.24.0, 2.25.0, 2.26.0, 2.27.0.`);
     const names = ['loadingOverlay.js', 'provisionSplash.js', 'tray.js', 'menu.js', 'preload.js', 'main.js', 'ipcHandlers.js', 'updater.js'];
     const sources = new Map();
     for (const name of names) {

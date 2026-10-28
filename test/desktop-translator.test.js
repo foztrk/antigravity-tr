@@ -349,3 +349,19 @@ test('permission sentence split into adjacent React nodes around inline links tr
  assert.equal(d.querySelector('#link').textContent,'Genel İzinler');
  }finally{dom.window.close();}
 });
+
+test('October screenshots translate labels, split project text and usage without changing data', async () => {
+ const labels=require('./oct28-labels.json');
+ const dom=new JSDOM('<body><section></section><div id="row" class="select-none cursor-pointer"><span data-screenshot-volatile="true" class="min-w-4">5d</span></div><span id="plain">5d</span><code>16h</code><p id="split"></p><span id="count">3 projects</span><span id="remaining">81% left</span><input value="android-cli-plugin/compose-preview"><input type="checkbox" checked></body>',{runScripts:'outside-only'});
+ try{const d=dom.window.document;for(const text of Object.keys(labels)){const p=d.createElement('p');p.textContent=text;d.querySelector('section').append(p);}
+ const split=d.querySelector('#split');split.append(d.createTextNode('This project was created for the '));const name=d.createElement('strong');name.textContent='Android Device Hub';split.append(name,d.createTextNode(' automation.'));
+ dom.window.eval(transformDesktopSources(fixture()).get('dist/preload.js'));
+ await new Promise(r=>dom.window.setTimeout(r,30));
+ assert.deepEqual([...d.querySelectorAll('section p')].map(n=>n.textContent),Object.values(labels));
+ assert.equal(d.querySelector('#row span').textContent,'5 gün');assert.equal(d.querySelector('#plain').textContent,'5d');assert.equal(d.querySelector('code').textContent,'16h');
+ assert.doesNotMatch(split.textContent,/This project|automation/);
+ assert.equal(d.querySelector('#count').textContent,'3 proje');assert.equal(d.querySelector('#remaining').textContent,'%81 kaldı');
+ assert.equal(d.querySelector('input').value,'android-cli-plugin/compose-preview');assert.equal(d.querySelector('[type="checkbox"]').checked,true);
+ d.querySelector('#row span').textContent='2mo';await new Promise(r=>dom.window.setTimeout(r,20));assert.equal(d.querySelector('#row span').textContent,'2 ay');
+ }finally{dom.window.close();}
+});

@@ -1,5 +1,9 @@
 // Only recognized UI sentences are transformed; arbitrary numbers and content are untouched.
 function translateDynamic(text) {
+  const projectCount = /^(\d+) projects?$/.exec(text);
+  if (projectCount) return projectCount[1] + ' proje';
+  const remaining = /^(\d+(?:[.,]\d+)?)% left$/.exec(text);
+  if (remaining) return '%' + remaining[1] + ' kaldı';
   // Translate known tool status templates, preserving their paths and queries verbatim.
   const toolLabels = { 'Running command': 'Komut çalıştırılıyor', 'Searching': 'Aranıyor', 'Generating image': 'Görsel oluşturuluyor' };
   if (Object.prototype.hasOwnProperty.call(toolLabels, text)) return toolLabels[text];

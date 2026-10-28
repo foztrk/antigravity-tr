@@ -1,5 +1,14 @@
 # Değişiklikler
 
+## 1.0.21 — 2026-10-28
+
+- Desktop 2.27.0 desteği eklendi.
+- Proje/klasör ayarları, Android yan panelleri, Compose beceri açıklaması ve proje silme uyarıları Türkçeleştirildi.
+- Kullanım limitleri, kalan yüzdeler, proje sayıları ve gönderme araç ipucu tamamlandı.
+- Konuşma listesindeki zaman etiketleri yalnızca ilgili arayüz öğelerinde Türkçeleştirilir.
+- 52 test geçti; zaman etiketleri ve proje ayarları gerçek arayüzde kontrol edildi.
+
+
 ## 1.0.20 — 2026-10-24
 
 - Desktop 2.26.0 desteği eklendi.
