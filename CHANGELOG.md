@@ -1,5 +1,12 @@
 # Değişiklikler
 
+## 1.0.22 — 2026-10-28
+
+- Dosya ve çıktı panellerinin arama, dışa aktarma, PDF, fark görünümü, kenar çubuğu ve görsel menüleri genişletildi.
+- Önizleme ve dosya okuma hata metinleri Türkçeleştirildi; URI içindeki yol ve hata kimliği korunur.
+- 53 test geçti. Dosya okuma hatasının temel nedeni bu sürümde giderilmez; yalnızca açıklaması çevrilir.
+
+
 ## 1.0.21 — 2026-10-28
 
 - Desktop 2.27.0 desteği eklendi.

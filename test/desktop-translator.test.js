@@ -365,3 +365,13 @@ test('October screenshots translate labels, split project text and usage without
  d.querySelector('#row span').textContent='2mo';await new Promise(r=>dom.window.setTimeout(r,20));assert.equal(d.querySelector('#row span').textContent,'2 ay');
  }finally{dom.window.close();}
 });
+
+test('file and artifact panels translate controls while preserving code, paths and document content', async () => {
+ const labels=require('./panel-labels.json');const dom=new JSDOM('<body><section></section><input id="search"><button title="Toggle sidebar" aria-label="Copy Image">⋮</button><pre>Export Artifact</pre><div class="markdown">Artifact</div><span id="path">C:/Users/Work-D/Preview/Raw.txt</span><p id="error"></p></body>',{runScripts:'outside-only'});
+ try{const d=dom.window.document;for(const text of Object.keys(labels)){const p=d.createElement('p');p.textContent=text;d.querySelector('section').append(p);}d.querySelector('input').placeholder='Search tabs, files, extensions, subagents, artifacts, tasks...';
+ d.querySelector('#error').textContent='Uri: "C:/Users/Work-D/.gemini/config/skills/computer-use/SKILL.md": unknown uri scheme (error ID: 0be98680751d45e5a1d01e0d10006652)';
+ dom.window.eval(transformDesktopSources(fixture()).get('dist/preload.js'));await new Promise(r=>dom.window.setTimeout(r,20));
+ assert.deepEqual([...d.querySelectorAll('section p')].map(n=>n.textContent),Object.values(labels));assert.equal(d.querySelector('input').placeholder,labels['Search tabs, files, extensions, subagents, artifacts, tasks...']);assert.equal(d.querySelector('button').title,'Kenar Çubuğunu Aç/Kapat');assert.equal(d.querySelector('button').getAttribute('aria-label'),'Görseli Kopyala');
+ assert.equal(d.querySelector('pre').textContent,'Export Artifact');assert.equal(d.querySelector('.markdown').textContent,'Artifact');assert.equal(d.querySelector('#path').textContent,'C:/Users/Work-D/Preview/Raw.txt');assert.match(d.querySelector('#error').textContent,/bilinmeyen URI şeması/);assert.match(d.querySelector('#error').textContent,/0be98680751d45e5a1d01e0d10006652/);
+ }finally{dom.window.close();}
+});

@@ -1,5 +1,7 @@
 // Only recognized UI sentences are transformed; arbitrary numbers and content are untouched.
 function translateDynamic(text) {
+  const uriError = /^Uri: ("[^"\r\n]+")[:] unknown uri scheme \(error ID: ([A-Za-z0-9-]+)\)$/.exec(text);
+  if (uriError) return 'URI: ' + uriError[1] + ': bilinmeyen URI şeması (hata kimliği: ' + uriError[2] + ')';
   const projectCount = /^(\d+) projects?$/.exec(text);
   if (projectCount) return projectCount[1] + ' proje';
   const remaining = /^(\d+(?:[.,]\d+)?)% left$/.exec(text);
