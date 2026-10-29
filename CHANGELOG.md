@@ -1,5 +1,12 @@
 # Değişiklikler
 
+## 1.0.23 — 2026-10-29
+
+- Desktop 2.28.0 desteği eklendi.
+- Gerçek 2.28.0 arşivinde çeviri dönüşümü ve tekrar uygulama tutarlılığı doğrulandı.
+- 53 otomatik test geçti; önceki çeviriler korundu.
+
+
 ## 1.0.22 — 2026-10-28
 
 - Dosya ve çıktı panellerinin arama, dışa aktarma, PDF, fark görünümü, kenar çubuğu ve görsel menüleri genişletildi.
