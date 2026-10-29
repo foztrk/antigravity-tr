@@ -1,5 +1,12 @@
 # Değişiklikler
 
+## 1.0.24 — 2026-10-29
+
+- Kısayol araması, sekme/konuşma taşıma, arşivleme ve Genel Bakış paneli kısayolları Türkçeleştirildi.
+- Yerleşik tarayıcı tercihleri ve bağlantıyla bölünen Chrome açıklaması tamamlandı.
+- Kısayol tuşları ve seçili tarayıcı değeri korunur; 54 test geçti.
+
+
 ## 1.0.23 — 2026-10-29
 
 - Desktop 2.28.0 desteği eklendi.

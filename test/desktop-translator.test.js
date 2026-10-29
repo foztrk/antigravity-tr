@@ -375,3 +375,11 @@ test('file and artifact panels translate controls while preserving code, paths a
  assert.equal(d.querySelector('pre').textContent,'Export Artifact');assert.equal(d.querySelector('.markdown').textContent,'Artifact');assert.equal(d.querySelector('#path').textContent,'C:/Users/Work-D/Preview/Raw.txt');assert.match(d.querySelector('#error').textContent,/bilinmeyen URI şeması/);assert.match(d.querySelector('#error').textContent,/0be98680751d45e5a1d01e0d10006652/);
  }finally{dom.window.close();}
 });
+
+test('new shortcut and browser labels preserve key bindings and preference values', async () => {
+ const labels=require('./shortcut-browser-labels.json');const dom=new JSDOM('<body><section></section><input placeholder="Search shortcuts..."><kbd>Ctrl + Shift + T</kbd><select><option value="external">External Browser</option><option value="builtin" selected>Built-in Browser</option></select><p id="chrome">Requires <a href="/chrome">Google Chrome</a> to be installed. The browser subagent can be invoked by typing /browser in the conversation input box.</p><pre>Reopen Closed Tab</pre></body>',{runScripts:'outside-only'});
+ try{const d=dom.window.document;for(const text of Object.keys(labels)){const p=d.createElement('p');p.textContent=text;d.querySelector('section').append(p);}
+ dom.window.eval(transformDesktopSources(fixture()).get('dist/preload.js'));await new Promise(r=>dom.window.setTimeout(r,20));
+ assert.deepEqual([...d.querySelectorAll('section p')].map(n=>n.textContent),Object.values(labels));assert.equal(d.querySelector('input').placeholder,'Kısayollarda ara...');assert.equal(d.querySelector('kbd').textContent,'Ctrl + Shift + T');assert.equal(d.querySelector('select').value,'builtin');assert.equal(d.querySelector('#chrome a').textContent,'Google Chrome');assert.doesNotMatch(d.querySelector('#chrome').textContent,/to be installed|can be invoked/);assert.equal(d.querySelector('pre').textContent,'Reopen Closed Tab');
+ }finally{dom.window.close();}
+});

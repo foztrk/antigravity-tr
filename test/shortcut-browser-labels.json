@@ -1,0 +1,20 @@
+{
+  "Search shortcuts...": "Kısayollarda ara...",
+  "Reopen Closed Tab": "Kapatılan Sekmeyi Yeniden Aç",
+  "Move Conversation Up": "Konuşmayı Yukarı Taşı",
+  "Move Conversation Down": "Konuşmayı Aşağı Taşı",
+  "Previous Aux Pane Tab": "Önceki Yardımcı Panel Sekmesi",
+  "Next Aux Pane Tab": "Sonraki Yardımcı Panel Sekmesi",
+  "Archive This Conversation": "Bu Konuşmayı Arşivle",
+  "Toggle Maximize Auxiliary Pane": "Yardımcı Paneli Büyüt/Küçült",
+  "Built-in Browser": "Yerleşik Tarayıcı",
+  "Configure link opening and built-in browser preferences.": "Bağlantı açma ve yerleşik tarayıcı tercihlerini yapılandırın.",
+  "Open Links In": "Bağlantıları Şurada Aç",
+  "Choose where links open by default when clicked.": "Tıklanan bağlantıların varsayılan olarak nerede açılacağını seçin.",
+  "External Browser": "Harici Tarayıcı",
+  "Browser Subagent": "Tarayıcı Alt Ajanı",
+  "to be installed. The browser subagent can be invoked by typing /browser in the conversation input box.": "yüklü olmalıdır. Tarayıcı alt ajanını çağırmak için konuşma giriş alanına /browser yazabilirsiniz.",
+  "to be installed.": "yüklü olmalıdır.",
+  "The browser subagent can be invoked by typing /browser in the conversation input box.": "Tarayıcı alt ajanını çağırmak için konuşma giriş alanına /browser yazabilirsiniz.",
+  "Toggle Overview Panel": "Genel Bakış Panelini Aç/Kapat"
+}
