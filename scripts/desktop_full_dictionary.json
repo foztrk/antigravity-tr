@@ -3199,5 +3199,20 @@
   "Slow": "Yavaş",
   "View usage": "Kullanımı Görüntüle",
   "Select a project to see its databases": "Veritabanlarını görmek için bir proje seçin",
-  "Google Data Cloud for your intelligent IDE.": "Akıllı IDE'niz için Google Data Cloud."
+  "Google Data Cloud for your intelligent IDE.": "Akıllı IDE'niz için Google Data Cloud.",
+  "There is no data provider registered that can provide view data.": "Görünüm verilerini sağlayabilecek kayıtlı bir veri sağlayıcı yok.",
+  "Connect Registry...": "Kayıt Defterine Bağlan...",
+  "Connect Registry": "Kayıt Defterine Bağlan",
+  "No registry providers are connected. Please connect a registry provider and try again to continue.": "Hiçbir kayıt defteri sağlayıcısı bağlı değil. Devam etmek için lütfen bir kayıt defteri sağlayıcısı bağlayın ve tekrar deneyin.",
+  "Select registry provider": "Kayıt defteri sağlayıcısı seçin",
+  "Select an Azure Container Registry to push to": "Gönderilecek bir Azure Container Registry seçin",
+  "Create new Azure Container Registry": "Yeni Azure Container Registry Oluştur",
+  " Create new Azure Container Registry...": " Yeni Azure Container Registry Oluştur...",
+  "Determining registry to push to...": "Gönderilecek kayıt defteri belirleniyor...",
+  "Generic Registry V2": "Genel Kayıt Defteri V2",
+  "Registry URL": "Kayıt Defteri URL'si",
+  "Registry Username": "Kayıt Defteri Kullanıcı Adı",
+  "Registry Password or Personal Access Token": "Kayıt Defteri Parolası veya Kişisel Erişim Belirteci (PAT)",
+  "Provide a registry name": "Bir kayıt defteri adı belirtin",
+  "$(plus) Create new Azure Container Registry...": "$(plus) Yeni Azure Container Registry Oluştur..."
 }

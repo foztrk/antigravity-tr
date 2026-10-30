@@ -153,7 +153,15 @@ function enrichLanguagePackFile(mainJsonPath) {
     sb.miMoveSideBarLeft = '&&Birincil Kenar Çubuğunu Sola Taşı';
     sb.toggleSideBarPosition = 'Birincil Kenar Çubuğu Pozisyonunu Değiştir';
 
-    // 5. tr.json içindeki tüm mod+key NLS kurallarını dil paketine işle
+    // 5. Ağaç Görünümleri (TreeView - Veri sağlayıcı yok uyarısı vb.)
+    if (!data.contents['vs/workbench/browser/parts/views/treeView']) {
+      data.contents['vs/workbench/browser/parts/views/treeView'] = {};
+    }
+    const tv = data.contents['vs/workbench/browser/parts/views/treeView'];
+    tv['no-dataprovider'] = 'Görünüm verilerini sağlayabilecek kayıtlı bir veri sağlayıcı yok.';
+    tv['command-error'] = '{1} komutu çalıştırılırken hata oluştu: {0}. Bunun nedeni büyük olasılıkla {1} komutunu sağlayan uzantıdır.';
+
+    // 6. tr.json içindeki tüm mod+key NLS kurallarını dil paketine işle
     const dictPath = path.join(__dirname, '..', 'locales', 'tr.json');
     if (fs.existsSync(dictPath)) {
       const dict = JSON.parse(fs.readFileSync(dictPath, 'utf8'));
@@ -1686,7 +1694,8 @@ function patchContainersExtension(paths) {
     "vscode-containers.commands.registries.azure.selectSubscriptions": "Abonelikleri Seçin...",
     "vscode-containers.commands.registries.azure.untagImage": "Görüntü Etiketini Kaldır...",
     "vscode-containers.commands.registries.azure.viewProperties": "Özellikleri Görüntüle",
-    "vscode-containers.commands.registries.connect": "Kayıt Defteri Bağla...",
+    "vscode-containers.commands.registries.connect": "Kayıt Defterine Bağlan...",
+    "vscode-containers.commands.registries.connectRegistry": "Kayıt Defterine Bağlan...",
     "vscode-containers.commands.registries.reconnectRegistry": "Kimlik bilgilerini yeniden girin",
     "vscode-containers.commands.registries.copyImageDigest": "Görüntü Özetini (Digest) Kopyala",
     "vscode-containers.commands.registries.inspectRemoteImageManifest": "Görüntü Bildirimini (Manifest) İncele",
@@ -1734,7 +1743,7 @@ function patchContainersExtension(paths) {
     if (!d || !fs.existsSync(d)) continue;
     try {
       for (const sub of fs.readdirSync(d)) {
-        if (sub.startsWith('ms-azuretools.vscode-containers')) {
+        if (sub.startsWith('ms-azuretools.vscode-containers') || sub.startsWith('ms-azuretools.vscode-docker')) {
           const extDir = path.join(d, sub);
           for (const nlsName of ['package.nls.json', 'package.nls.tr.json']) {
             const nlsPath = path.join(extDir, nlsName);
@@ -1759,6 +1768,21 @@ function patchContainersExtension(paths) {
                 ['"No networks found."', '"Ağ bulunamadı."'],
                 ['"No volumes found."', '"Birim bulunamadı."'],
                 ['"Connect to a registry..."', '"Bir kayıt defterine bağlan..."'],
+                ['"Connect Registry..."', '"Kayıt Defterine Bağlan..."'],
+                ['"Connect Registry"', '"Kayıt Defterine Bağlan"'],
+                ['"No registry providers are connected. Please connect a registry provider and try again to continue."', '"Hiçbir kayıt defteri sağlayıcısı bağlı değil. Devam etmek için lütfen bir kayıt defteri sağlayıcısı bağlayın ve tekrar deneyin."'],
+                ['"Select registry provider"', '"Kayıt defteri sağlayıcısı seçin"'],
+                ['"Select an Azure Container Registry to push to"', '"Gönderilecek bir Azure Container Registry seçin"'],
+                ['"Create new Azure Container Registry"', '"Yeni Azure Container Registry Oluştur"'],
+                ['"$(plus) Create new Azure Container Registry..."', '"$(plus) Yeni Azure Container Registry Oluştur..."'],
+                ['"Determining registry to push to..."', '"Gönderilecek kayıt defteri belirleniyor..."'],
+                ['"Generic Registry V2"', '"Genel Kayıt Defteri V2"'],
+                ['"Registry URL"', '"Kayıt Defteri URL\'si"'],
+                ['"Registry Username"', '"Kayıt Defteri Kullanıcı Adı"'],
+                ['"Registry Password or Personal Access Token"', '"Kayıt Defteri Parolası veya Kişisel Erişim Belirteci (PAT)"'],
+                ['"Registry name"', '"Kayıt defteri adı"'],
+                ['"Provide a registry name"', '"Bir kayıt defteri adı belirtin"'],
+                ['"Deleting remote images is not supported on this registry."', '"Bu kayıt defterinde uzak görüntülerin silinmesi desteklenmiyor."'],
                 ['"Installed container runtime was not found."', '"Yüklü kapsayıcı çalışma zamanı bulunamadı."'],
                 ['"Read Extension Documentation"', '"Uzantı Belgelerini Oku"'],
                 ['"Get Started with Docker Tutorial"', '"Docker Eğitimi ile Başlayın"'],

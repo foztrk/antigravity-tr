@@ -17661,6 +17661,10 @@
       {
         "search": "{label:\"Agent Decides\",value:cH.AUTO",
         "replace": "{label:\"Ajan Karar Versin\",value:cH.AUTO"
+      },
+      {
+        "search": "var bku=m(4205,null)",
+        "replace": "var bku=\"Görünüm verilerini sağlayabilecek kayıtlı bir veri sağlayıcı yok.\""
       }
     ],
     "nlsMessages": [
@@ -22493,6 +22497,13 @@
         "key": "Antigravity for Web",
         "search": "{0} for the Web",
         "replace": "Web için {0}"
+      },
+      {
+        "index": 4205,
+        "mod": "vs/workbench/browser/parts/views/treeView",
+        "key": "no-dataprovider",
+        "search": "There is no data provider registered that can provide view data.",
+        "replace": "Görünüm verilerini sağlayabilecek kayıtlı bir veri sağlayıcı yok."
       }
     ]
   }
