@@ -87,7 +87,7 @@
   "Configure allowed and denied URLs for reading.": "Okuma için izin verilen ve reddedilen URL'leri yapılandırın.",
   "Commands Outside Sandbox": "Korumalı Alan Dışı Komutlar",
   "Configure allowed commands outside the sandbox.": "Korumalı alan dışında izin verilen komutları yapılandırın.",
-  "Show 1 breakdown": "1 ayrıntıyı göster",
+  "Show 1 breakdown": "1 Ayrıntıyı Göster",
   "Show 79 breakdowns": "79 ayrıntıyı göster",
   "Terminal & Tooling Permissions": "Terminal ve Araç İzinleri",
   "Account": "Hesap",
@@ -1108,5 +1108,6 @@
   "External Browser": "Harici Tarayıcı",
   "Browser Subagent": "Tarayıcı Alt Ajanı",
   "to be installed. The browser subagent can be invoked by typing /browser in the conversation input box.": "yüklü olmalıdır. Tarayıcı alt ajanını çağırmak için konuşma giriş alanına /browser yazabilirsiniz.",
-  "Toggle Overview Panel": "Genel Bakış Panelini Aç/Kapat"
+  "Toggle Overview Panel": "Genel Bakış Panelini Aç/Kapat",
+  "Instructions for working with the Android Device Hub sidecar, which lists, starts, stops, creates and removes Android Virtual Devices (AVDs), lists physical devices connected to adb, and lets the user mirror and control any of them (video, touch, keyboard, mouse wheel) in the Device Hub pane. Also explains how to inspect and interact with the screen the user is mirroring, with `android layout`, `android screen` and `adb`.": "Android Cihaz Merkezi yan panelinin kullanımını açıklar. Android sanal cihazlarını (AVD) listeler, başlatır, durdurur, oluşturur ve kaldırır; adb ile bağlı fiziksel cihazları listeler. Kullanıcının cihaz ekranını panelde yansıtmasını ve görüntü, dokunma, klavye ve fare tekerleğiyle kontrol etmesini sağlar. Yansıtılan ekranı android layout, android screen ve adb ile incelemeyi ve ekranla etkileşime geçmeyi de açıklar."
 }

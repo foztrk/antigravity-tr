@@ -1,5 +1,13 @@
 # Değişiklikler
 
+## 1.0.25 — 2026-10-30
+
+- Desktop 2.28.1 ve 2.28.2 desteği eklendi; gerçek arşivlerde dönüşüm ve tekrar uygulama tutarlılığı doğrulandı.
+- Android Cihaz Merkezi beceri açıklaması Türkçeleştirildi.
+- Tek ayrıntı bağlantısının büyük harf tutarlılığı düzeltildi.
+- 54 otomatik test geçti.
+
+
 ## 1.0.24 — 2026-10-29
 
 - Kısayol araması, sekme/konuşma taşıma, arşivleme ve Genel Bakış paneli kısayolları Türkçeleştirildi.

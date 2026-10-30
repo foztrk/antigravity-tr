@@ -468,5 +468,10 @@
     "name": "run-workflow",
     "source": "How to write and run a dynamic workflow script with the `run_workflow` tool:\na Python script that orchestrates many agents with `agent`, `parallel`,\n`pipeline`, and `phase`. Use when a task splits into many\nindependent or staged pieces of agent work (fan out over files, modules,\nbugs, or review angles, then aggregate), or when the user asks for a\nworkflow. Don't use for a single delegated task (use a subagent) or for\nlegacy workflow files (see migrate-workflows).",
     "translation": "run_workflow aracıyla dinamik iş akışı betiği yazmayı ve çalıştırmayı açıklar. agent, parallel, pipeline ve phase ile birden çok ajanı yöneten Python betikleri için kullanılır. Bağımsız veya aşamalı ajan görevlerini dağıtıp sonuçlarını birleştirir. Tek bir devredilen görev veya eski iş akışı dosyaları için kullanılmaz."
+  },
+  {
+    "name": "android-device-hub",
+    "source": "Instructions for working with the Android Device Hub sidecar, which lists, starts, stops, creates and removes Android Virtual Devices (AVDs), lists physical devices connected to adb, and lets the user mirror and control any of them (video, touch, keyboard, mouse wheel) in the Device Hub pane. Also explains how to inspect and interact with the screen the user is mirroring, with `android layout`, `android screen` and `adb`.",
+    "translation": "Android Cihaz Merkezi yan panelinin kullanımını açıklar. Android sanal cihazlarını (AVD) listeler, başlatır, durdurur, oluşturur ve kaldırır; adb ile bağlı fiziksel cihazları listeler. Kullanıcının cihaz ekranını panelde yansıtmasını ve görüntü, dokunma, klavye ve fare tekerleğiyle kontrol etmesini sağlar. Yansıtılan ekranı android layout, android screen ve adb ile incelemeyi ve ekranla etkileşime geçmeyi de açıklar."
   }
 ]
