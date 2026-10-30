@@ -383,3 +383,36 @@ test('new shortcut and browser labels preserve key bindings and preference value
  assert.deepEqual([...d.querySelectorAll('section p')].map(n=>n.textContent),Object.values(labels));assert.equal(d.querySelector('input').placeholder,'Kısayollarda ara...');assert.equal(d.querySelector('kbd').textContent,'Ctrl + Shift + T');assert.equal(d.querySelector('select').value,'builtin');assert.equal(d.querySelector('#chrome a').textContent,'Google Chrome');assert.doesNotMatch(d.querySelector('#chrome').textContent,/to be installed|can be invoked/);assert.equal(d.querySelector('pre').textContent,'Reopen Closed Tab');
  }finally{dom.window.close();}
 });
+
+test('IDE v2.6.0 agy right sidebar project selector, prompt placeholder and model dropdown translate while preserving model names', async () => {
+ const dom=new JSDOM('<body><button id="proj"><span>No Project</span></button><div id="prompt" data-placeholder="Ask anything, @ to mention, / for actions">Ask anything, @ to mention, / for actions</div><div id="menu"><span id="m1">Gemini 4 Argon</span><span id="t1">High</span><span id="b1">New</span><span id="m2">Gemini 3.8 Flash</span><span id="t2">Medium</span><span id="m3">GPT-OSS 120B (Medium)</span><span id="b2">Notice</span><button id="usage">View Usage</button></div><input id="psearch" placeholder="Search projects..."></body>',{runScripts:'outside-only'});
+ try{const d=dom.window.document;
+ dom.window.eval(transformDesktopSources(fixture()).get('dist/preload.js'));await new Promise(r=>dom.window.setTimeout(r,20));
+ assert.equal(d.querySelector('#proj span').textContent,'Proje Yok');
+ assert.equal(d.querySelector('#prompt').textContent,'Bir şey sorun, @ ile bahsedin, / ile eylemler');
+ assert.equal(d.querySelector('#prompt').getAttribute('data-placeholder'),'Bir şey sorun, @ ile bahsedin, / ile eylemler');
+ assert.equal(d.querySelector('#m1').textContent,'Gemini 4 Argon');
+ assert.equal(d.querySelector('#t1').textContent,'Yüksek');
+ assert.equal(d.querySelector('#b1').textContent,'Yeni');
+ assert.equal(d.querySelector('#m2').textContent,'Gemini 3.8 Flash');
+ assert.equal(d.querySelector('#t2').textContent,'Orta');
+ assert.equal(d.querySelector('#m3').textContent,'GPT-OSS 120B (Orta)');
+ assert.equal(d.querySelector('#b2').textContent,'Bilgilendirme');
+ assert.equal(d.querySelector('#usage').textContent,'Kullanımı Görüntüle');
+ assert.equal(d.querySelector('#psearch').placeholder,'Projelerde ara...');
+ }finally{dom.window.close();}
+});
+
+test('IDE v2.6.0 selection options and tab settings translate correctly', async () => {
+ const dom=new JSDOM('<body><div id="model-lbl">Model</div><div id="opt-fast">Fast</div><div id="opt-slow">Slow</div><div id="opt-on">On</div><div id="opt-off">Off</div><div id="opt-vu">View usage</div></body>',{runScripts:'outside-only'});
+ try{const d=dom.window.document;
+ dom.window.eval(transformDesktopSources(fixture()).get('dist/preload.js'));await new Promise(r=>dom.window.setTimeout(r,20));
+ assert.equal(d.querySelector('#model-lbl').textContent,'Model');
+ assert.equal(d.querySelector('#opt-fast').textContent,'Hızlı');
+ assert.equal(d.querySelector('#opt-slow').textContent,'Yavaş');
+ assert.equal(d.querySelector('#opt-on').textContent,'Açık');
+ assert.equal(d.querySelector('#opt-off').textContent,'Kapalı');
+ assert.equal(d.querySelector('#opt-vu').textContent,'Kullanımı Görüntüle');
+ }finally{dom.window.close();}
+});
+

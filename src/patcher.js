@@ -121,9 +121,9 @@ function patchFile(filePath, rules) {
 }
 
 /**
- * nls.messages.json dosyasını doğrudan indekslerle günceller.
+ * nls.messages.json dosyasını hem nls.keys.json + main.i18n.json ile hem de özel kurallarla güvenli biçimde günceller.
  */
-function patchNlsFile(filePath, nlsRules) {
+function patchNlsFile(filePath, nlsRules, options = {}) {
   if (!fs.existsSync(filePath)) {
     return { success: false, reason: `Dosya bulunamadı: ${filePath}` };
   }
@@ -131,13 +131,102 @@ function patchNlsFile(filePath, nlsRules) {
   const backupResult = ensureBackup(filePath);
   const bakPath = filePath + '.bak';
   const msgs = JSON.parse(fs.existsSync(bakPath) ? fs.readFileSync(bakPath, 'utf8') : fs.readFileSync(filePath, 'utf8'));
+  const origMsgs = msgs.slice();
   let matchCount = 0;
 
+  let flatKeys = null;
+  if (options.nlsKeysFile && fs.existsSync(options.nlsKeysFile)) {
+    try {
+      const rawKeys = JSON.parse(fs.readFileSync(options.nlsKeysFile, 'utf8'));
+      flatKeys = [];
+      for (const [mod, kList] of rawKeys) {
+        for (const k of kList) {
+          flatKeys.push({ mod, key: k });
+        }
+      }
+    } catch (e) {}
+  }
+
+  if (flatKeys && flatKeys.length === msgs.length && options.mainI18nFile && fs.existsSync(options.mainI18nFile)) {
+    try {
+      const i18nData = JSON.parse(fs.readFileSync(options.mainI18nFile, 'utf8'));
+      const contents = i18nData?.contents || {};
+      for (let i = 0; i < flatKeys.length; i++) {
+        const { mod, key } = flatKeys[i];
+        const trVal = contents[mod]?.[key];
+        if (typeof trVal === 'string' && trVal.length > 0 && msgs[i] !== trVal) {
+          msgs[i] = trVal;
+          matchCount++;
+        }
+      }
+    } catch (e) {}
+  }
+
+  const keyToIndices = new Map();
+  if (flatKeys && flatKeys.length === msgs.length) {
+    for (let i = 0; i < flatKeys.length; i++) {
+      const mk = `${flatKeys[i].mod}#${flatKeys[i].key}`;
+      if (!keyToIndices.has(mk)) keyToIndices.set(mk, []);
+      keyToIndices.get(mk).push(i);
+    }
+  }
+
+  let enSourceMsgs = origMsgs;
+  if (options.enNlsFile && fs.existsSync(options.enNlsFile)) {
+    try {
+      const enBak = options.enNlsFile + '.bak';
+      const srcPath = fs.existsSync(enBak) ? enBak : options.enNlsFile;
+      const parsed = JSON.parse(fs.readFileSync(srcPath, 'utf8'));
+      if (Array.isArray(parsed) && parsed.length === msgs.length) {
+        enSourceMsgs = parsed;
+      }
+    } catch (e) {}
+  }
+
   for (const rule of nlsRules) {
-    const { index, replace } = rule;
-    if (index >= 0 && index < msgs.length && msgs[index] !== replace) {
-      msgs[index] = replace;
-      matchCount++;
+    const { index, mod, key, search, replace } = rule;
+    let applied = false;
+
+    if (mod && key && keyToIndices.size > 0) {
+      const indices = keyToIndices.get(`${mod}#${key}`);
+      if (indices && indices.length > 0) {
+        for (const idx of indices) {
+          if (!search || enSourceMsgs[idx] === search || origMsgs[idx] === search || indices.length === 1) {
+            if (msgs[idx] !== replace) {
+              msgs[idx] = replace;
+              matchCount++;
+            }
+            applied = true;
+          }
+        }
+      }
+    }
+
+    if (!applied && search) {
+      if (typeof index === 'number' && index >= 0 && index < msgs.length && (enSourceMsgs[index] === search || origMsgs[index] === search)) {
+        if (msgs[index] !== replace) {
+          msgs[index] = replace;
+          matchCount++;
+        }
+        applied = true;
+      } else {
+        for (let i = 0; i < msgs.length; i++) {
+          if (enSourceMsgs[i] === search || origMsgs[i] === search) {
+            if (msgs[i] !== replace) {
+              msgs[i] = replace;
+              matchCount++;
+            }
+            applied = true;
+          }
+        }
+      }
+    }
+
+    if (!applied && !mod && !search && typeof index === 'number' && index >= 0 && index < msgs.length) {
+      if (msgs[index] !== replace) {
+        msgs[index] = replace;
+        matchCount++;
+      }
     }
   }
 
@@ -202,9 +291,30 @@ function applyAllPatches(paths, dictionary) {
     results.push({ target: 'workbench (Editör Arayüzü)', file: paths.ide.workbenchFile, ...res });
   }
 
+  // 2b. main.js (Electron ana işlem ve ortak bileşenler) yaması
+  if (paths.ide && paths.ide.mainFile && (dictionary.rules.main || dictionary.rules.jetskiAgent || dictionary.rules.workbench)) {
+    const mainRules = [
+      ...(dictionary.rules.main || []),
+      ...(dictionary.rules.jetskiAgent || []),
+      ...(dictionary.rules.workbench || [])
+    ];
+    const res = patchFile(paths.ide.mainFile, mainRules);
+    patchMainWebFrameTranslator(paths.ide.mainFile);
+    results.push({ target: 'main (Ana İşlem & Güncelleme Arayüzü)', file: paths.ide.mainFile, ...res });
+  }
+
+  const mainI18nFile = paths.ide?.extensionsDir
+    ? path.join(paths.ide.extensionsDir, 'ms-ceintl.vscode-language-pack-tr-1.106.0-universal', 'translations', 'main.i18n.json')
+    : null;
+  const nlsOptions = {
+    nlsKeysFile: paths.ide?.nlsKeysFile,
+    mainI18nFile,
+    enNlsFile: paths.ide?.nlsFile
+  };
+
   // 3. nls.messages.json yaması (Hızlı Aç vb.)
   if (paths.ide && paths.ide.nlsFile && dictionary.rules.nlsMessages) {
-    const res = patchNlsFile(paths.ide.nlsFile, dictionary.rules.nlsMessages);
+    const res = patchNlsFile(paths.ide.nlsFile, dictionary.rules.nlsMessages, nlsOptions);
     results.push({ target: 'nls.messages (Quick Open vb.)', file: paths.ide.nlsFile, ...res });
   }
 
@@ -215,7 +325,7 @@ function applyAllPatches(paths, dictionary) {
       ...findClpNlsFiles(paths.desktop?.userConfigPath)
     ];
     for (const cf of clpFiles) {
-      const res = patchNlsFile(cf, dictionary.rules.nlsMessages);
+      const res = patchNlsFile(cf, dictionary.rules.nlsMessages, nlsOptions);
       results.push({ target: `nls önbelleği (${path.basename(path.dirname(cf))})`, file: cf, ...res });
     }
   }
@@ -225,6 +335,42 @@ function applyAllPatches(paths, dictionary) {
   results.push({ target: 'product.json Checksums Doğrulaması', ...checksumRes });
 
   return results;
+}
+
+function buildGuardedDesktopTranslator() {
+  try {
+    const { transformDesktopSources } = require('./desktop_patcher');
+    const raw = transformDesktopSources(new Map([['dist/preload.js', '']])).get('dist/preload.js');
+    return `(function(){if(window.__antigravityTrLoaded)return;window.__antigravityTrLoaded=true;\n${raw}\n})();`;
+  } catch (e) {
+    return '';
+  }
+}
+
+function patchMainWebFrameTranslator(mainFilePath) {
+  if (!mainFilePath || !fs.existsSync(mainFilePath)) return false;
+  try {
+    ensureBackup(mainFilePath);
+    let content = fs.readFileSync(mainFilePath, 'utf8');
+    if (content.includes('__agyMainTrScript')) return true;
+    const trScript = buildGuardedDesktopTranslator();
+    if (!trScript) return false;
+    const importAnchor = 'import{app as FD,protocol as ROa,session as $P,systemPreferences as SOa}from"electron";';
+    const hookAnchor = 'FD.on("web-contents-created",(r,i)=>{';
+    if (!content.includes(importAnchor) || !content.includes(hookAnchor)) return false;
+    content = content.replace(
+      importAnchor,
+      'import{app as FD,protocol as ROa,session as $P,systemPreferences as SOa,webFrameMain as _agWfm}from"electron";const __agyMainTrScript=' + JSON.stringify(trScript) + ';'
+    );
+    content = content.replace(
+      hookAnchor,
+      hookAnchor + 'try{const _inj=f=>{try{if(f&&typeof f.url==="string"&&/^https?:\\/\\/(127\\.0\\.0\\.1|localhost):\\d+\\b/.test(f.url))f.executeJavaScript(__agyMainTrScript).catch(()=>{})}catch{}};i.on("did-frame-finish-load",(_e,_m,p,k)=>{try{_inj(_agWfm.fromId(p,k))}catch{}});i.on("dom-ready",()=>{try{for(const f of i.mainFrame?.framesInSubtree||[])_inj(f)}catch{}})}catch{};'
+    );
+    fs.writeFileSync(mainFilePath, content, 'utf8');
+    return true;
+  } catch (e) {
+    return false;
+  }
 }
 
 /**
@@ -243,9 +389,31 @@ function restoreAllPatches(paths) {
     results.push({ target: 'workbench', file: paths.ide.workbenchFile, ...res });
   }
 
+  if (paths.ide && paths.ide.mainFile) {
+    const res = restoreFile(paths.ide.mainFile);
+    results.push({ target: 'main', file: paths.ide.mainFile, ...res });
+  }
+
   if (paths.ide && paths.ide.nlsFile) {
     const res = restoreFile(paths.ide.nlsFile);
     results.push({ target: 'nls.messages', file: paths.ide.nlsFile, ...res });
+  }
+
+  if (paths.ide && paths.ide.appPath) {
+    const extRelFiles = [
+      path.join('resources', 'app', 'extensions', 'agy', 'package.json'),
+      path.join('resources', 'app', 'extensions', 'agy', 'vscode', 'extension.js'),
+      path.join('resources', 'app', 'extensions', 'agy', 'dist', 'extension.js'),
+      path.join('resources', 'app', 'extensions', 'agy', 'loading_bridge.js'),
+      path.join('resources', 'app', 'extensions', 'antigravity', 'package.json'),
+      path.join('resources', 'app', 'extensions', 'antigravity', 'dist', 'extension.js')
+    ];
+    for (const rel of extRelFiles) {
+      const f = path.join(paths.ide.appPath, rel);
+      if (fs.existsSync(f + '.bak')) {
+        restoreFile(f);
+      }
+    }
   }
 
   const clpFiles = [
@@ -266,11 +434,13 @@ function restoreAllPatches(paths) {
 }
 
 module.exports = {
+  ensureBackup,
   patchFile,
   patchNlsFile,
   restoreFile,
   computeChecksum,
   updateProductChecksums,
   applyAllPatches,
-  restoreAllPatches
+  restoreAllPatches,
+  buildGuardedDesktopTranslator
 };

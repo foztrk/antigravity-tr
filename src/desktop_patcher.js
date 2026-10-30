@@ -179,10 +179,14 @@ function rebuildLocalizedMenu(menu) {
       "Terminal": "Terminal",
       "Model": "Model",
       "Fast": "Hızlı",
+      "Slow": "Yavaş",
       "Medium": "Orta",
       "Low": "Düşük",
       "High": "Yüksek",
+      "On": "Açık",
+      "Off": "Kapalı",
       "View Usage": "Kullanımı Görüntüle",
+      "View usage": "Kullanımı Görüntüle",
       "View plans": "Planları Görüntüle",
       "This account is ineligible for higher rate limits through a Google AI plan at this time.": "Bu hesap şu anda bir Google AI planı aracılığıyla daha yüksek istek limitleri için uygun değildir."
     });
@@ -263,6 +267,14 @@ function rebuildLocalizedMenu(menu) {
     if (aria && Object.prototype.hasOwnProperty.call(dictionary, aria.trim()) && dictionary[aria.trim()] !== aria) {
       el.setAttribute('aria-label', dictionary[aria.trim()]);
     }
+    const dataPh = el.getAttribute('data-placeholder');
+    if (dataPh && Object.prototype.hasOwnProperty.call(dictionary, dataPh.trim()) && dictionary[dataPh.trim()] !== dataPh) {
+      el.setAttribute('data-placeholder', dictionary[dataPh.trim()]);
+    }
+    const ariaPh = el.getAttribute('aria-placeholder');
+    if (ariaPh && Object.prototype.hasOwnProperty.call(dictionary, ariaPh.trim()) && dictionary[ariaPh.trim()] !== ariaPh) {
+      el.setAttribute('aria-placeholder', dictionary[ariaPh.trim()]);
+    }
   }
 
   function translateTree(root) {
@@ -310,7 +322,7 @@ function rebuildLocalizedMenu(menu) {
 
     if (root.querySelectorAll) {
       try {
-        const els = root.querySelectorAll('[placeholder],[title],[aria-label]');
+        const els = root.querySelectorAll('[placeholder],[title],[aria-label],[data-placeholder],[aria-placeholder]');
         for (let i = 0; i < els.length; i++) {
           translateAttributes(els[i]);
         }
@@ -323,7 +335,7 @@ function rebuildLocalizedMenu(menu) {
       translateTree(document.body);
     }
 
-    const options = { childList: true, subtree: true, characterData: true, attributes: true, attributeFilter: ['placeholder', 'title', 'aria-label'] };
+    const options = { childList: true, subtree: true, characterData: true, attributes: true, attributeFilter: ['placeholder', 'title', 'aria-label', 'data-placeholder', 'aria-placeholder'] };
     const observedRoot = document.documentElement || document.body;
     if (!observedRoot) return;
     const observer = new MutationObserver((mutations) => {

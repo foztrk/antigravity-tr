@@ -63,7 +63,9 @@ function getPaths() {
       extensionsDir: path.join(ideDataPath, 'extensions'),
       cliCmd: path.join(ideAppPath, 'bin', 'antigravity-ide.cmd'),
       productFile: path.join(ideAppPath, 'resources', 'app', 'product.json'),
-      nlsFile: path.join(ideAppPath, 'resources', 'app', 'out', 'nls.messages.json')
+      nlsFile: path.join(ideAppPath, 'resources', 'app', 'out', 'nls.messages.json'),
+      nlsKeysFile: path.join(ideAppPath, 'resources', 'app', 'out', 'nls.keys.json'),
+      mainFile: path.join(ideAppPath, 'resources', 'app', 'out', 'main.js')
     },
     desktop: {
       appPath: desktopAppPath,

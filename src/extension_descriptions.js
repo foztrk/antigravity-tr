@@ -461,8 +461,25 @@ const enumDescriptionsMap = {
 const titleTranslations = {
   "Antigravity Remote - Dev Containers": "Antigravity Uzak - Geliştirme Kapsayıcıları",
   "Antigravity Remote - SSH": "Antigravity Uzak - SSH",
+  "Antigravity Remote - WSL": "Antigravity Uzak - WSL",
+  "Antigravity Code Executor": "Antigravity Kod Yürütücü",
   "JavaScript Debugger": "JavaScript Hata Ayıklayıcısı",
+  "JavaScript Debugger Companion Extension": "JavaScript Hata Ayıklayıcısı Yardımcı Uzantısı",
+  "Table Visualizer for JavaScript Profiles": "JavaScript Profilleri İçin Tablo Görselleştirici",
   "Python Debugger": "Python Hata Ayıklayıcısı",
+  "Python Environments": "Python Ortamları",
+  "Pyrefly - Python Language Tooling": "Pyrefly - Python Dil Araçları",
+  "Claude Code for VS Code": "VS Code için Claude Code",
+  "Codex – OpenAI’s coding agent": "Codex – OpenAI Kodlama Ajanı",
+  "Codex - OpenAI's coding agent": "Codex – OpenAI Kodlama Ajanı",
+  "Codex Audio": "Codex Ses Desteği",
+  "Google Cloud Data Agent Kit": "Google Cloud Veri Ajanı Kiti",
+  "Turkish Language Pack for Visual Studio Code": "Visual Studio Code için Türkçe Dil Paketi",
+  "Jupyter Keymap": "Jupyter Tuş Haritası",
+  "Jupyter Notebook Renderers": "Jupyter Not Defteri Oluşturucuları",
+  "Jupyter Cell Tags": "Jupyter Hücre Etiketleri",
+  "Jupyter Slide Show": "Jupyter Slayt Gösterisi",
+  "Grunt support for VS Code": "VS Code için Grunt Desteği",
   "Media Previewer": "Medya Önizleyici",
   "Mermaid Chat Features": "Mermaid Sohbet Özellikleri",
   "Markdown Math": "Markdown Matematik",
@@ -472,7 +489,101 @@ const titleTranslations = {
   "Go": "Go",
   "Ruby LSP": "Ruby LSP",
   "Jupyter": "Jupyter",
-  "Python": "Python"
+  "Python": "Python",
+  "Container Tools": "Kapsayıcı Araçları"
+};
+
+const descriptionTranslations = {
+  "Codex is a coding agent that works with you everywhere you code — included in ChatGPT Plus, Pro, Business, Edu, and Enterprise plans.": "Codex, kod yazdığınız her yerde sizinle birlikte çalışan bir kodlama ajanıdır — ChatGPT Plus, Pro, Business, Edu ve Enterprise planlarına dahildir.",
+  "Local microphone support for Codex dictation, including remote workspaces.": "Uzak çalışma alanları dahil Codex diktesi için yerel mikrofon desteği.",
+  "Claude Code for VS Code: Harness the power of Claude Code without leaving your IDE": "VS Code için Claude Code: IDE'nizden ayrılmadan Claude Code'un gücünden yararlanın",
+  "Rich Go language support for Visual Studio Code": "Visual Studio Code için zengin Go dili desteği",
+  "Bring the full power of Google Cloud Data Agent Kit to your IDE": "Google Cloud Veri Ajanı Kiti'nin tüm gücünü IDE'nize taşıyın",
+  "C/C++ completion, navigation, and insights": "C/C++ kod tamamlama, gezinti ve içgörüler",
+  "Python autocomplete, typechecking, code navigation and more! Powered by Pyrefly, an open-source language server": "Python otomatik tamamlama, tür denetimi, kod gezintisi ve daha fazlası! Açık kaynaklı dil sunucusu Pyrefly tarafından desteklenir",
+  "Makes it easy to create, manage, and debug containerized applications.": "Kapsayıcı tabanlı uygulamalar oluşturmayı, yönetmeyi ve hatalarını ayıklamayı kolaylaştırır.",
+  "Language pack extension for Turkish": "Türkçe için dil paketi uzantısı",
+  "Python Debugger extension using debugpy.": "debugpy kullanan Python Hata Ayıklayıcısı uzantısı.",
+  "Python language support with extension access points for IntelliSense (Pylance), Debugging (Python Debugger), linting, formatting, refactoring, unit tests, and more.": "IntelliSense (Pylance), Hata Ayıklama (Python Hata Ayıklayıcısı), linting, biçimlendirme, yeniden düzenleme, birim testleri ve daha fazlası için uzantı erişim noktalarına sahip Python dili desteği.",
+  "Provides a unified python environment experience": "Birleşik bir Python ortamı deneyimi sunar",
+  "Jupyter notebook support, interactive programming and computing that supports Intellisense, debugging and more.": "IntelliSense, hata ayıklama ve daha fazlasını destekleyen Jupyter not defteri desteği, etkileşimli programlama ve hesaplama.",
+  "Jupyter keymaps for notebooks": "Not defterleri için Jupyter klavye kısayolları",
+  "Renderers for Jupyter Notebooks (with plotly, vega, gif, png, svg, jpeg and other such outputs)": "Jupyter Not Defterleri için oluşturucular (plotly, vega, gif, png, svg, jpeg ve benzeri çıktılarla)",
+  "Jupyter Cell Tags support for VS Code": "VS Code için Jupyter Hücre Etiketleri desteği",
+  "Jupyter Slide Show support for VS Code": "VS Code için Jupyter Slayt Gösterisi desteği",
+  "VS Code plugin for connecting with the Ruby LSP": "Ruby LSP ile bağlantı kurmak için VS Code eklentisi",
+  "Bring Google's agent-first development platform to Visual Studio Code.": "Google'ın ajan öncelikli geliştirme platformunu Visual Studio Code'a taşıyın.",
+  "Execute generated code from cascade.": "Cascade tarafından üretilen kodu çalıştırın.",
+  "Use devcontainers within Antigravity": "Antigravity içinde geliştirme kapsayıcılarını (devcontainers) kullanın",
+  "Connect to remote machines over SSH using Antigravity": "Antigravity kullanarak SSH üzerinden uzak makinelere bağlanın",
+  "Open any folder in the Windows Subsystem for Linux (WSL).": "Linux için Windows Alt Sistemi (WSL) içindeki herhangi bir klasörü açın.",
+  "Extension to add Grunt capabilities to VS Code.": "VS Code'a Grunt yetenekleri ekleyen uzantı.",
+  "An extension for debugging Node.js programs and Chrome.": "Node.js programlarında ve Chrome'da hata ayıklama uzantısı.",
+  "Companion extension to js-debug that provides capability for remote debugging": "Uzak hata ayıklama yeteneği sağlayan js-debug yardımcı uzantısı",
+  "Text visualizer for profiles taken from the JavaScript debugger": "JavaScript hata ayıklayıcısından alınan profiller için metin görselleştirici",
+  "A simple file icon theme for VS Code": "VS Code için sade bir dosya simgesi teması",
+  "A Synthwave-inspired colour theme to satisfy your neon dreams": "Neon hayallerinizi gerçekleştirecek Synthwave esintili bir renk teması",
+  "A clean theme that celebrates the lights of Downtown Tokyo at night.": "Tokyo şehir merkezinin gece ışıklarını kutlayan sade bir tema."
+};
+
+const viewTranslations = {
+  "Catalog": "Katalog",
+  "Cloud Storage": "Bulut Depolama",
+  "Managed Apache Spark": "Yönetilen Apache Spark",
+  "Managed Service for Apache Spark": "Yönetilen Apache Spark",
+  "Databases": "Veritabanları",
+  "Data Engineering": "Veri Mühendisliği",
+  "Google Cloud Data Agent Kit": "Google Cloud Veri Ajanı Kiti",
+  "Compiled Query": "Derlenmiş Sorgu",
+  "Runs History": "Çalıştırma Geçmişi",
+  "Query Results": "Sorgu Sonuçları",
+  "Orchestration Pipeline Runs History": "Orkestrasyon İşlem Hattı Çalıştırma Geçmişi",
+  "General": "Genel",
+  "Managed Service for Apache Airflow Runs History": "Managed Service for Apache Airflow Çalıştırma Geçmişi",
+  "Containers": "Kapsayıcılar",
+  "%vscode-containers.views.activityBar%": "Kapsayıcılar",
+  "%vscode-containers.views.containers%": "Kapsayıcılar",
+  "%vscode-containers.views.images%": "Görüntüler (Images)",
+  "%vscode-containers.views.registries%": "Kayıt Defterleri",
+  "%vscode-containers.views.networks%": "Ağlar",
+  "%vscode-containers.views.volumes%": "Birimler (Volumes)",
+  "%vscode-containers.views.dockerContexts%": "Bağlamlar (Contexts)",
+  "%vscode-containers.views.help%": "Yardım ve Geri Bildirim",
+  "Images": "Görüntüler (Images)",
+  "Registries": "Kayıt Defterleri",
+  "Networks": "Ağlar",
+  "Volumes": "Birimler (Volumes)",
+  "Contexts": "Bağlamlar (Contexts)",
+  "Help and Feedback": "Yardım ve Geri Bildirim",
+  "Python Projects": "Python Projeleri",
+  "Environment Managers": "Ortam Yöneticileri",
+  "Jupyter Variables": "Jupyter Değişkenleri",
+  "Cell Tags": "Hücre Etiketleri",
+  "Package Outline": "Paket Anahattı",
+  "Profiles": "Profiller",
+  "Type Hierarchy": "Tür Hiyerarşisi",
+  "clangd Memory Usage": "clangd Bellek Kullanımı",
+  "Dependencies": "Bağımlılıklar",
+  "View and manage dependencies": "Bağımlılıkları görüntüleyin ve yönetin",
+  "Event Listener Breakpoints": "Olay Dinleyicisi Kesme Noktaları",
+  "Excluded Callers": "Hariç Tutulan Çağıranlar",
+  "Network": "Ağ",
+  "Dev Containers (Antigravity)": "Geliştirme Kapsayıcıları (Antigravity)",
+  "SSH (Antigravity)": "SSH Hedefleri (Antigravity)",
+  "WSL Targets (Antigravity)": "WSL Hedefleri (Antigravity)"
+};
+
+const viewsWelcomeTranslations = {
+  "Configure a test framework to see your tests here.\n[Configure Python Tests](command:python.configureTests)": "Testlerinizi burada görmek için bir test çatısı yapılandırın.\n[Python Testlerini Yapılandır](command:python.configureTests)",
+  "\n[Show automatic Python configurations](command:workbench.action.debug.selectandstart?%5B%22debugpy%22%5D)\n": "\n[Otomatik Python yapılandırmalarını göster](command:workbench.action.debug.selectandstart?%5B%22debugpy%22%5D)\n",
+  "No tags found for the selected cell. Use the [Add Cell Tag](command:jupyter-cell-tags.addTag) command to add tags.": "Seçili hücre için etiket bulunamadı. Etiket eklemek için [Hücre Etiketi Ekle](command:jupyter-cell-tags.addTag) komutunu kullanın.",
+  "Please login to Google Cloud to continue. If you don't have an account yet, you can get started with a [free trial](https://console.cloud.google.com/freetrial).\n[Login to Google Cloud](command:google.datacloud.handleLoginOrOnboarding)": "Devam etmek için lütfen Google Cloud'da oturum açın. Henüz bir hesabınız yoksa [ücretsiz deneme](https://console.cloud.google.com/freetrial) ile başlayabilirsiniz.\n[Google Cloud'da Oturum Aç](command:google.datacloud.handleLoginOrOnboarding)",
+  "Please login to Google Cloud to continue. If you don't have an account yet, you can get started with a [free trial](https://console.cloud.google.com/freetrial).\n[Login to Google Cloud](command:google.datacloud.auth.signIn)": "Devam etmek için lütfen Google Cloud'da oturum açın. Henüz bir hesabınız yoksa [ücretsiz deneme](https://console.cloud.google.com/freetrial) ile başlayabilirsiniz.\n[Google Cloud'da Oturum Aç](command:google.datacloud.auth.signIn)",
+  "[View Dataflow Jobs](command:google.datacloud.dataflow.jobs.list)": "[Dataflow İşlerini Görüntüle](command:google.datacloud.dataflow.jobs.list)",
+  "No orchestration pipelines found.\n[Initialize Orchestration Pipeline](command:google.datacloud.orchestrationPipeline.init)\n[Pipeline Management](command:google.datacloud.bigquery.orchestrationPipeline.pipelineManagement)\nLearn more about [Orchestration Pipelines](command:google.datacloud.bigquery.orchestrationPipeline.learnMore).": "Orkestrasyon işlem hattı bulunamadı.\n[Orkestrasyon İşlem Hattını Başlat](command:google.datacloud.orchestrationPipeline.init)\n[İşlem Hattı Yönetimi](command:google.datacloud.bigquery.orchestrationPipeline.pipelineManagement)\n[Orkestrasyon İşlem Hatları](command:google.datacloud.bigquery.orchestrationPipeline.learnMore) hakkında daha fazla bilgi edinin.",
+  "Please select a Google Cloud project to continue. If you don't have a project yet, you can create one in [Cloud Console](https://console.cloud.google.com/projectcreate).\n[Select a project](command:google.datacloud.settings.projectStatusBar.open)": "Devam etmek için lütfen bir Google Cloud projesi seçin. Henüz bir projeniz yoksa [Cloud Console](https://console.cloud.google.com/projectcreate) üzerinden oluşturabilirsiniz.\n[Bir Proje Seçin](command:google.datacloud.settings.projectStatusBar.open)",
+  "Please set a Google Cloud region to continue.\n[Set region](command:google.datacloud.settings)": "Devam etmek için lütfen bir Google Cloud bölgesi belirleyin.\n[Bölge Belirle](command:google.datacloud.settings)",
+  "In order to use Managed Apache Spark on Google Cloud, you need to enable the [Cloud Spark API](https://console.cloud.google.com/apis/library/dataproc.googleapis.com). Consuming Google Cloud APIs may incur additional billing charges. You can learn more by clicking the above link.\n[Enable API](command:google.datacloud.settings)\nAlternatively, you can [switch projects](command:google.datacloud.settings.projectStatusBar.open) to a project that already has this API enabled.": "Google Cloud üzerinde Yönetilen Apache Spark'ı kullanmak için [Cloud Spark API](https://console.cloud.google.com/apis/library/dataproc.googleapis.com)'sini etkinleştirmeniz gerekir. Google Cloud API'lerini kullanmak ek faturalandırma ücretlerine tabi olabilir. Yukarıdaki bağlantıya tıklayarak daha fazla bilgi edinebilirsiniz.\n[API'yi Etkinleştir](command:google.datacloud.settings)\nAlternatif olarak, bu API'nin zaten etkin olduğu bir projeye [geçiş yapabilirsiniz](command:google.datacloud.settings.projectStatusBar.open)."
 };
 
 /**
@@ -513,12 +624,26 @@ function getExtensionNlsMap(extFullPath, extName) {
       `${extName}.i18n.json`,
       `vscode.${extName.replace(/^vscode\./, '')}.i18n.json`
     ];
-    for (const c of candidates) {
+      for (const c of candidates) {
       const p = path.join(lb, c);
       if (fs.existsSync(p)) {
         try {
           const d = JSON.parse(fs.readFileSync(p, 'utf8'));
-          return d.contents?.package || null;
+          const pkgMap = d.contents?.package || null;
+          if (pkgMap && lowerName === 'git') {
+            Object.assign(pkgMap, {
+              "command.merge2": "Birleştir",
+              "command.rebase2": "Yeniden Temellendir (Rebase)",
+              "command.createFrom": "Şuradan oluştur...",
+              "command.deleteWorktree2": "Çalışma Ağacını Sil",
+              "command.stashView2": "Zulayı (Stash) Görüntüle",
+              "command.graphCompareRef": "Şununla karşılaştır...",
+              "command.graphCompareWithMergeBase": "Birleştirme Temeli ile Karşılaştır",
+              "command.graphCompareWithRemote": "Uzak Depo ile Karşılaştır",
+              "command.deleteRef": "Sil"
+            });
+          }
+          return pkgMap;
         } catch (e) {}
       }
     }
@@ -624,10 +749,13 @@ function patchAllExtensions(paths) {
             }
 
             // Description of extension
-            if (pkg.description && nlsMap) {
-              const resolvedDesc = resolveNls(pkg.description, nlsMap);
+            if (pkg.description) {
+              const resolvedDesc = nlsMap ? resolveNls(pkg.description, nlsMap) : pkg.description;
               if (resolvedDesc !== pkg.description) {
                 pkg.description = resolvedDesc;
+                modified = true;
+              } else if (descriptionTranslations[pkg.description]) {
+                pkg.description = descriptionTranslations[pkg.description];
                 modified = true;
               }
             }
@@ -686,11 +814,223 @@ function patchAllExtensions(paths) {
               }
             }
 
+            // viewsContainers (activitybar, panel, secondarySidebar vb.)
+            if (pkg.contributes?.viewsContainers && typeof pkg.contributes.viewsContainers === 'object') {
+              for (const containerList of Object.values(pkg.contributes.viewsContainers)) {
+                if (!Array.isArray(containerList)) continue;
+                for (const vc of containerList) {
+                  if (vc.title) {
+                    const resolved = resolveNls(vc.title, nlsMap);
+                    const trTitle = viewTranslations[vc.title] || viewTranslations[resolved] || (resolved !== vc.title ? resolved : null);
+                    if (trTitle && trTitle !== vc.title) {
+                      vc.title = trTitle;
+                      modified = true;
+                    }
+                  }
+                }
+              }
+            }
+
+            // views
+            if (pkg.contributes?.views && typeof pkg.contributes.views === 'object') {
+              for (const viewList of Object.values(pkg.contributes.views)) {
+                if (!Array.isArray(viewList)) continue;
+                for (const vw of viewList) {
+                  for (const field of ['name', 'contextualTitle', 'description']) {
+                    if (vw[field]) {
+                      const resolved = resolveNls(vw[field], nlsMap);
+                      const trVal = viewTranslations[vw[field]] || viewTranslations[resolved] || (resolved !== vw[field] ? resolved : null);
+                      if (trVal && trVal !== vw[field]) {
+                        vw[field] = trVal;
+                        modified = true;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+
+            // viewsWelcome
+            if (Array.isArray(pkg.contributes?.viewsWelcome)) {
+              for (const w of pkg.contributes.viewsWelcome) {
+                if (w.contents) {
+                  const resolved = resolveNls(w.contents, nlsMap);
+                  const trContents = viewsWelcomeTranslations[w.contents] || viewsWelcomeTranslations[resolved] || (resolved !== w.contents ? resolved : null);
+                  if (trContents && trContents !== w.contents) {
+                    w.contents = trContents;
+                    modified = true;
+                  }
+                }
+              }
+            }
+
+            // commands & submenus (%nlsKey% ve commandTranslations çözümü)
+            const commandTranslations = {
+              // Go
+              "Go: Open in new Document": "Go: Yeni Belgede Aç",
+              "Go: Current GOPATH": "Go: Geçerli GOPATH",
+              "Go: Current GOROOT": "Go: Geçerli GOROOT",
+              "Go: Locate Configured Go Tools": "Go: Yapılandırılmış Go Araçlarını Bul",
+              "Package Outline: Sort By Name": "Paket Anahattı: Ada Göre Sırala",
+              "Package Outline: Sort By Position": "Paket Anahattı: Konuma Göre Sırala",
+              "Go: Test Function At Cursor": "Go: İmleçteki Fonksiyonu Test Et",
+              "Go: Test Function At Cursor or Test Previous": "Go: İmleçteki Fonksiyonu veya Önceki Testi Çalıştır",
+              "Go: Subtest At Cursor": "Go: İmleçteki Alt Testi Çalıştır",
+              "Go: Debug Subtest At Cursor": "Go: İmleçteki Alt Testte Hata Ayıkla",
+              "Go: Benchmark Function At Cursor": "Go: İmleçteki Fonksiyonu Kıyasla (Benchmark)",
+              "Go: Debug Test At Cursor": "Go: İmleçteki Testte Hata Ayıkla",
+              "Go: Test File": "Go: Dosyayı Test Et",
+              "Go: Test Package": "Go: Paketi Test Et",
+              "Go: Toggle Hide System Goroutines": "Go: Sistem Goroutine'lerini Gizlemeyi Aç/Kapat",
+              "Go Test: Refresh": "Go Test: Yenile",
+              "Go Test: Show Last Profile": "Go Test: Son Profili Göster",
+              "Go Test: Profile": "Go Test: Profil Oluştur",
+              "Go Test: Delete Profile": "Go Test: Profili Sil",
+              "Go: Show pprof file": "Go: pprof Dosyasını Göster",
+              "Go: Benchmark Package": "Go: Paketi Kıyasla (Benchmark)",
+              "Go: Benchmark File": "Go: Dosyayı Kıyasla (Benchmark)",
+              "Go: Test All Packages In Workspace": "Go: Çalışma Alanındaki Tüm Paketleri Test Et",
+              "Go: Test Previous": "Go: Önceki Testi Çalıştır",
+              "Go: Debug Previous": "Go: Önceki Testte Hata Ayıkla",
+              "Go: Toggle Test Coverage In Current Package": "Go: Geçerli Pakette Test Kapsamını Aç/Kapat",
+              "Go: Generate Unit Tests For Package": "Go: Paket İçin Birim Testleri Oluştur",
+              "Go: Generate Unit Tests For File": "Go: Dosya İçin Birim Testleri Oluştur",
+              "Go: Generate Unit Tests For Function": "Go: Fonksiyon İçin Birim Testleri Oluştur",
+              "Go: Generate Unit Tests For Function (legacy)": "Go: Fonksiyon İçin Birim Testleri Oluştur (eski)",
+              "Go: Generate Interface Stubs": "Go: Arayüz Taslakları (Stub) Oluştur",
+              "Go: Generate Interface Stubs (legacy)": "Go: Arayüz Taslakları Oluştur (eski)",
+              "Go: Extract Language Server Logs To Editor": "Go: Dil Sunucusu Günlüklerini Düzenleyiciye Çıkar",
+              "Go: Welcome": "Go: Karşılama",
+              "Go: Toggle compiler optimization details": "Go: Derleyici iyileştirme ayrıntılarını aç/kapat",
+              "Go: Add Import": "Go: İçe Aktarma (Import) Ekle",
+              "Go: Add Package to Workspace": "Go: Çalışma Alanına Paket Ekle",
+              "Go: Install/Update Tools": "Go: Araçları Yükle/Güncelle",
+              "Go: Toggle Test File": "Go: Test Dosyasına Geçiş Yap",
+              "Go: Toggle Vulncheck": "Go: Güvenlik Açığı Denetimini (Vulncheck) Aç/Kapat",
+              "Go: Start language server's maintainer interface": "Go: Dil sunucusu bakımcı arayüzünü başlat",
+              "Go: Add Tags To Struct Fields": "Go: Struct Alanlarına Etiket Ekle",
+              "Go: Remove Tags From Struct Fields": "Go: Struct Alanlarından Etiketleri Kaldır",
+              "Go: Show All Commands...": "Go: Tüm Komutları Göster...",
+              "Go: Browse Packages": "Go: Paketlere Gözat",
+              "Go: Get Package": "Go: Paketi İndir (go get)",
+              "Go: Run on Go Playground": "Go: Go Playground Üzerinde Çalıştır",
+              "Go: Lint Current Package": "Go: Geçerli Paketi Denetle (Lint)",
+              "Go: Lint Workspace": "Go: Çalışma Alanını Denetle (Lint)",
+              "Go: Vet Current Package": "Go: Geçerli Paketi İncele (Vet)",
+              "Go: Vet Workspace": "Go: Çalışma Alanını İncele (Vet)",
+              "Go: Build Current Package": "Go: Geçerli Paketi Derle",
+              "Go: Build Workspace": "Go: Çalışma Alanını Derle",
+              "Go: Install Current Package": "Go: Geçerli Paketi Yükle",
+              "Go: Initialize go.mod": "Go: go.mod Başlat",
+              "Go: Cancel Running Tests": "Go: Çalışan Testleri İptal Et",
+              "Go: Apply Cover Profile": "Go: Kapsam Profilini Uygula",
+              "Go: Restart Language Server": "Go: Dil Sunucusunu Yeniden Başlat",
+              "Go: Choose Go Environment": "Go: Go Ortamını Seç",
+              "Go: Show Survey Configuration": "Go: Anket Yapılandırmasını Göster",
+              "Go: Reset Survey Configuration": "Go: Anket Yapılandırmasını Sıfırla",
+              "Go: Reset Workspace State": "Go: Çalışma Alanı Durumunu Sıfırla",
+              "Go: Reset Global State": "Go: Genel Durumu Sıfırla",
+              "Go Explorer: Refresh": "Go Gezgini: Yenile",
+              "Go Explorer: Open File": "Go Gezgini: Dosyayı Aç",
+              "Go: Edit Workspace Env": "Go: Çalışma Alanı Ortamını Düzenle",
+              "Go: Reset Workspace Env": "Go: Çalışma Alanı Ortamını Sıfırla",
+              // Pyrefly
+              "Restart Pyrefly Client": "Pyrefly İstemcisini Yeniden Başlat",
+              "Fold All Docstrings": "Tüm Belge Dizgilerini (Docstring) Katla",
+              "Unfold All Docstrings": "Tüm Belge Dizgilerini (Docstring) Aç",
+              "Infer Types for Current File": "Geçerli Dosya İçin Türleri Çıkar",
+              "Run File": "Dosyayı Çalıştır",
+              "Run Test": "Testi Çalıştır",
+              // Ruby LSP
+              "Start": "Başlat",
+              "Restart": "Yeniden Başlat",
+              "Stop": "Durdur",
+              "Open server changelog in browser": "Sunucu değişiklik günlüğünü tarayıcıda aç",
+              "Debug the Ruby LSP server": "Ruby LSP sunucusunda hata ayıkla",
+              "Update language server gem": "Dil sunucusu gem paketini güncelle",
+              "Select Ruby version manager": "Ruby sürüm yöneticisini seç",
+              "Toggle features": "Özellikleri aç/kapat",
+              "Display addons": "Eklentileri görüntüle",
+              "Run current test": "Geçerli testi çalıştır",
+              "Run current test in terminal": "Geçerli testi terminalde çalıştır",
+              "Debug current test": "Geçerli testte hata ayıkla",
+              "Show syntax tree": "Sözdizimi ağacını göster",
+              "Diagnose language server state": "Dil sunucusu durumunu tanıla",
+              "Rails generate": "Rails oluştur (generate)",
+              "Rails destroy": "Rails kaldır (destroy)",
+              "Ruby file operations": "Ruby dosya işlemleri",
+              "Go to relevant file (test <> source code)": "İlgili dosyaya git (test <> kaynak kod)",
+              "Collect Ruby LSP information for issue reporting": "Sorun bildirimi için Ruby LSP bilgilerini topla",
+              "Migrate launch.json configurations from rdbg to ruby_lsp": "launch.json yapılandırmalarını rdbg'den ruby_lsp'ye taşı",
+              "Show output channel": "Çıktı kanalını göster",
+              "Profile current file": "Geçerli dosyanın profilini çıkar",
+              // Jupyter & Cell Tags & Slideshow
+              "Continue On Codespace": "Codespace Üzerinde Devam Et",
+              "Select Precedent Cells": "Önceki Hücreleri Seç",
+              "Select Dependent Cells": "Bağımlı Hücreleri Seç",
+              "Execute with Precedent Cells": "Önceki Hücrelerle Birlikte Çalıştır",
+              "Execute with Dependent Cells": "Bağımlı Hücrelerle Birlikte Çalıştır",
+              "Debug Cell Symbols": "Hücre Sembollerinde Hata Ayıkla",
+              "List Pip Packages": "Pip Paketlerini Listele",
+              "List Variables": "Değişkenleri Listele",
+              "Remove Cell Tag": "Hücre Etiketini Kaldır",
+              "Add Cell Tag": "Hücre Etiketi Ekle",
+              "Edit Cell Tags (JSON)": "Hücre Etiketlerini Düzenle (JSON)",
+              "Mark Cell as Parameters": "Hücreyi Parametre Olarak İşaretle",
+              "Switch Slide Type": "Slayt Türünü Değiştir",
+              "Edit Slide Type (JSON)": "Slayt Türünü Düzenle (JSON)",
+              // Built-in & Misc
+              "Pretty print for debugging": "Hata ayıklama için düzgün yazdır (Pretty print)",
+              "Clear Profile Code Lenses": "Profil CodeLens'lerini Temizle",
+              "Show": "Göster",
+              "Use TypeScript Go (Experimental)": "TypeScript Go Kullan (Deneysel)",
+              "Stop using TypeScript Go (Experimental)": "TypeScript Go Kullanmayı Durdur (Deneysel)"
+            };
+            if (Array.isArray(pkg.contributes?.commands)) {
+              for (const cmd of pkg.contributes.commands) {
+                for (const field of ['title', 'category', 'shortTitle']) {
+                  if (typeof cmd[field] === 'string') {
+                    const resolved = resolveNls(cmd[field], nlsMap);
+                    const trVal = commandTranslations[cmd[field]] || commandTranslations[resolved] || (resolved !== cmd[field] ? resolved : null);
+                    if (trVal && trVal !== cmd[field]) {
+                      cmd[field] = trVal;
+                      modified = true;
+                    }
+                  }
+                }
+              }
+            }
+            if (nlsMap && Array.isArray(pkg.contributes?.submenus)) {
+              for (const sub of pkg.contributes.submenus) {
+                if (typeof sub.label === 'string') {
+                  const resolved = resolveNls(sub.label, nlsMap);
+                  if (resolved !== sub.label) {
+                    sub.label = resolved;
+                    modified = true;
+                  }
+                }
+              }
+            }
+
             if (modified) {
               try { fs.chmodSync(pkgPath, 0o666); } catch (e) {}
               const isFormatted = content.includes('\n  ') || content.includes('\n\t');
               fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, isFormatted ? 2 : undefined), 'utf8');
               patchedCount++;
+            }
+
+            if (d.startsWith('golang.go-')) {
+              const goMain = path.join(extFullPath, 'dist', 'goMain.js');
+              if (fs.existsSync(goMain)) {
+                try {
+                  try { fs.chmodSync(goMain, 0o666); } catch (e) {}
+                  let gc = fs.readFileSync(goMain, 'utf8');
+                  if (gc.includes('"$(x) Cancel Running Tests"')) {
+                    gc = gc.replaceAll('"$(x) Cancel Running Tests"', '"$(x) Çalışan Testleri İptal Et"');
+                    fs.writeFileSync(goMain, gc, 'utf8');
+                  }
+                } catch (e) {}
+              }
             }
           } catch (e) {}
         }
