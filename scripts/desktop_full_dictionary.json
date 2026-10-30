@@ -1623,7 +1623,7 @@
   "Open search in external browser": "Aramayı harici tarayıcıda aç",
   "User message": "Kullanıcı mesajı",
   "Insert in terminal": "Terminale ekle",
-  "At mention code block": "Kod bloğundan bahset",
+  "At mention code block": "Kod bloğunu @ ile ekle",
   "Model URL info": "Model URL bilgisi",
   "Dismiss notification": "Bildirimi kapat",
   "User Profile (Placeholder)": "Kullanıcı Profili",
@@ -2249,7 +2249,7 @@
   "Close panel": "Paneli kapat",
   "Close skills panel": "Beceriler panelini kapat",
   "Copy File Name": "Dosya Adını Kopyala",
-  "Copy code": "Kodu kopyala",
+  "Copy code": "Kodu Kopyala",
   "Copy config file path": "Yapılandırma dosya yolunu kopyala",
   "Copy debug info": "Hata ayıklama bilgisini kopyala",
   "Copy description": "Açıklamayı kopyala",
@@ -2644,7 +2644,7 @@
   "One-time x20 setup": "Tek seferlik x20 kurulumu",
   "In Progress": "Devam Ediyor",
   "Insert in Terminal": "Terminale Ekle",
-  "At Mention Code Block": "Kod Bloğundan @Bahset",
+  "At Mention Code Block": "Kod Bloğunu @ ile Ekle",
   "Copy Link": "Bağlantıyı Kopyala",
   "Table options": "Tablo seçenekleri",
   "Preview unavailable": "Önizleme kullanılamıyor",
@@ -3214,5 +3214,6 @@
   "Registry Username": "Kayıt Defteri Kullanıcı Adı",
   "Registry Password or Personal Access Token": "Kayıt Defteri Parolası veya Kişisel Erişim Belirteci (PAT)",
   "Provide a registry name": "Bir kayıt defteri adı belirtin",
-  "$(plus) Create new Azure Container Registry...": "$(plus) Yeni Azure Container Registry Oluştur..."
+  "$(plus) Create new Azure Container Registry...": "$(plus) Yeni Azure Container Registry Oluştur...",
+  "Background Commands": "Arka Plan Komutları"
 }

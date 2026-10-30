@@ -1,5 +1,12 @@
 # Değişiklikler
 
+## 1.0.28 — 2026-10-30
+
+- Arka Plan Komutları başlığı ve ajan tamamlandı bildirim öneki Türkçeleştirildi.
+- Markdown kod bloğundaki Önizleme/Ham Metin düğmeleri ve araç ipuçları çevrildi.
+- Kod/kural içerikleri ve bildirimdeki konuşma başlıkları korunur; 58 test geçti.
+
+
 ## 1.0.25 — 2026-10-30
 
 - Desktop 2.28.1 ve 2.28.2 desteği eklendi; gerçek arşivlerde dönüşüm ve tekrar uygulama tutarlılığı doğrulandı.

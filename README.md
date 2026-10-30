@@ -5,7 +5,7 @@
 
 [![GitHub License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Tested On](https://img.shields.io/badge/Antigravity%20Desktop-v2.17.0%20%7C%20v2.19.1%20%7C%20v2.21.1%20%7C%20v2.22.0%20%7C%20v2.23.0%20%7C%20v2.23.1%20%7C%20v2.24.0%20%7C%20v2.25.0%20%7C%20v2.26.0%20%7C%20v2.27.0%20%7C%20v2.28.0%20%7C%20v2.28.1%20%7C%20v2.28.2-purple.svg)](https://antigravity.google)
-[![Tests Passing](https://img.shields.io/badge/Tests-54%2F54%20Passing-brightgreen.svg)](test/)
+[![Tests Passing](https://img.shields.io/badge/Tests-58%2F58%20Passing-brightgreen.svg)](test/)
 [![Platform](https://img.shields.io/badge/Platform-Windows-lightgrey.svg)](#kurulum)
 [![GitHub stars](https://img.shields.io/github/stars/foztrk/antigravity-tr?style=social)](https://github.com/foztrk/antigravity-tr)
 
@@ -23,14 +23,14 @@
 
 Google Antigravity Desktop ve Antigravity IDE için topluluk tarafından geliştirilen kapsamlı Türkçe yerelleştirme araçları. Google'ın resmi ürünü veya resmi dil paketi değildir.
 
-Mevcut IDE çevirileri, ayar sözlükleri ve Türkçe asistan kuralları korunmuştur. **1.0.25 sürümü; Desktop ayarları, beceri ve MCP açıklamaları, yerel sağ tık menüleri ve alt menü çevirilerini genişletir. Eklenti adları korunur.**
+Mevcut IDE çevirileri, ayar sözlükleri ve Türkçe asistan kuralları korunmuştur. **1.0.28 sürümü; Desktop ayarları, beceri ve MCP açıklamaları, yerel sağ tık menüleri ve alt menü çevirilerini genişletir. Eklenti adları korunur.**
 
 
 ## English overview
 
 Antigravity TR is an independent, open-source Turkish UI patch maintained by [Faruk Öztürk (@foztrk)](https://github.com/foztrk). It translates recognized interface labels in Antigravity Desktop on Windows, including menus, settings, permission dialogs, review panels, and dynamic status messages.
 
-**Current release: v1.0.25 · Desktop 2.28.2 · 54 automated tests.** The installer backs up the application archive and supports restoration. Tests cover translation behavior, repeated installation, and preservation of controls and user content. They do not establish complete visual coverage of every screen.
+**Current release: v1.0.28 · Desktop 2.28.2 · 58 automated tests.** The installer backs up the application archive and supports restoration. Tests cover translation behavior, repeated installation, and preservation of controls and user content. They do not establish complete visual coverage of every screen.
 
 This project is **not affiliated with or endorsed by Google**. It modifies local application resources and needs compatibility checks after updates. The latest release validates Desktop; the retained IDE installer has a separate, broader scope described below.
 

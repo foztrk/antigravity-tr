@@ -18,7 +18,8 @@ function transformDesktopSources(input) {
   if (sources.has(notificationPath)) {
     sources.set(notificationPath, sources.get(notificationPath)
       .replace('title: options.title,', "title: options.title === 'Action requires your attention' ? 'İşlem için müdahaleniz gerekiyor' : options.title,")
-      .replace('body: options.body,', "body: options.body === 'The agent is waiting for your input.' ? 'Ajan sizden giriş bekliyor.' : options.body,"));
+      .replace("body: options.body === 'The agent is waiting for your input.' ? 'Ajan sizden giriş bekliyor.' : options.body,", "body: options.body === 'The agent is waiting for your input.' ? 'Ajan sizden giriş bekliyor.' : typeof options.body === 'string' && options.body.startsWith('Agent finished: ') ? 'Ajan tamamladı: ' + options.body.slice('Agent finished: '.length) : options.body,")
+      .replace('body: options.body,', "body: options.body === 'The agent is waiting for your input.' ? 'Ajan sizden giriş bekliyor.' : typeof options.body === 'string' && options.body.startsWith('Agent finished: ') ? 'Ajan tamamladı: ' + options.body.slice('Agent finished: '.length) : options.body,"));
   }
   // 3. loadingOverlay.js Yamalama
   const loadingPath = fileName('loadingOverlay.js');
@@ -209,7 +210,7 @@ function rebuildLocalizedMenu(menu) {
     if (tag === 'script' || tag === 'style' || tag === 'pre' || tag === 'code') return;
     if (parent.isContentEditable) return;
     if (parent.closest && parent.closest('script,style,pre,code,textarea,input,.monaco-editor,[data-antigravity-tr-ignore]')) return;
-    if (parent.closest && parent.closest('.markdown,[data-message-author-role]') && !parent.closest('[role=tooltip]')) return;
+    if (parent.closest && parent.closest('.markdown,[data-message-author-role]') && !parent.closest('[role=tooltip],[data-testid=code-block-preview-button],[data-testid=code-block-raw-button]')) return;
 
     const val = node.nodeValue;
     if (!val) return;

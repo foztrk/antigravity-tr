@@ -416,3 +416,11 @@ test('IDE v2.6.0 selection options and tab settings translate correctly', async 
  }finally{dom.window.close();}
 });
 
+
+test('code block view controls translate without translating markdown or raw code', async () => {
+ const dom=new JSDOM('<body><h3>Background Commands</h3><div class="markdown"><button data-testid="code-block-preview-button">Preview</button><button data-testid="code-block-raw-button">Raw</button><p>Preview</p><pre>Raw</pre><div role="tooltip">At Mention Code Block</div></div></body>',{runScripts:'outside-only'});
+ try{dom.window.eval(transformDesktopSources(fixture()).get('dist/preload.js'));await new Promise(r=>dom.window.setTimeout(r,20));const d=dom.window.document;assert.equal(d.querySelector('h3').textContent,'Arka Plan Komutları');assert.equal(d.querySelector('[data-testid="code-block-preview-button"]').textContent,'Önizleme');assert.equal(d.querySelector('[data-testid="code-block-raw-button"]').textContent,'Ham Metin');assert.equal(d.querySelector('p').textContent,'Preview');assert.equal(d.querySelector('pre').textContent,'Raw');assert.equal(d.querySelector('[role="tooltip"]').textContent,'Kod Bloğunu @ ile Ekle');}finally{dom.window.close();}
+});
+test('finished notification translates prefix only and upgrades older installed patch',()=>{
+ const vm=require('node:vm');const input=fixture();input.set('dist/ipcHandlers.js',"function buildContextMenuTemplate(items, onSelect) { return items.map(item => ({id:item.id,label:item.label})); } function notify(options){return {body: options.body === 'The agent is waiting for your input.' ? 'Ajan sizden giriş bekliyor.' : options.body,};}");const output=transformDesktopSources(input);assert.deepEqual(transformDesktopSources(output),output);const context={};vm.createContext(context);vm.runInContext(output.get('dist/ipcHandlers.js'),context);assert.equal(context.notify({body:'Agent finished: Zcode Ödül Kredisi Sorunu'}).body,'Ajan tamamladı: Zcode Ödül Kredisi Sorunu');assert.equal(context.notify({body:'Custom body'}).body,'Custom body');assert.equal(context.notify({body:null}).body,null);
+});
