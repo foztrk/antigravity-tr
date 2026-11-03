@@ -1,5 +1,15 @@
 # Değişiklikler
 
+## 1.0.29 — 2026-11-03
+
+- 67 katalog açıklaması, kategori başlıkları, gizlilik açıklaması ve MCP silme onayı çevrildi.
+- Wix, Base44, Browserbase, Chrome DevTools ve Data Agent Kit için 32 eksik beceri açıklaması ve 15 örnek istek eklendi; Caveman ve DAK kurulum açıklamaları tamamlandı.
+- Wix README metni yalnızca eklenti ayrıntı panelinde çevrilir; özgün talimatlar, kod ve bağlantılar korunur.
+- Otomasyon formunda Tetikleyici ve Saat Dilimi alanları çevrildi.
+- audit-plugins komutu ve Desktop kurulumunda yeni/değişen eklenti kaynaklarını raporlama eklendi.
+- Android CLI, Data Agent Kit ve Modern Web Guidance README içerikleri henüz çevrilmedi; denetimde ayrıca raporlanır.
+- 62 otomatik test geçti; dört eklenti ayrıntısı ve ayarlardaki beceri listesi canlı kontrol edildi. Desktop 2.28.2 üzerinde ikinci kurulum dosya değiştirmedi.
+
 ## 1.0.28 — 2026-10-30
 
 - Arka Plan Komutları başlığı ve ajan tamamlandı bildirim öneki Türkçeleştirildi.

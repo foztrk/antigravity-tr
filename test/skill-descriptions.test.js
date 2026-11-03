@@ -3,7 +3,7 @@ const assert = require('node:assert/strict');
 const { JSDOM } = require('jsdom');
 const { transformDesktopSources } = require('../src/desktop_patcher');
 const { translateDynamic } = require('../src/desktop_dynamic');
-const descriptions = require('./skill-descriptions.json');
+const descriptions = [...require('./skill-descriptions.json'), ...require('./marketplace-descriptions.json')];
 
 test('all inventoried skill descriptions translate, including multiline and collapsed whitespace', async () => {
   const dom = new JSDOM('<body><section></section><code></code><textarea></textarea></body>', { runScripts: 'outside-only' });

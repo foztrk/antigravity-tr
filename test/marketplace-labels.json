@@ -1,0 +1,17 @@
+{
+  "Design, Creative & Media": "Tasarım, Yaratıcılık ve Medya",
+  "Design, creative, and media tools.": "Tasarım, yaratıcılık ve medya araçları.",
+  "Productivity & Project Management": "Üretkenlik ve Proje Yönetimi",
+  "Plan work, track issues, sign documents, and manage your notes and files.": "İşleri planlayın, sorunları takip edin, belgeleri imzalayın, not ve dosyalarınızı yönetin.",
+  "Cloud Hosting & Deployment": "Bulut Barındırma ve Dağıtım",
+  "Deploy and host your apps, sites, and their backends.": "Uygulamalarınızı, sitelerinizi ve arka uçlarını dağıtın ve barındırın.",
+  "Developer Tools": "Geliştirici Araçları",
+  "APIs, services, and tools to build, test, secure, and run your apps.": "Uygulamalarınızı geliştirmek, test etmek, güvenliğini sağlamak ve çalıştırmak için API’ler, hizmetler ve araçlar.",
+  "Business": "İşletme",
+  "Payments, CRM, accounting, data, identity, customer support, marketing, and workflow automation.": "Ödemeler, CRM, muhasebe, veri, kimlik, müşteri desteği, pazarlama ve iş akışı otomasyonu.",
+  "Stop Execution": "Çalışmayı Durdur",
+  "Are you sure you want to delete": "Şu sunucuyu silmek istediğinizden emin misiniz:",
+  "? This will remove it from your MCP configuration.": "? Bu işlem sunucuyu MCP yapılandırmanızdan kaldırır.",
+  "This will remove it from your MCP configuration.": "Bu işlem sunucuyu MCP yapılandırmanızdan kaldırır.",
+  "Google does not control the availability or functionality of third party developer tools. Your data from third party developer tools connected to your Antigravity instance may be shared with Google. Google will protect any such data in accordance with the Google Privacy Policy, found here:": "Google, üçüncü taraf geliştirici araçlarının kullanılabilirliğini veya işlevlerini kontrol etmez. Antigravity kurulumunuza bağlı üçüncü taraf geliştirici araçlarındaki verileriniz Google ile paylaşılabilir. Google bu verileri, aşağıdaki bağlantıda yer alan Google Gizlilik Politikası’na uygun olarak korur:"
+}

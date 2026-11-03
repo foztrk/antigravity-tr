@@ -1,6 +1,6 @@
 {
   "name": "antigravity-tr",
-  "version": "1.0.28",
+  "version": "1.0.29",
   "description": "Google Antigravity ve Antigravity IDE için Kapsamlı Türkçe Dil Paketi ve Otomatik Yama Aracı",
   "main": "src/installer.js",
   "bin": {
@@ -46,6 +46,8 @@
     "locales/",
     "rules/",
     "scripts/desktop_full_dictionary.json",
+    "scripts/desktop_plugin_readme_dictionary.json",
+    "scripts/desktop_plugin_inventory.json",
     "install.ps1",
     "restore.ps1",
     "README.md",

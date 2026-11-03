@@ -1,5 +1,7 @@
 // Only recognized UI sentences are transformed; arbitrary numbers and content are untouched.
 function translateDynamic(text) {
+  const deleteMcp = /^Are you sure you want to delete (.+)\? This will remove it from your MCP configuration\.$/.exec(text);
+  if (deleteMcp) return deleteMcp[1] + ' adlı sunucuyu silmek istediğinizden emin misiniz? Bu işlem sunucuyu MCP yapılandırmanızdan kaldırır.';
   const uriError = /^Uri: ("[^"\r\n]+")[:] unknown uri scheme \(error ID: ([A-Za-z0-9-]+)\)$/.exec(text);
   if (uriError) return 'URI: ' + uriError[1] + ': bilinmeyen URI şeması (hata kimliği: ' + uriError[2] + ')';
   const projectCount = /^(\d+) projects?$/.exec(text);

@@ -13,6 +13,32 @@ function fixture() {
   ]);
 }
 
+test('plugin README translates inline text while preserving links, code and user Markdown', async () => {
+  const dom = new JSDOM(`<body><div id="plugin-detail-tabpanel"><section aria-label="Readme"><div data-markdown-root class="markdown"><h2>What you can do</h2><p>These skills target the new <a href="https://dev.wix.com/docs/wix-cli/guides/about-the-wix-cli">Wix CLI</a>. They don't generate legacy Velo or Corvid code.</p><p><strong>Build Wix app extensions:</strong> dashboard pages and modals, site widgets and plugins, backend APIs and events, service plugins (shipping, tax, discounts), embedded scripts, and data collections.</p><code>What you can do</code></div></section></div><article data-markdown-root><h2>What you can do</h2><p>Accounts</p></article><textarea>What you can do</textarea></body>`, { runScripts: 'outside-only' });
+  try {
+    const doc = dom.window.document;
+    const heading = doc.createElement('h1');
+    heading.textContent = 'Wix';
+    doc.querySelector('[data-markdown-root]').prepend(heading);
+    dom.window.eval(transformDesktopSources(fixture()).get('dist/preload.js'));
+    await new Promise(resolve => dom.window.setTimeout(resolve, 20));
+    const readme = doc.querySelector('section');
+    assert.equal(readme.querySelector('h2').textContent, 'Yapabilecekleriniz');
+    assert.match(readme.querySelector('p').textContent, /Eski Velo veya Corvid kodu üretmezler/);
+    assert.equal(readme.querySelector('a').href, 'https://dev.wix.com/docs/wix-cli/guides/about-the-wix-cli');
+    assert.equal(readme.querySelector('strong').textContent, 'Wix uygulama uzantıları geliştirin:');
+    assert.equal(readme.querySelector('code').textContent, 'What you can do');
+    assert.equal(doc.querySelector('article h2').textContent, 'What you can do');
+    assert.equal(doc.querySelector('article p').textContent, 'Accounts');
+    assert.equal(doc.querySelector('textarea').value, 'What you can do');
+    const p = doc.createElement('p');
+    p.textContent = 'Requirements';
+    readme.querySelector('[data-markdown-root]').append(p);
+    await new Promise(resolve => dom.window.setTimeout(resolve, 20));
+    assert.equal(p.textContent, 'Gereksinimler');
+  } finally { dom.window.close(); }
+});
+
 test('customization budget translates split React text nodes and copy tooltip', async () => {
   const dom = new JSDOM('<body><div id="budget"></div><button title="Copy Path">Copy Path</button></body>', { runScripts: 'outside-only' });
   try {
@@ -423,4 +449,17 @@ test('code block view controls translate without translating markdown or raw cod
 });
 test('finished notification translates prefix only and upgrades older installed patch',()=>{
  const vm=require('node:vm');const input=fixture();input.set('dist/ipcHandlers.js',"function buildContextMenuTemplate(items, onSelect) { return items.map(item => ({id:item.id,label:item.label})); } function notify(options){return {body: options.body === 'The agent is waiting for your input.' ? 'Ajan sizden giriş bekliyor.' : options.body,};}");const output=transformDesktopSources(input);assert.deepEqual(transformDesktopSources(output),output);const context={};vm.createContext(context);vm.runInContext(output.get('dist/ipcHandlers.js'),context);assert.equal(context.notify({body:'Agent finished: Zcode Ödül Kredisi Sorunu'}).body,'Ajan tamamladı: Zcode Ödül Kredisi Sorunu');assert.equal(context.notify({body:'Custom body'}).body,'Custom body');assert.equal(context.notify({body:null}).body,null);
+});
+
+test('marketplace categories and delete confirmation translate without changing links, names or actions', async () => {
+ const labels=require('./marketplace-labels.json');const dom=new JSDOM('<body><section></section><div role="dialog"><p id="confirm">Are you sure you want to delete <strong>data-agent-kit</strong>? This will remove it from your MCP configuration.</p><button disabled>Delete</button></div><a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a><code>node:internal/modules/cjs/loader:1603:15</code></body>',{runScripts:'outside-only'});
+ try{const d=dom.window.document;for(const text of Object.keys(labels)){const p=d.createElement('p');p.textContent=text;d.querySelector('section').append(p);}
+ dom.window.eval(transformDesktopSources(fixture()).get('dist/preload.js'));await new Promise(r=>dom.window.setTimeout(r,20));
+ assert.deepEqual([...d.querySelectorAll('section p')].map(n=>n.textContent),Object.values(labels));assert.doesNotMatch(d.querySelector('#confirm').textContent,/Are you sure|This will/);assert.equal(d.querySelector('strong').textContent,'data-agent-kit');assert.equal(d.querySelector('button').disabled,true);assert.equal(d.querySelector('a').getAttribute('href'),'https://policies.google.com/privacy');assert.equal(d.querySelector('code').textContent,'node:internal/modules/cjs/loader:1603:15');
+ }finally{dom.window.close();}
+});
+
+test('automation labels translate without changing time, timezone or model values', async () => {
+ const dom=new JSDOM('<body><label>Trigger</label><label>Time Zone</label><select><option value="09:00" selected>9:00 AM</option></select><input value="Europe/Istanbul"><button>Flash</button></body>',{runScripts:'outside-only'});
+ try{dom.window.eval(transformDesktopSources(fixture()).get('dist/preload.js'));await new Promise(r=>dom.window.setTimeout(r,20));const d=dom.window.document;assert.deepEqual([...d.querySelectorAll('label')].map(n=>n.textContent),['Tetikleyici','Saat Dilimi']);assert.equal(d.querySelector('select').value,'09:00');assert.equal(d.querySelector('input').value,'Europe/Istanbul');assert.equal(d.querySelector('button').textContent,'Flash');}finally{dom.window.close();}
 });

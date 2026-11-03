@@ -1,0 +1,337 @@
+[
+  {
+    "name": "data-agent-kit-plugin",
+    "source": "This plugin provides a specialized suite of skills for data engineers and database practitioners working on Google Cloud. It acts as an expert assistant, allowing you to use natural language prompts in your preferred coding agent to architect complex data pipelines, transform data with dbt, write Spark and BigQuery SQL notebooks, and orchestrate end-to-end workflows across GCP's data ecosystem.",
+    "translation": "Google Cloud üzerinde çalışan veri mühendisleri ve veritabanı uzmanları için özel beceriler sunar. Kodlama ajanınıza doğal dille istekler vererek karmaşık veri akışları tasarlamanızı, dbt ile veri dönüştürmenizi, Spark ve BigQuery SQL not defterleri yazmanızı ve GCP veri ekosisteminde uçtan uca iş akışlarını düzenlemenizi sağlar."
+  },
+  {
+    "name": "gcalendar",
+    "source": "Check availability, schedule events, and RSVP.",
+    "translation": "Uygunluğu kontrol edin, etkinlik planlayın ve katılım durumunu bildirin."
+  },
+  {
+    "name": "gdocs",
+    "source": "Read, draft, and edit docs.",
+    "translation": "Belgeleri okuyun, taslak hazırlayın ve düzenleyin."
+  },
+  {
+    "name": "gdrive",
+    "source": "Search, upload, download, and share files.",
+    "translation": "Dosyaları arayın, yükleyin, indirin ve paylaşın."
+  },
+  {
+    "name": "gsheets",
+    "source": "Read, write, and format spreadsheets.",
+    "translation": "E-tabloları okuyun, yazın ve biçimlendirin."
+  },
+  {
+    "name": "gslides",
+    "source": "Read, edit, and export presentations.",
+    "translation": "Sunumları okuyun, düzenleyin ve dışa aktarın."
+  },
+  {
+    "name": "android-cli-plugin",
+    "source": "Core tools and knowledge required to develop for Android.",
+    "translation": "Android geliştirmek için gereken temel araçlar ve bilgiler."
+  },
+  {
+    "name": "chrome-devtools-plugin",
+    "source": "Reliable automation, in-depth debugging, and performance analysis in Chrome using Chrome DevTools and Puppeteer",
+    "translation": "Chrome DevTools ve Puppeteer kullanarak Chrome'da güvenilir otomasyon, derinlemesine hata ayıklama ve performans analizi"
+  },
+  {
+    "name": "firebase",
+    "source": "Prototype, build & run modern apps that users love with Firebase's backend, AI, and operational infrastructure.",
+    "translation": "Firebase’in arka uç, yapay zekâ ve işletim altyapısıyla kullanıcıların seveceği modern uygulamaların prototipini oluşturun, geliştirin ve çalıştırın."
+  },
+  {
+    "name": "google-antigravity-sdk",
+    "source": "Using the Google Antigravity Python SDK to build AI agents",
+    "translation": "Yapay zeka ajanları oluşturmak için Google Antigravity Python SDK'sını kullanma"
+  },
+  {
+    "name": "google-developer-knowledge",
+    "source": "Search and retrieve official documentation across Google Cloud, Gemini, Android, Firebase, Flutter, and Web. Requires Google Cloud credentials (ADC) or an API key.",
+    "translation": "Google Cloud, Gemini, Android, Firebase, Flutter ve Web için resmî belgeleri arayın ve getirin. Google Cloud kimlik bilgileri (ADC) veya API anahtarı gerektirir."
+  },
+  {
+    "name": "google_maps_platform",
+    "source": "Integration skill and tools for Google Maps Platform APIs",
+    "translation": "Google Maps Platform API’leri için entegrasyon becerisi ve araçları"
+  },
+  {
+    "name": "science",
+    "source": "Curated collection of agent skills for science tasks.",
+    "translation": "Bilimsel görevler için derlenmiş ajan becerileri koleksiyonu."
+  },
+  {
+    "name": "gemini-api",
+    "source": "Build applications with the Gemini Interactions API and Live API, including text, image, video, and speech generation, managed agents, and real-time multimodal streaming.",
+    "translation": "Gemini Interactions API ve Live API ile uygulamalar geliştirin. Metin, görsel, video ve konuşma üretimini, yönetilen ajanları ve gerçek zamanlı çok modlu veri akışını destekler."
+  },
+  {
+    "name": "google-cloud-developer",
+    "source": "Google Cloud guidance for coding agents: first-project onboarding, authentication and credential selection, and safety-critical validation for gcloud CLI commands. Includes the Google Developer Knowledge MCP server for grounded, up-to-date Google Cloud documentation.",
+    "translation": "Kodlama ajanları için Google Cloud rehberi: ilk projeyi kurma, kimlik doğrulama ve kimlik bilgisi seçimi ile gcloud CLI komutlarında güvenlik açısından kritik doğrulamalar. Güncel Google Cloud belgelerine dayalı bilgi sağlamak için Google Developer Knowledge MCP sunucusunu içerir."
+  },
+  {
+    "name": "modern-web-guidance-plugin",
+    "source": "Keep your coding agent up to date with the latest web best practices.",
+    "translation": "Kodlama ajanınızı güncel web geliştirme yöntemleriyle destekleyin."
+  },
+  {
+    "name": "flutter",
+    "source": "Official plugin for Dart and Flutter that installs Flutter/Dart Skills, Rules, Custom Agents, and Dart MCP server for building natively compiled, visually stunning applications for mobile, web, desktop, and embedded devices from a single codebase",
+    "translation": "Tek bir kod tabanından mobil, web, masaüstü ve gömülü cihazlar için yerel olarak derlenen, etkileyici arayüzlere sahip uygulamalar geliştirmeyi sağlayan resmî Dart ve Flutter eklentisi. Flutter/Dart becerilerini, kurallarını, özel ajanları ve Dart MCP sunucusunu kurar."
+  },
+  {
+    "name": "stripe",
+    "source": "Accept payments and grow your business. Stripe's official MCP server enables AI agents to manage customers, products, prices, payment links, invoices, subscriptions, and refunds, as well as search Stripe documentation.",
+    "translation": "Ödemeleri kabul edin ve işinizi büyütün. Stripe’ın resmî MCP sunucusuyla müşterileri, ürünleri, fiyatları, ödeme bağlantılarını, faturaları, abonelikleri ve iadeleri yönetin; Stripe belgelerinde arama yapın."
+  },
+  {
+    "name": "atlassian-twg-cli",
+    "source": "Teamwork Graph CLI is Atlassian's agent-first interface to your entire work context: Jira issues, Confluence pages, Bitbucket PRs, along with your connected third-party data sources. Purpose-built for coding agents like Antigravity (terminal or desktop), and powered by Atlassian's context graph. Try: \"draft a Jira issue from this PR and link it to the epic.\" Run /twg-setup after install to connect Atlassian Teamwork Graph CLI to Antigravity.",
+    "translation": "Teamwork Graph CLI, Atlassian’ın ajan odaklı çalışma bağlamı arayüzüdür: Jira kayıtları, Confluence sayfaları, Bitbucket çekme istekleri ve bağlı üçüncü taraf veri kaynakları. Atlassian bağlam grafiğiyle çalışır; terminal veya masaüstündeki Antigravity gibi kodlama ajanları için tasarlanmıştır. Örnek: Bu çekme isteğinden bir Jira kaydı hazırlayıp epic kaydına bağlayın. Kurulumdan sonra bağlamak için /twg-setup çalıştırın."
+  },
+  {
+    "name": "auth0",
+    "source": "Add Auth0 authentication to any app: login, MFA, SSO, Organizations, RBAC, custom domains, and branding. Debug auth errors and migrate from other providers.",
+    "translation": "Uygulamalara Auth0 kimlik doğrulaması ekleyin: giriş, MFA, SSO, kuruluşlar, RBAC, özel alan adları ve marka ayarları. Kimlik doğrulama hatalarını inceleyin ve diğer sağlayıcılardan geçiş yapın."
+  },
+  {
+    "name": "base44",
+    "source": "Build and deploy Base44 full-stack apps: CLI project management, JavaScript/TypeScript SDK development, and production troubleshooting skills.",
+    "translation": "Base44 ile uçtan uca uygulamalar geliştirip dağıtın: CLI proje yönetimi, JavaScript/TypeScript SDK geliştirme ve üretim sorunlarını giderme becerileri."
+  },
+  {
+    "name": "browse",
+    "source": "Give your agent a real browser: navigate, click, type, screenshot, and extract data from any site, locally or on Browserbase cloud browsers.",
+    "translation": "Ajanınıza gerçek bir tarayıcı sağlayın: yerel veya Browserbase bulut tarayıcılarında siteleri gezin, tıklayın, yazın, ekran görüntüsü alın ve veri çıkarın."
+  },
+  {
+    "name": "canva",
+    "source": "Create, edit, review, resize, and brand-check Canva designs with the Canva MCP server.",
+    "translation": "Canva MCP sunucusuyla tasarımlar oluşturun, düzenleyin, inceleyin, yeniden boyutlandırın ve marka uyumunu kontrol edin."
+  },
+  {
+    "name": "coderabbit",
+    "source": "AI-powered code review and review-comment autofix, powered by CodeRabbit.",
+    "translation": "CodeRabbit ile yapay zekâ destekli kod incelemesi ve inceleme yorumlarına otomatik düzeltme."
+  },
+  {
+    "name": "context7",
+    "source": "Up-to-date documentation lookup. Pull version-specific documentation and code examples directly from source repositories into your LLM context.",
+    "translation": "Güncel belgelerde arama yapın. Sürüme özel belgeleri ve kod örneklerini doğrudan kaynak depolarından dil modelinizin bağlamına alın."
+  },
+  {
+    "name": "crowdstrike",
+    "source": "Use the official CrowdStrike-hosted MCP server to work across Falcon: detections, cases, threat intel, SIEM, hosts, vulnerabilities, cloud, and more.",
+    "translation": "CrowdStrike’ın barındırdığı resmî MCP sunucusuyla Falcon üzerinde çalışın: tespitler, vakalar, tehdit istihbaratı, SIEM, makineler, güvenlik açıkları, bulut ve daha fazlası."
+  },
+  {
+    "name": "databricks",
+    "source": "Databricks skills for the CLI, Apps, Lakebase, Model Serving, Lakeflow Jobs, Spark Declarative Pipelines, Declarative Automation Bundles (DABs), and classic-to-serverless migration.",
+    "translation": "CLI, Apps, Lakebase, Model Serving, Lakeflow Jobs, Spark Declarative Pipelines, Declarative Automation Bundles (DABs) ve klasik ortamdan sunucusuz ortama geçiş için Databricks becerileri."
+  },
+  {
+    "name": "datadog",
+    "source": "Use Datadog directly in Antigravity through a preconfigured Datadog MCP server. Query logs, metrics, traces, dashboards, and more through natural conversation. This plugin is in preview.",
+    "translation": "Önceden yapılandırılmış Datadog MCP sunucusuyla Datadog’u Antigravity içinde kullanın. Doğal konuşmayla günlükleri, metrikleri, izleri, panoları ve diğer verileri sorgulayın. Bu eklenti önizleme aşamasındadır."
+  },
+  {
+    "name": "dropbox",
+    "source": "Connect Antigravity to Dropbox to search, inspect, summarize, share, collect uploads, organize folders, and clean up files with confirmation for write actions.",
+    "translation": "Antigravity’yi Dropbox’a bağlayın: dosyaları arayın, inceleyin, özetleyin ve paylaşın; yüklemeleri toplayın, klasörleri düzenleyin ve dosyaları temizleyin. Yazma işlemleri için onay alınır."
+  },
+  {
+    "name": "dynatrace",
+    "source": "Investigate production issues with real Dynatrace data: problems and root causes, logs, metrics, traces, and vulnerabilities, via skills and the MCP server.",
+    "translation": "Beceriler ve MCP sunucusu üzerinden gerçek Dynatrace verileriyle üretim sorunlarını inceleyin: sorunlar ve kök nedenler, günlükler, metrikler, izler ve güvenlik açıkları."
+  },
+  {
+    "name": "endor-labs-agent-kit",
+    "source": "Packaged workflows for SCA remediation, AI SAST triage, CI/CD posture, malware response, findings review, Endor Labs setup, and more.",
+    "translation": "SCA düzeltmeleri, yapay zekâ SAST değerlendirmesi, CI/CD güvenlik durumu, kötü amaçlı yazılımlara müdahale, bulgu incelemesi ve Endor Labs kurulumu için hazır iş akışları."
+  },
+  {
+    "name": "figma",
+    "source": "Turn Figma designs into production code, map components with Code Connect, and create or edit Figma files in Antigravity.",
+    "translation": "Figma tasarımlarını üretim koduna dönüştürün, Code Connect ile bileşenleri eşleyin ve Antigravity içinde Figma dosyaları oluşturup düzenleyin."
+  },
+  {
+    "name": "harness-antigravity",
+    "source": "Build and debug pipelines, manage deployments, investigate security findings, and operate Harness with connected tools and reusable workflow skills.",
+    "translation": "Bağlı araçlar ve yeniden kullanılabilir iş akışı becerileriyle işlem hatları oluşturup hata ayıklayın, dağıtımları yönetin, güvenlik bulgularını inceleyin ve Harness üzerinde çalışın."
+  },
+  {
+    "name": "intercom",
+    "source": "Search Intercom conversations, contacts, and companies, spot support trends, and install the Intercom Messenger with secure identity verification.",
+    "translation": "Intercom konuşmalarını, kişilerini ve şirketlerini arayın, destek eğilimlerini belirleyin ve güvenli kimlik doğrulamasıyla Intercom Messenger’ı kurun."
+  },
+  {
+    "name": "keenable",
+    "source": "Search the web and read any page as clean markdown with Keenable, a search engine built for AI agents. Keyless: no signup or API key needed.",
+    "translation": "Yapay zekâ ajanları için geliştirilmiş Keenable arama motoruyla web’de arama yapın ve sayfaları temiz Markdown olarak okuyun. Kayıt veya API anahtarı gerekmez."
+  },
+  {
+    "name": "leapwork-play",
+    "source": "Create, run and debug Leapwork Play tests and runlists, build agents, and hand work to Play's AI workflows, right from Antigravity.",
+    "translation": "Antigravity üzerinden Leapwork Play testleri ve çalıştırma listeleri oluşturun, çalıştırın ve hata ayıklayın; ajanlar geliştirin ve işleri Play yapay zekâ iş akışlarına devredin."
+  },
+  {
+    "name": "linear",
+    "source": "The product development system for teams and agents. Manage issues, projects, and documents across your Linear workspace from Antigravity.",
+    "translation": "Ekipler ve ajanlar için ürün geliştirme sistemi. Antigravity üzerinden Linear çalışma alanınızdaki kayıtları, projeleri ve belgeleri yönetin."
+  },
+  {
+    "name": "mobbin",
+    "source": "Give your AI agent 600,000+ real app screens, and the skills to use them. Includes the Mobbin MCP and a skill that redesigns your screen from patterns real apps ship, in your own design system, with the references behind every change.",
+    "translation": "Ajanınıza 600.000’den fazla gerçek uygulama ekranı ve bunları kullanma becerileri sağlayın. Mobbin MCP ile gerçek uygulama örüntülerinden yararlanıp kendi tasarım sisteminiz içinde ekranı yeniden tasarlayan bir beceri içerir; her değişikliğin kaynakları gösterilir."
+  },
+  {
+    "name": "monday",
+    "source": "Plan and track work in monday.com from Antigravity: create, update and assign items, write docs, and build forms that turn requests into items.",
+    "translation": "Antigravity üzerinden monday.com işlerini planlayıp takip edin: öğeler oluşturun, güncelleyin ve atayın; belgeler yazın ve talepleri iş öğelerine dönüştüren formlar hazırlayın."
+  },
+  {
+    "name": "mongodb-atlas",
+    "source": "Official Antigravity plugin for MongoDB Atlas (hosted MCP Server + Skills). Connect to the MongoDB-hosted Atlas MCP server, explore data, manage collections, optimize queries, generate reliable code, implement best practices, develop advanced features, and more.",
+    "translation": "MongoDB Atlas için resmî Antigravity eklentisi: barındırılan MCP sunucusu ve beceriler. Atlas MCP sunucusuna bağlanın; verileri keşfedin, koleksiyonları yönetin, sorguları iyileştirin, güvenilir kod üretin, iyi uygulamaları hayata geçirin ve gelişmiş özellikler geliştirin."
+  },
+  {
+    "name": "netlify",
+    "source": "Build and deploy on Netlify: functions, edge functions, blobs, database, identity, forms, image CDN, caching, and AI Gateway, plus the Netlify MCP server.",
+    "translation": "Netlify üzerinde geliştirin ve dağıtın: işlevler, uç işlevler, blob depolama, veritabanı, kimlik, formlar, görsel CDN’i, önbellekleme, AI Gateway ve Netlify MCP sunucusu."
+  },
+  {
+    "name": "notion",
+    "source": "Connect Antigravity to your Notion workspace with the Notion MCP server, plus skills for research, documentation, meeting prep, specs, trackers, and project updates.",
+    "translation": "Notion MCP sunucusuyla Antigravity’yi Notion çalışma alanınıza bağlayın. Araştırma, belgelendirme, toplantı hazırlığı, teknik tanımlar, takip listeleri ve proje güncellemeleri için beceriler içerir."
+  },
+  {
+    "name": "pandadoc",
+    "source": "Create and send proposals, quotes, and contracts for e-signature. Track signing progress and identify documents that need follow-up.",
+    "translation": "Elektronik imza için teklifler, fiyat teklifleri ve sözleşmeler oluşturup gönderin. İmza ilerlemesini takip edin ve takip gerektiren belgeleri belirleyin."
+  },
+  {
+    "name": "parallel",
+    "source": "Search the live web and fetch page content with Parallel's hosted MCP server. Free access with no Parallel account, API key, or Parallel CLI required.",
+    "translation": "Parallel’in barındırdığı MCP sunucusuyla canlı web’de arama yapın ve sayfa içeriklerini alın. Ücretsiz erişim; Parallel hesabı, API anahtarı veya Parallel CLI gerekmez."
+  },
+  {
+    "name": "ping-identity-pingone",
+    "source": "Agent plugin for PingOne multi-tenant. Includes skills and a remote MCP server that lets AI agents configure and monitor your PingOne environments.",
+    "translation": "Çok kiracılı PingOne için ajan eklentisi. Yapay zekâ ajanlarının PingOne ortamlarını yapılandırıp izlemesini sağlayan beceriler ve uzak MCP sunucusu içerir."
+  },
+  {
+    "name": "postman",
+    "source": "Equip Antigravity with specialized Postman skills for the complete API lifecycle. Discover, design, test, document, mock, monitor, and improve APIs through agent-friendly, filesystem-first workflows.",
+    "translation": "Tüm API yaşam döngüsü için Antigravity’ye Postman becerileri ekleyin. Ajanlara uygun, dosya sistemi odaklı iş akışlarıyla API’leri keşfedin, tasarlayın, test edin, belgeleyin, taklit edin, izleyin ve iyileştirin."
+  },
+  {
+    "name": "qodo",
+    "source": "Set up Qodo, explore code and repository history, review local changes, and resolve pull-request findings directly from Antigravity.",
+    "translation": "Antigravity üzerinden Qodo’yu kurun, kodu ve depo geçmişini inceleyin, yerel değişiklikleri değerlendirin ve çekme isteği bulgularını çözün."
+  },
+  {
+    "name": "railway",
+    "source": "Deploy, configure, monitor, and troubleshoot apps, databases, and infrastructure on Railway from Antigravity with Railway's agent skill and hosted MCP server.",
+    "translation": "Railway’in ajan becerisi ve barındırılan MCP sunucusuyla Antigravity üzerinden Railway uygulamalarını, veritabanlarını ve altyapısını dağıtın, yapılandırın, izleyin ve sorunlarını giderin."
+  },
+  {
+    "name": "semrush",
+    "source": "SEO workflows on live Semrush data: keyword research, site audits, backlinks, competitor, traffic and market analytics, PPC, and AI brand visibility.",
+    "translation": "Canlı Semrush verileriyle SEO iş akışları: anahtar kelime araştırması, site denetimleri, geri bağlantılar, rakip, trafik ve pazar analizleri, PPC ve yapay zekâ ortamlarında marka görünürlüğü."
+  },
+  {
+    "name": "sentinelone-purple-mcp",
+    "source": "Query your SentinelOne Singularity Console from Antigravity through a self-hosted, read-only Purple AI MCP server. Requires an active console deployment, your console URL, and an API token.",
+    "translation": "Kendi barındırdığınız, salt okunur Purple AI MCP sunucusuyla Antigravity üzerinden SentinelOne Singularity Console’u sorgulayın. Etkin konsol kurulumu, konsol URL’si ve API token’ı gerekir."
+  },
+  {
+    "name": "sentry",
+    "source": "Set up Sentry monitoring, investigate production errors, and configure alerts and releases with expert skills and live context from your Sentry projects.",
+    "translation": "Uzman beceriler ve Sentry projelerinizin canlı bağlamıyla Sentry izlemeyi kurun, üretim hatalarını inceleyin, uyarıları ve sürümleri yapılandırın."
+  },
+  {
+    "name": "soc",
+    "source": "Triage Exabeam New-Scale alerts and cases end to end: gather the evidence, map MITRE, reach a verdict, and record it behind an approval step.",
+    "translation": "Exabeam New-Scale uyarılarını ve vakalarını uçtan uca değerlendirin: kanıt toplayın, MITRE eşlemesi yapın, karara varın ve onay adımından sonra kaydedin."
+  },
+  {
+    "name": "supabase",
+    "source": "Official Supabase plugin for Antigravity with Supabase skills and MCP access for project management, database work, auth, storage, and Postgres best practices.",
+    "translation": "Proje yönetimi, veritabanı, kimlik doğrulama, depolama ve Postgres iyi uygulamaları için Supabase becerileri ve MCP erişimi sağlayan resmî Antigravity eklentisi."
+  },
+  {
+    "name": "superpowers",
+    "source": "Make your coding agent a better engineer",
+    "translation": "Kodlama ajanınızı daha iyi bir mühendis yapın"
+  },
+  {
+    "name": "trello",
+    "source": "Official Trello plugin with the Trello MCP server and a skill for boards, lists, cards, checklists, Inbox, and Planner.",
+    "translation": "Trello MCP sunucusu ile panolar, listeler, kartlar, kontrol listeleri, Gelen Kutusu ve Planlayıcı için beceri içeren resmî Trello eklentisi."
+  },
+  {
+    "name": "unity",
+    "source": "Unity's official plugin for Antigravity, with curated skills for game development, monetization, and performance optimization.",
+    "translation": "Oyun geliştirme, gelir elde etme ve performans iyileştirmesi için seçilmiş beceriler içeren resmî Unity Antigravity eklentisi."
+  },
+  {
+    "name": "vercel-plugin",
+    "source": "Build and deploy web apps and AI agents on Vercel with skills for Next.js, AI SDK, and cloud services, plus the official Vercel MCP server.",
+    "translation": "Next.js, AI SDK ve bulut hizmetleri becerileri ile resmî Vercel MCP sunucusunu kullanarak Vercel üzerinde web uygulamaları ve yapay zekâ ajanları geliştirin ve dağıtın."
+  },
+  {
+    "name": "virustotal",
+    "source": "Investigate files, URLs, domains and IP addresses with VirusTotal threat intelligence, analysis and submission recovery.",
+    "translation": "VirusTotal tehdit istihbaratı, analiz ve gönderim kurtarma araçlarıyla dosyaları, URL’leri, alan adlarını ve IP adreslerini inceleyin."
+  },
+  {
+    "name": "wispr-flow",
+    "source": "Search and read your Wispr Flow meeting notes, transcripts, scratchpad notes, and calendar events. Read-only access to your own account.",
+    "translation": "Wispr Flow toplantı notlarını, dökümleri, taslak notlarını ve takvim etkinliklerini arayıp okuyun. Yalnızca kendi hesabınıza salt okunur erişim sağlar."
+  },
+  {
+    "name": "wix",
+    "source": "Build Wix apps and headless sites, and manage Wix stores, bookings, CMS and more, with Wix CLI skills and the official Wix MCP server.",
+    "translation": "Wix CLI becerileri ve resmî Wix MCP sunucusuyla Wix uygulamaları ve headless siteler geliştirin; Wix mağazalarını, rezervasyonlarını, CMS’i ve diğer hizmetleri yönetin."
+  },
+  {
+    "name": "wordpress",
+    "source": "Build, publish, and manage WordPress.com and Jetpack-connected sites. Draft posts, edit blocks, check traffic stats, moderate comments, and manage plugins.",
+    "translation": "WordPress.com ve Jetpack bağlantılı siteler oluşturun, yayımlayın ve yönetin. Yazı taslakları hazırlayın, blokları düzenleyin, trafik istatistiklerini inceleyin, yorumları denetleyin ve eklentileri yönetin."
+  },
+  {
+    "name": "zapier",
+    "source": "Connect 9,000+ apps to your AI workflow. Discover, enable, and execute Zapier actions and workflows directly from your client.",
+    "translation": "9.000’den fazla uygulamayı yapay zekâ iş akışınıza bağlayın. Zapier eylemlerini ve iş akışlarını doğrudan istemcinizden keşfedin, etkinleştirin ve çalıştırın."
+  },
+  {
+    "name": "zoho-bigin",
+    "source": "Manage your Bigin CRM from Antigravity: review pipelines, find contacts and deals, log calls, plan follow-ups, and email customers.",
+    "translation": "Bigin CRM’i Antigravity üzerinden yönetin: satış süreçlerini inceleyin, kişileri ve fırsatları bulun, aramaları kaydedin, takipleri planlayın ve müşterilere e-posta gönderin."
+  },
+  {
+    "name": "zoho-crm-plugin",
+    "source": "Build on Zoho CRM v8: REST API, Deluge functions, ClientScript, widgets, COQL and connections, with live CRM data through your Zoho MCP server.",
+    "translation": "Zoho CRM v8 üzerinde geliştirin: REST API, Deluge işlevleri, ClientScript, bileşenler, COQL ve bağlantılar. Zoho MCP sunucusuyla canlı CRM verilerine erişin."
+  },
+  {
+    "name": "zoho-desk-antigravity",
+    "source": "Zoho Desk plugin for Antigravity. Review, prioritize, and update Zoho Desk tickets directly from Antigravity through Zoho Desk MCP and includes a Ticket Prioritization Agent for triage and priority updates.",
+    "translation": "Zoho Desk Antigravity eklentisi. Zoho Desk MCP ile destek kayıtlarını inceleyin, önceliklendirin ve güncelleyin. Değerlendirme ve öncelik güncellemeleri için Kayıt Önceliklendirme Ajanı içerir."
+  },
+  {
+    "name": "zoho-projects",
+    "source": "Connect Zoho Projects to Antigravity to turn tasks and issues into working code. Access project context, investigate bugs, and update work items as you develop.",
+    "translation": "Zoho Projects’i Antigravity’ye bağlayarak görevleri ve sorunları çalışan koda dönüştürün. Proje bağlamına erişin, hataları inceleyin ve geliştirme sırasında iş öğelerini güncelleyin."
+  },
+  {
+    "name": "zohobooks-antigravity",
+    "source": "Run Zoho Books from Antigravity: invoicing, bills, banking, journals, projects, items, taxes, customization and automation.",
+    "translation": "Antigravity üzerinden Zoho Books’u kullanın: faturalar, gelen faturalar, bankacılık, yevmiye kayıtları, projeler, ürünler, vergiler, özelleştirme ve otomasyon."
+  }
+]

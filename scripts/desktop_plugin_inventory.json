@@ -1,0 +1,250 @@
+{
+  "skills": {
+    "android-cli-plugin/skills/SKILL.md": {
+      "hash": "50aecd747a0e1ba7ad069e6017e0efd554ec23bd255f219562db3bd62ca0e6a9",
+      "source": "Provides instructions for installing and using the `android` CLI. The `android` command-line tool is a critical tool for Android development and helps you create new Android projects, run Android apps on devices, manage and interact with Android virtual devices (including screenshots and UI inspection), manage Android SDK components, look up official Android documentation, and discover and install official Android skills."
+    },
+    "android-cli-plugin/skills/compose-preview/SKILL.md": {
+      "hash": "180f6a6df33a85ef5cedf7cdd386c30d4695b0a6af7f0575eeead036ecc8b8c4",
+      "source": "Instructions for the Android Compose Preview sidecar, which renders Jetpack Compose @Preview functions with `android preview render` and shows them in the Android Compose Preview pane. Use it when the user wants to see a Compose preview, or to review the result of UI changes — re-render after changing the code so that the pane shows the result."
+    },
+    "android-cli-plugin/skills/device-hub/SKILL.md": {
+      "hash": "bca7ab4cad322fd598690d3961f209aeb2caa802adef1789a9f5c911e98061f5",
+      "source": "Instructions for working with the Android Device Hub sidecar, which lists, starts, stops, creates and removes Android Virtual Devices (AVDs), lists physical devices connected to adb, and lets the user mirror and control any of them (video, touch, keyboard, mouse wheel) in the Device Hub pane. Also explains how to inspect and interact with the screen the user is mirroring, with `android layout`, `android screen` and `adb`."
+    },
+    "base44/skills/base44-cli/SKILL.md": {
+      "hash": "f50c7231f9418284527c36797c6c15ee1bda954e669909e67b1adf51cda97d54",
+      "source": "The base44 CLI is used for EVERYTHING related to base44 projects: resource configuration (entities, backend functions, realtime actors, ai agents), initialization and actions (resource creation, deployment), and any other operation on an existing app or workspace through the Base44 public API (settings, domains, users, members, source export). This skill is the place for learning about how to configure resources, including actors — the realtime/WebSocket primitive behind multiplayer, collaborative boards, presence and live cursors, in-room chat, and live auctions. When you plan or implement a feature, you must learn this skill"
+    },
+    "base44/skills/base44-sdk/SKILL.md": {
+      "hash": "233100dfededed9f7b6396f3234e171f34572919ad277847e32330d4e9157e3c",
+      "source": "The base44 SDK is the library to communicate with base44 services. In projects, you use it to communicate with remote resources (entities, backend functions, realtime actors, ai agents, and the AI gateway for code agents, image, video, and speech generation, and AI decisions) and to write backend functions and actors. This skill is the place for learning about available modules and types, including actors — the realtime/WebSocket primitive for multiplayer, collaborative boards, presence and live cursors, in-room chat, and live auctions. When you plan or implement a feature, you must learn this skill"
+    },
+    "base44/skills/base44-troubleshooter/SKILL.md": {
+      "hash": "55b5fdb254c106edaa9afc3ffdea67ffa731c652ca20545282e65cb1c5a091cc",
+      "source": "Troubleshoot production issues using backend function logs and workflow run history. Use when investigating app errors, debugging function calls, diagnosing why a scheduled job or automation failed, or diagnosing production problems in Base44 apps."
+    },
+    "browse/skills/browse/SKILL.md": {
+      "hash": "6395ec45e5b71e0739c08769a7d83c67f0ef52d6c7455903b912d2d534562898",
+      "source": "Use the browse CLI for Browserbase browser automation, Browserbase cloud APIs, Browserbase Functions, templates, web fetch/search, diagnostics, and Browse.sh skill discovery/installation. Use when the user asks to navigate pages, inspect browser state, run local or remote browser sessions, manage Browserbase resources, call Browserbase Functions, browse or scaffold Browserbase templates, fetch or search web content, diagnose browse setup, find or install a skill for a website task, discover site-specific Browse.sh skills, or install/refresh this browse skill."
+    },
+    "chrome-devtools-plugin/skills/a11y-debugging/SKILL.md": {
+      "hash": "9b43cc423a2c6d05b7c10b0271b17cd5de18ae2dc434d0eb6dc25f7ca863c1d7",
+      "source": "Uses Chrome DevTools MCP for accessibility (a11y) debugging and auditing based on web.dev guidelines. Use when testing semantic HTML, ARIA labels, focus states, keyboard navigation, tap targets, and color contrast."
+    },
+    "chrome-devtools-plugin/skills/chrome-devtools/SKILL.md": {
+      "hash": "2962e7b4dc6567460a8fbd7e28b4e6f26beb36e0c56ad425a8d24934aef501fd",
+      "source": "Uses Chrome DevTools via MCP for efficient debugging, troubleshooting and browser automation. Use when debugging web pages, automating browser interactions, analyzing performance, or inspecting network requests. This skill does not apply to `--slim` mode (MCP configuration)."
+    },
+    "chrome-devtools-plugin/skills/cookie-debugging/SKILL.md": {
+      "hash": "7884783c6021339936c5b1399a90900041ad2cf2f10a7d745138c795012534c5",
+      "source": "Uses Chrome DevTools MCP for inspecting, debugging, and testing cookies, session state, authentication issues, and cookie consent compliance. Use when diagnosing 401/403 errors, authentication redirects, session expiration, Cookie/Set-Cookie header issues, cookie banner consent conformance, or third-party cookie/SameSite/Partitioned cookie warnings."
+    },
+    "chrome-devtools-plugin/skills/debug-optimize-lcp/SKILL.md": {
+      "hash": "8f2a3221b61c532a0ae9ae235ebadc6ed1a26e1efc80d07ad4775c23d94eb90f",
+      "source": "Guides debugging and optimizing Largest Contentful Paint (LCP) using Chrome DevTools MCP tools. Use this skill whenever the user asks about LCP performance, slow page loads, Core Web Vitals optimization, or wants to understand why their page's main content takes too long to appear. Also use when the user mentions \"largest contentful paint\", \"page load speed\", \"CWV\", or wants to improve how fast their hero image or main content renders."
+    },
+    "chrome-devtools-plugin/skills/memory-leak-debugging/SKILL.md": {
+      "hash": "b330cf36f0fa3812fb8411aa907d06f70cfdfd7dcaaa2e21938b74ea3e1d7b55",
+      "source": "Diagnoses and resolves memory leaks in JavaScript/Node.js applications. Use when a user reports high memory usage, OOM errors, or wants to capture, compare, or inspect heap snapshots with Chrome DevTools MCP memory tools."
+    },
+    "chrome-devtools-plugin/skills/troubleshooting/SKILL.md": {
+      "hash": "1836c4af372fa1eadc323050af49cb38d064a96dfceb472506cbb54c719bf270",
+      "source": "Uses Chrome DevTools MCP and documentation to troubleshoot connection and target issues. Trigger this skill when list_pages, new_page, or navigate_page fail, or when the server initialization fails."
+    },
+    "data-agent-kit-plugin/skills/accidental-data-loss-prevention/SKILL.md": {
+      "hash": "1e23463e72e4584cf2cdfc3a57783b86e20a7c387dc8347fbe7568c7d44238a6",
+      "source": "**STOP AND VERIFY**: Before running any command or tool that results in irreversible data loss, you MUST obtain explicit user consent.\nWhen in doubt, ask. It is better to wait for confirmation than to accidentally delete production data or critical project assets.\nUse this for:\n- SQL: DROP TABLE/VIEW/SCHEMA/DATABASE, TRUNCATE, or broad DELETE (missing WHERE or using 1=1).\n- Cloud Storage: gsutil rm or gcloud storage rm targeting production data or critical buckets.\n- Infrastructure: gcloud projects delete, deleting Spanner/BigQuery/Dataproc resources, deleting secrets, or KMS key destruction."
+    },
+    "data-agent-kit-plugin/skills/bigquery-ai-ml/SKILL.md": {
+      "hash": "9bc78df5e9566ba52d37415ca6a715adc721962de6b2d36897f704916db38630",
+      "source": "Leverages BigQuery's built-in machine learning and GenAI capabilities for advanced data analytics. Use when you need to write SQL queries that perform time-series forecasting, predict values, detect outliers or anomalies, find key drivers, perform semantic search or vector search, classify text, calculate similarity, summarize content, translate language, evaluate models, filter by semantic conditions, measure the causal effect of an intervention, compute correlations between columns, generate descriptive statistics and table distribution profiles, detect change points or structural breaks, extract trend or seasonality components, or leverage generative AI capabilities in BigQuery. Do not use for general BigQuery dataset, table, or job management requests."
+    },
+    "data-agent-kit-plugin/skills/bigquery-bigframes/SKILL.md": {
+      "hash": "08eae74b8c3323061ec9bcb5b17f72ceb83fc1107e882895d3c95cb349eba619",
+      "source": "Generates Python code using BigQuery DataFrames (BigFrames). Use by default for any Python data task involving BigQuery, including data processing, analysis, and machine learning. Don't use for SQL-first workflows or the google-cloud-bigquery client library — use bigquery-basics."
+    },
+    "data-agent-kit-plugin/skills/bigquery-data-transfer-service/SKILL.md": {
+      "hash": "429cd7ec92c80273477dae79108eb178992abe5546c433856a3c9ee7e28d5a7c",
+      "source": "Discovers and inspects BigQuery Data Transfer Service (DTS) configurations. Use this to identify existing ingestion pipelines and extract datasource or transfer config metadata for data pipelines. Use when a user asks for ingestion scenarios while building or managing data pipelines or when a user asks to \"ingest\" or \"add\" data that may already be managed by a DTS transfer."
+    },
+    "data-agent-kit-plugin/skills/bigquery-graph-author/SKILL.md": {
+      "hash": "66abd33dabafdbf30c7fb73d12ac8607d39d71b4c63ed2439d5f4ecf9bc260df",
+      "source": "Provides an end-to-end journey for authoring a BigQuery property graph from your tables or from a model document/diagram (an ER diagram, an ontology, a semantic model): dataset discovery, candidate relationships verified against the data, a readable plan, and `CREATE PROPERTY GRAPH` DDL with schema best practices and semantic measures/dimensions, plus an opt-in verification suite for the landed graph. Use when creating or replacing a property graph, authoring a graph from a dataset or a document, or verifying relationships or suspicious edge counts. Don't use for querying an existing graph, for non-BigQuery graph databases, or for drawing/rendering diagrams."
+    },
+    "data-agent-kit-plugin/skills/bigquery-graph-query/SKILL.md": {
+      "hash": "a95747070e4884d0a45f93a1a2f2801453bfeecbe1ae3de159ad453583c97060",
+      "source": "Provides guidelines and best practices for querying BigQuery property graphs and semantic graphs: native GQL (Graph Query Language) pattern matching, multi-hop and variable-length paths, aggregation, top-N, path extraction, output formatting (graph visualization with TO_JSON vs tabular), GRAPH_TABLE relational SQL integration, and semantic graph querying via the GRAPH_EXPAND TVF with starting-node view selection and AGG() measures. Also covers hybrid semantic search, combining `VECTOR_SEARCH` candidate generation with graph traversal when a node carries an embedding-backed property. Use when querying graph topology, node/edge connections, paths, or semantic measures over an existing BigQuery graph. Don't use for Cypher or non-BigQuery graph databases, or for creating/modifying a graph schema."
+    },
+    "data-agent-kit-plugin/skills/bigquery-observability/SKILL.md": {
+      "hash": "cea0aa9b2472dc1c55658189cf72cc1fc14e003a320fbc213ad1bcd4dab78ece",
+      "source": "Provides data-retrieval best practices, tool selection guidance, and performant SQL query syntax for BigQuery telemetry across INFORMATION_SCHEMA, Cloud Monitoring, and the REST API. Use when the telemetry to fetch is already known, selecting telemetry tools, writing performant INFORMATION_SCHEMA queries, retrieving telemetry for diagnosing single-job performance bottlenecks, investigating slot contention, job concurrency and queue latency, analyzing reservation capacity, utilization and autoscaling saturation, or auditing capacity-based and on-demand compute and storage resource billable usage. Don't use for root-cause diagnosis or symptom troubleshooting when the cause is unknown (use bigquery-troubleshooting first), or for writing or optimizing business logic SQL (use bigquery-optimization)."
+    },
+    "data-agent-kit-plugin/skills/bigquery-optimization/SKILL.md": {
+      "hash": "d314fc49ca365559e510bbec0d28421f062006bff86c337c946d1b39ee507e09",
+      "source": "Provides workflows to optimize BigQuery environments (capacity planning, editions), storage assets (partitioning, clustering, storage lifecycles, billing models), and SQL queries. Use when optimizing cost, modeling Edition migrations, rightsizing reservations, evaluating logical vs. physical storage, designing table partitioning/clustering, generating table DDL, migrating unpartitioned tables, managing partition expiration, optimizing individual SQL queries, or evaluating acceleration structures (search indexes, materialized views, BI Engine).\nDo not use for raw usage reporting (use bigquery-observability), query execution plan analysis, error troubleshooting, or diagnosing why a specific job was slow (use bigquery-troubleshooting)."
+    },
+    "data-agent-kit-plugin/skills/bigquery-troubleshooting/SKILL.md": {
+      "hash": "f4e78cfaa2db705d9534c76b30853c120b78200460682fd2b01961a0174a254e",
+      "source": "Provides diagnostic workflows and step-by-step root-cause analysis procedures for actively broken, failing, or slow BigQuery jobs, execution graph and query plan stage bottlenecks, system performance issues, or unexpectedly expensive workloads. Use when interpreting symptoms, isolating bottlenecks, diagnosing cost spikes (on-demand query spend, capacity slot autoscaling, storage growth), execution graph stages or substep variables, identifying root causes, and determining remediation steps. Don't use for writing or optimizing SQL, proactive capacity planning, or storage layout design (use bigquery-optimization), or when the user already knows which telemetry they want and just needs the query (use bigquery-observability)."
+    },
+    "data-agent-kit-plugin/skills/bigtable-basics/SKILL.md": {
+      "hash": "92ff61996aa76a6c5a7895d429f3b42b7b2354baaf6ce428dd204ad323e2e2d4",
+      "source": "Provisions instances and tables, designs performant schemas, and queries data in Bigtable. Use when designing Bigtable row keys, configuring column families, writing SQL queries or client library code (Java, Go, Python) for Bigtable, or diagnosing performance/hotspotting issues. Also use when provisioning Bigtable clusters using gcloud or cbt CLIs. Don't use for generic Cloud SQL administration."
+    },
+    "data-agent-kit-plugin/skills/building-data-apps/SKILL.md": {
+      "hash": "f9a1fb022777995026db3be16a1b127525981d442da29e17eccc7122b754dfb3",
+      "source": "Build modern data apps, dashboards, and interactive reports using either\nReact + Vite or Streamlit. Includes optional Gemini Data Analytics chat\nintegration for an AI powered \"chat with your data\" experience.\n\nRelevant when any of the following conditions are true:\n  1. User explicitly requests to build a data dashboard, data application, or visualization UI, and the UI pulls data from a GCP database (defaulting to BigQuery unless otherwise specified).\n  2. You need to generate a frontend web application to interact with, query, and visualize data from GCP data sources.\n  3. User wants to build a \"chat with your data\" experience or integrate the Gemini Data Analytics chat API into a web interface.\n\nDo NOT use when any of the following conditions are true:\n  1. The request is for building backend-only services.\n  2. The request is for simple CLI scripts or command-line applications.\n  3. The web application is not data-centric or does not involve visualizing/querying data from GCP sources."
+    },
+    "data-agent-kit-plugin/skills/cloud-databases-onboarding/SKILL.md": {
+      "hash": "7032aace0d543027bda220dc85f517db078599633ab9d223aab9bb722f0c50db",
+      "source": "Guides users through discovering their database requirements, recommends a Google Cloud database product or migration destination based on a recommendation matrix, and assists in database creation. Use when a user asks 'What database service should I use?', 'Help me pick a database', asks which Google Cloud database to migrate or onboard a workload to, or wants to create a new database on Google Cloud. Don't use for general Google Cloud maintenance, managing existing databases, or troubleshooting active Database Migration Service (DMS) jobs."
+    },
+    "data-agent-kit-plugin/skills/dak-setup/SKILL.md": {
+      "hash": "d1540d61e96a4b3cc0d7ee717f68a2a7d41fb4f22c93604c11fef4c1112c876c",
+      "source": "Configures (or reconfigures) the Google Cloud Data Agent Kit (DAK) plugin by checking gcloud and ADC credentials, collecting the GCP project ID, region, and services, and running its bundled `dak-setup` script. Use this proactively and without waiting to be asked whenever a SessionStart hook or any other system/context message reports that the Data Agent Kit plugin is not configured, is missing configuration, or needs to be reconfigured. Also use it whenever the user mentions setting up, configuring, reconfiguring, or changing the project, region, or service integrations for the Data Agent Kit or DAK plugin — even if they phrase it casually, like \"dak isn't working\" or \"I want to enable more GCP service integrations\"."
+    },
+    "data-agent-kit-plugin/skills/data-autocleaning/SKILL.md": {
+      "hash": "358731ab8c3759d06ad37a71b938c78576ac0df72dda85a02f8d584fdbec34d3",
+      "source": "Automated data quality and transformation capabilities for Dataform/dbt/BigQuery pipelines. Processes data sourced from BigQuery or Cloud Storage (GCS), applying best practices for data ingestion, movement, schema mapping, and comprehensive data cleaning."
+    },
+    "data-agent-kit-plugin/skills/dataform-bigquery/SKILL.md": {
+      "hash": "452427f0eaf11161ee2c76365c1838b5ff3829d2398ad2f887ff9ada30cb0800",
+      "source": "Expertise in generating clean, correct, and efficient Dataform pipeline code for BigQuery ELT. Use this when creating or modifying Dataform pipelines, actions, or source declarations, when Dataform, SQLX, or BigQuery are mentioned in a transformation, when data needs to be ingested from GCS into BigQuery via Dataform, or when setting up a new Dataform project or configuring workflow_settings.yaml."
+    },
+    "data-agent-kit-plugin/skills/dbt-bigquery/SKILL.md": {
+      "hash": "86ee85c56dac62c4cb3a25e7978bef281f5518fa84f18dabca8828e3a65b4c1d",
+      "source": "Expert guidance for creating, modifying, and optimizing dbt pipelines for BigQuery. Use this skill whenever user asks for generating or modifying a dbt model or project. Activate this skill when the user - Creates, modifies, or troubleshoots **dbt models or pipelines** - Needs to **optimize SQL** within a dbt project - Is **setting up a new dbt project** or configuring existing one"
+    },
+    "data-agent-kit-plugin/skills/discovering-gcp-data-assets/SKILL.md": {
+      "hash": "11a12d835e1de662861a2cb50bc7a720994977c9e03d92d9ce8a983bae23844a",
+      "source": "Finds and inspects data assets within Google Cloud.\nRelevant when any of the following conditions are true:\n  1. The user request involves finding, exploring, or inspecting data assets\n     in Google Cloud, such as:\n       - BigQuery datasets, tables, or views\n       - BigLake catalog or tables\n       - Spanner instances, databases or tables\n       - etc.\n  2. You need to retrieve the schema, metadata, or governance policies for a\n     GCP data asset.\n  3. You have a keyword or topic (e.g., \"sales data\") but lack the specific\n     table or resource ID.\n  4. You are attempting to find data using `bq ls`, as this skill offers a\n     superior approach.\nDon't use when:\n  - Assets are outside Google Cloud"
+    },
+    "data-agent-kit-plugin/skills/enforcing-resource-attribution/SKILL.md": {
+      "hash": "7e748557464b66713555ce564c2ae9dbf6a3cb515ac4c6c1405f614b963c3e3e",
+      "source": "Enforces resource attribution for CLI commands. Use this skill whenever you are running `bq` or `gcloud` commands via `run_command`. It ensures mandatory labeling for supported `bq` operations while avoiding invalid flags on read-only commands."
+    },
+    "data-agent-kit-plugin/skills/federate-lakehouse-catalog/SKILL.md": {
+      "hash": "9545cb11dfafea41eab6c1f69092e48b1f9bc99ec3b087d5d38fc35ceba1d96c",
+      "source": "Sets up Google Cloud Lakehouse federated catalogs to remote Iceberg REST Catalogs. Currently supported catalogs: Databricks Unity, AWS Glue. Supported clouds hosting those catalogs: GCP, AWS. The primary use case is connecting to remote data to query it from GCP engines (BigQuery, Spark). Examples of when to use this: \"federate my lakehouse catalog to databricks\", \"query data in databricks\", \"query data in s3\", \"connect to aws glue\". Do NOT use for direct remote database SQL execution (e.g., Databricks SQL) or managing remote clusters and infrastructure (e.g., Databricks clusters, AWS Glue jobs)."
+    },
+    "data-agent-kit-plugin/skills/gcp-composer-troubleshooting/SKILL.md": {
+      "hash": "a416fecc622b2d75ddbbb275237be9e5d055bfc3c26531b9fb3f5f6062910ffe",
+      "source": "Provides expert guidance for troubleshooting Cloud Composer (Apache Airflow) and Orchestration pipelines. Use this skill when the user asks to generate Root Cause Analysis (RCA), troubleshoot or fix a failed pipeline, DAG in Composer environment and generate RCA report."
+    },
+    "data-agent-kit-plugin/skills/gcp-data-pipelines/SKILL.md": {
+      "hash": "0a70250d8551e43d2bbc173e5734c755a8ae13e2e86f6e3ecd9748328389e86a",
+      "source": "Primary entry point for building, managing, and orchestrating data pipelines on Google Cloud. Guides users to the appropriate skill for dbt, Dataflow (Apache Beam), Dataform, Spark (Dataproc Serverless), BigQuery Data Transfer Service (DTS) or orchestration pipeline using Cloud Composer. Clarify requirements and resolve ambiguity for creating, updating and running data pipelines."
+    },
+    "data-agent-kit-plugin/skills/gcp-dataflow/SKILL.md": {
+      "hash": "adaf2ecdd7af273f0327e817ce68a0de7c784eb757ef6ed4dfb55575660199b0",
+      "source": "Guides writing, packaging, executing, and troubleshooting Apache Beam pipelines on Dataflow. Use when creating new pipelines, configuring Flex Templates, or analyzing performance of Dataflow jobs. Capabilities include Java/Python/Go setup, Cloud Build integration, and deep diagnostic analysis of job health and autoscaling.\nUse when: - Creating an Apache Beam Dataflow pipeline. - Creating a Google Dataflow Flex Template. - Using an existing Google Dataflow Template. - Debugging Dataflow pipeline - Troubleshooting Dataflow pipeline - Analyzing Performance of Dataflow pipeline.\nKey capabilities: Java/Python/Go project setup, Flex Templates (with Cloud Build), and diagnostics for streaming job health, bottlenecks, and autoscaling.\nDo NOT use for: - General GCP resource management unrelated to Dataflow. - Issues with other GCP services (e.g., GCE, GCS, BigQuery) unless directly\n  impacting Dataflow pipeline execution.\n- Pipeline technologies other than Apache Beam on Dataflow."
+    },
+    "data-agent-kit-plugin/skills/gcp-managed-airflow-dag-authoring/SKILL.md": {
+      "hash": "eb69e0d549f29fcaab8e11674ee1ea06a16bd6a05556705aca97760496526760",
+      "source": "Guides the authoring and validation of Apache Airflow DAGs for Managed Service for Apache Airflow (MSAA; formerly Cloud Composer). Covers environment context discovery, Airflow 2 vs 3 compatibility, authoring best practices, and local/remote validation processes. Use when creating or extending an Airflow DAG. Don't use when authoring Python code unrelated to Airflow DAGs."
+    },
+    "data-agent-kit-plugin/skills/gcp-managed-airflow-migrations/SKILL.md": {
+      "hash": "f731e7a816a52545b68bb37bd4269a95cfad7c011e50f8011602384a41a5a9f2",
+      "source": "Provides guidance for migrating Apache Airflow DAGs in Managed Service for Apache Airflow (MSAA; formerly Cloud Composer). Covers migration to Airflow 2.11.1 (MSAA Gen 2 and 3) and Airflow 3 (MSAA Gen 3), including environment inspection, GCS download/upload and scanning patterns for breaking changes."
+    },
+    "data-agent-kit-plugin/skills/gcp-managed-airflow-recommendations/SKILL.md": {
+      "hash": "2f5cbcdc6aecd2c902412eb700201e3406de2af7ed74d4b11a74756bec5adbd2",
+      "source": "Provides recommendations and best practices for creating, configuring, tuning and optimizing Managed Service for Apache Airflow (MSAA, Cloud Composer) environments. Use when the user asks for guidance, recommendations, or best practices on configuring Cloud Composer, scaling Airflow environments, preventing workload restarts, or analyzing system health."
+    },
+    "data-agent-kit-plugin/skills/gcp-managed-spark-upgrades/SKILL.md": {
+      "hash": "9e188383404269a7d23b2e5e4fd5ee5796a6f1eb493518ad951d771be2d26e66",
+      "source": "Upgrades Spark workloads on Google Cloud Managed Service for Apache Spark (formerly known as Dataproc) clusters and Serverless to a newer image or runtime version. Supports static compatibility analysis, code upgrade, build checks against the target version, and optional verification runs.\nUse when:\n- Upgrading Managed Spark versions (major, minor, or sub-minor) or assessing upgrade readiness.\nExample prompt:\n\"Upgrade Managed Spark job [job_id] in project [project_id], region [region] to target version [target_version]. Code location: [local path or GCS path]. Target GCS path: [gcs_target_path]\"\nDon't use when:\n- Writing new Spark code.\n- Migrating non-Spark workloads (e.g., Hive/Flink to Spark).\n- Troubleshooting a failed Spark job that is not part of an upgrade.\nLimitation: This skill does not support data/result validation currently."
+    },
+    "data-agent-kit-plugin/skills/gcp-pipeline-orchestration/SKILL.md": {
+      "hash": "f85a7a66a271c54d1edce7cf4939d3a356c583f4b093b98d2a4609d58a053385",
+      "source": "This skill helps the agent generate or update orchestration pipeline definitions for Google Cloud Composer to initialize orchestration pipeline or update the orchestration definition for orchestration of various data pipelines, like dbt pipelines, notebooks, Spark jobs, Dataform, Python scripts, Vertex AI custom jobs, Machine Learning training, or inline BigQuery SQL queries. This skill also helps deploy and trigger orchestration pipelines."
+    },
+    "data-agent-kit-plugin/skills/gcp-pipeline-resource-provisioning/SKILL.md": {
+      "hash": "681c5c3f5830733b1c7db031e05559e14c9a6f922dcea710a2c5d2c3cad1b0f0",
+      "source": "Automates declarative resource creation and provisioning for data pipelines, supporting BigQuery, Dataform, Dataproc, BigQuery Data Transfer Service (DTS), and other resources. It manages environment-specific configurations (dev, staging, prod) through a deployment.yaml file.\nUse when:\n- Modifying or creating deployment.yaml for deployment settings.\n- Resolving environment-specific variables (e.g., Project IDs, Regions) for deployment.\n- Provisioning supported infrastructure like BigQuery datasets/tables, Dataform resources, or DTS resources via deployment.yaml.\nDo not use when:\n- Resources already exist.\n- Managing resources not supported by `gcloud beta orchestration-pipelines resource-types list`.\n- Managing general cloud infrastructure (VMs, networks, Kubernetes, IAM policies), which are better suited for Terraform.\n- Infrastructure spans multiple cloud providers (AWS, Azure, etc.).\n- Already uses Terraform for the target resources."
+    },
+    "data-agent-kit-plugin/skills/gcp-spark/SKILL.md": {
+      "hash": "e05441707092fc4a802f6761de1120e118d9f346b9cd88be87a63f4a033f2314",
+      "source": "Authors, optimizes, and runs PySpark and Spark code on Google Cloud Managed Spark\n(Dataproc Serverless, clusters, and Spark Connect).\nUse when:\n- Authoring or running Spark/PySpark notebooks in any kernel (Local Kernel with\n  spark-remote templates, Remote Spark / Remote Kernel, ManagedSparkSession, Spark Connect).\n- Querying, transforming, or writing data with PySpark or Spark SQL, including\n  Apache Iceberg / BigLake Iceberg tables, BigQuery, GCS, Spanner, or Cloud SQL.\n- Building PySpark ETL pipelines, machine learning workloads, or batch jobs.\n- Managing Dataproc clusters, serverless batches, or interactive sessions.\n- Optimizing PySpark or Spark SQL queries for performance, memory, and OOM prevention.\nDo NOT use when:\n- Auditing multi-region fleet inventory, DCU/cost consumption, idle/zombie clusters, or workload observability (use @skill:gcp-spark-observability).\n- Troubleshooting failed Spark jobs or Dataproc batches (use @skill:gcp-spark-troubleshooting)."
+    },
+    "data-agent-kit-plugin/skills/gcp-spark-observability/SKILL.md": {
+      "hash": "603647201ae8e1409d87ceb503454f37d0fb3464011e622edac7114940e1c3b0",
+      "source": "Monitors, inventories, and assesses Google Cloud Managed Service for Apache Spark (Dataproc Serverless and Dataproc on Compute Engine) environments, clusters, batches, jobs, sessions, metrics, logs, costs, and configurations across single and multiple regions. Use when listing active or historical Spark workloads, discovering failed batches or jobs, auditing multi-region fleet inventory, calculating Serverless compute (DCU-Hours) and shuffle storage consumption, detecting idle or zombie clusters, inspecting scheduled pipeline cadence health, investigating failed cluster operations or stockouts, checking quotas and alerting coverage, or querying Cloud Monitoring and Cloud Logging telemetry. Don't use for deep root-cause analysis or performance optimization of a specific job or batch (use gcp-spark-troubleshooting), authoring new PySpark code (use gcp-spark), or upgrading Spark versions (use gcp-managed-spark-upgrades)."
+    },
+    "data-agent-kit-plugin/skills/gcp-spark-troubleshooting/SKILL.md": {
+      "hash": "1eb9dc21a91675f57921be1e5f4a569162530bb3b6f6e88c599648fe1fa3c424",
+      "source": "Provides expert guidance for troubleshooting Google Cloud Spark and Dataproc workloads (Dataproc Serverless batches and standard Dataproc clusters), and inspecting, streaming, searching, tailing, or summarizing Spark driver outputs and event logs in Cloud Storage. Use when the user asks to debug, troubleshoot, diagnose, or perform Root Cause Analysis (RCA) on failed Spark jobs, PySpark batches, or Spark event logs."
+    },
+    "data-agent-kit-plugin/skills/gcs-security-assessment/SKILL.md": {
+      "hash": "28e3246db03ee0d0be5d158c4aaf01b3b8004cb273142ea122b677d74a973163",
+      "source": "Assesses the security posture of Google Cloud Storage (GCS) buckets and projects. Grounds every finding in gathered telemetry, evaluates buckets against Google security best practices (public access, IAM over-granting, CMEK, VPC Service Controls, audit logging), and correlates signals to flag toxic combinations of individually low-risk settings, with actionable remediation. Use whenever a user asks for a security scan, audit, review, vulnerability check, or compliance assessment (including SAIF) — or simply asks whether their buckets, project, or data are secure, exposed, public, or misconfigured, who can access their data, or wants storage hardened or locked down, e.g. before a launch. Don't use for diagnosing a specific access failure or 403, managing or configuring storage, investigating a live outage, or non-GCS resources (Compute Engine, GKE, etc.)."
+    },
+    "data-agent-kit-plugin/skills/google-cloud-storage-basics/SKILL.md": {
+      "hash": "e12a8004521adc3011b0a15cc9cb18be5a3c311d250a5c617fe5f6982ea37063",
+      "source": "Stores, retrieves, and manages data as objects in Cloud Storage on Google Cloud (also known colloquially as GCS) buckets. Use when you need to interact with Cloud Storage — set up a Storage MCP server (remote or local Toolbox), create or configure buckets, upload, download, stream, or transfer data, organize objects with folders, generate signed URLs, control access (IAM, ACLs, public access prevention), set storage classes (Standard, Nearline, Coldline, Archive), manage lifecycle and cost, protect data (versioning, CMEK, retention, Bucket Lock, holds, soft delete), host static websites, trigger Pub/Sub notifications, mount buckets (gcsfuse), or optimize performance. Covers gcloud storage / gsutil, JSON/XML APIs, client libraries, Terraform, and Cloud Storage MCP servers. Don't use for generic MCP setup that doesn't mention Cloud Storage, other MCP servers, block storage (Persistent Disk), BigQuery, or databases (Cloud SQL, Spanner, Bigtable, Firestore)."
+    },
+    "data-agent-kit-plugin/skills/google-cloud-storage-bucket-architect/SKILL.md": {
+      "hash": "6df1a6caf25f3e0545d97896cfffc5be72bc2fd4e875e4716364a3a30682d0c9",
+      "source": "Creates Cloud Storage (Google Cloud Storage, or GCS) buckets. Analyzes the workload (sensitive data, media hosting, ingestion, web hosting, archiving, backup, logging, analytics, AI/ML, or general-purpose), validates project-level security settings, and designs a secure-by-default, cost-effective configuration (location, storage class, uniform bucket-level access, public access prevention, soft delete, lifecycle) before creating it. Use whenever a user wants to create, make, set up, provision, or spin up a bucket, or needs object storage for an app, service, pipeline, or dataset — even a \"simple\" or \"default\" bucket, or when bucket creation is one step in a larger workflow. Outputs or executes the creation via gcloud, the JSON/REST API, Terraform, or SDK client libraries (C++, Java, Python, Go). Don't use for anything other than creating new buckets — for uploads, downloads, access changes, or reconfiguring existing buckets, use google-cloud-storage-basics."
+    },
+    "data-agent-kit-plugin/skills/google-cloud-storage-fuse/SKILL.md": {
+      "hash": "9916c5da53662d70f5e711cd6cf17479d9708809fde3aed1aa46197e6882fbf3",
+      "source": "Mounts Cloud Storage buckets as a POSIX file system with Cloud Storage FUSE (gcsfuse). Use when you need to interact with gcsfuse — decide whether FUSE, native gs:// reads, or Filestore/Managed Lustre fits a workload, deploy tuned mounts on GKE, Compute Engine, or Cloud Run, enable and size the file, stat, and list caches, tune mount flags (--implicit-dirs) or config-file settings, apply workload profiles, keep ML checkpointing safe (rename atomicity, hierarchical namespace, close-time finalization, concurrent writers), or diagnose slow training, low throughput, or GCS bill spikes on existing mounts with gcsfuse metrics. Covers mount semantics, the gcsfuse CLI and config file, the GKE gcsfuse CSI driver (Workload Identity principal:// bindings, profile StorageClasses, sidecar sizing), and Cloud Run volume mounts. Don't use for bucket administration or data management without a mount (google-cloud-storage-basics) or for fully POSIX-compliant shared file systems (Filestore, Managed Lustre; use gke-storage)."
+    },
+    "data-agent-kit-plugin/skills/managing-python-dependencies/SKILL.md": {
+      "hash": "907ab237d7c7c1018277612f56a5e37935762ad401fd9c449e89af43cc903cb0",
+      "source": "Ensures proper Python dependency management, avoiding global `pip install` and\nadhering to project-specific tooling.\n\nUse this skill if any of the following are true:\n  1. Attempting to run `pip install {package_name}`.\n  2. Python packages or dependencies need to be added or modified.\n  3. Initiating a new Python project.\n  4. Installing missing packages inside a notebook or Python project.\n  5. Generating Python code that includes `import` statements for third-party libraries.\n  6. Before executing Python scripts via the terminal to ensure the correct virtual environment is active."
+    },
+    "data-agent-kit-plugin/skills/ml-best-practices/SKILL.md": {
+      "hash": "fdc8028057ca417d5ef8f3e1538e0de6a33059b090779685173daa2b5a0b1e55",
+      "source": "CRITICAL RULE: You MUST use this skill whenever the task involves any machine learning tasks or data analysis.\nUse this skill if the user's prompt or requirements mention any of the following:\n  * Clustering\n  * Classification\n  * Regression\n  * Time series forecasting\n  * Statistical testing\n  * Model comparison\n  * ML\n  * Data analysis\n\nSQL/BigQuery ML HANDOFF: If the user requires a SQL solution, use this skill to dictate the ANALYSIS STEPS (e.g., markdown analysis cells, visualization logic), but defer to `bigquery` for all SQL syntax."
+    },
+    "data-agent-kit-plugin/skills/notebook-guidance/SKILL.md": {
+      "hash": "3d543b51786a0d5473971d28a87bf364cb3c28d67d891815060db9fdd46bee21",
+      "source": "This skill guides the use of Jupyter notebooks for data analysis, exploration, and visualization, particularly with BigQuery. It outlines best practices for notebook execution and validation (supporting both cell-by-cell execution and full notebook generation depending on tool availability), library installation, and structuring notebooks for clarity. It also covers specific rules for data cleaning, plotting, and integrating with BigQuery SQL and machine learning workflows.\nRelevant when any of the following conditions are true:\n  1. The user request involves a data analysis, data exploration, data visualization, or data insights task that requires multiple steps, queries, or visualizations to answer.\n  2. The user explicitly requests a notebook (.ipynb).\n  3. You are creating, editing, or executing cells in a Jupyter notebook.\n  4. You need to query BigQuery from within a notebook. DO NOT use the Python BigQuery client library; instead, you MUST use the `%%bqsql` magics explained in this skill."
+    },
+    "data-agent-kit-plugin/skills/resolving-mcp-region-configs/SKILL.md": {
+      "hash": "4337b305ecf33b80f034418772a956a27299116e26d5057fee89524fdca9920d",
+      "source": "Mandatory Step 0 pre-flight check for regional Google Cloud MCP servers (e.g. Dataproc) before using MCP tools or falling back to gcloud/bq CLI. Use whenever interacting with Dataproc clusters, Spark batches, jobs, sessions, or regional GCP resources. Fixes regional MCP servers whose endpoint URL still has an unreplaced $GCP_REGION / ${REGION} placeholder across Claude Code, Codex, and Antigravity. Trigger: an expected mcp__*_{service}_* tool is missing entirely (not just failing), or a call to one fails/hangs on a malformed host. Check via ToolSearch/deferred-tools listing before falling back to gcloud/bq CLI. Asks the user for a region, patches the live MCP config file(s), and tells the user how to restart without losing session context."
+    },
+    "data-agent-kit-plugin/skills/schema-mapping/SKILL.md": {
+      "hash": "f4d4f4f3503f08a58d6f8e42a4b1ecdb3cb855dfa29f15567eb01b071b733c9c",
+      "source": "Guides the process of analyzing, mapping, and documenting transformations between source and target schemas for any database, data warehouse, or data platform. Focuses exclusively on creating a high-fidelity mapping plan (Mapping Manifesto). Used when initiating an ETL, ELT, or data integration task with schema mapping specification for multiple tables (i.e. more than 3 tables) before writing code. Do NOT use this skill for basic SQL generation without mapping requirements, or when the user already has a complete mapping specification."
+    },
+    "wix/skills/wix-app/SKILL.md": {
+      "hash": "951d7bc9186e1c0812d56a39e5e2b0c6b99a6ce4673f31ac9e3feaeb28714dd0",
+      "source": "Build and review Wix CLI app extensions — dashboard pages, modals, plugins, menu plugins, custom element widgets, Editor React components, site plugins, embedded scripts, backend APIs, backend events, service plugins, data collections, and App Market readiness. Use when building ANY feature or extension for a Wix CLI app or preparing a Wix app for App Market review. Triggers on: add, build, create, implement, help me, dashboard, widget, plugin, backend, API, event, collection, embedded script, service plugin, Editor React component, checkout, shipping, tax, discount, SPI, CMS, schema, tracking, popup, admin panel, menu item, modal, validate, test, verify, register extension, App Market, app review, submission readiness."
+    },
+    "wix/skills/wix-design-system/SKILL.md": {
+      "hash": "70cd81a3044a59022b0d11531634629326d66a0098a66b1b0b54469120f42d3e",
+      "source": "Wix Design System component reference. Use when building UI with @wix/design-system, choosing components, checking props and examples, or writing tests with component testkits. Triggers on \"what component\", \"how do I make\", \"WDS\", \"show me props\", \"testkit\", \"driver\", or component names like Button, Card, Modal, Box, Text."
+    },
+    "wix/skills/wix-docs/SKILL.md": {
+      "hash": "6a30190dda78abbf3fa34b811c550b86f01923762914f13da0b200058b83fb09",
+      "source": "Look up the Wix API/SDK documentation to confirm an exact endpoint, HTTP method, request/response shape, field, enum, or error before writing Wix code — never guess a Wix API from memory. A lookup is a short flow: find the right page, then read it. Two ways: (1) plain `curl` (zero dependencies) — find a page by **semantic search** (`POST /mcp-docs-search/v1/docs/search`, natural-language `{ search_term, document_type(s) }`, incl. the SKILLS recipe corpus for multi-step workflows) **or by browsing** a docs portal as a menu — a structured, typed, counted browse of the REST, SDK, CLI, Build Apps, and Headless portals (`POST /mcp-docs-search/v1/docs/menu/browse`), or the `.md` menu tree from the `llms.txt` root for any surface — then read the page by appending `.md` to its URL; (2) the Wix MCP doc tools when present. Triggers: look up a Wix API, find the Wix endpoint/method, confirm a Wix request body or field, verify a Wix API shape, explore Wix docs, which Wix API do I call, read a Wix method schema."
+    },
+    "wix/skills/wix-headless-kit/SKILL.md": {
+      "hash": "532bb44b7b4d0ba56a5e50919b5798a94e5cac2356369a72a3d46b1747bd3aeb",
+      "source": "Build a Wix Headless site fast by wiring SHIPPED, verified @wix/sdk code instead of authoring the integration from recipes. Each Wix business vertical ships a typed, framework-agnostic React core (data layer returning plain DTOs, hooks, headless components) plus an Astro overlay (SSR pages with owner-editable SEO pre-wired) and a build-time REST seed script — the agent scaffolds via the Wix CLI, deploys the shipped code, seeds the backend, designs the presentation layer itself on the shipped hooks (product card/grid, PDP, home, theme), and releases to Wix hosting. Works on Wix-managed Astro (ambient auth, the default) and on any React-based project (Vite, non-Astro) over the public OAuth client id. Verticals: stores/storefront (products, categories, variants, cart, hosted checkout), bookings (services, appointment/class time slots, staff, booking form, checkout-or-place), rentals (rooms, vehicles, gear by the hour or the day: resources, customer-picked length, priced quote, checkout), blog (posts, categories/tags, rich content), cms (structured content collections), forms (schema-driven visitor forms: render, validate, submit), events (listing, RSVP, ticket sales), members (login, gated pages, account), portfolio (project collections, media galleries), pricing-plans (plan grid, hosted purchase), restaurants (menus, online ordering, table reservations), faq (categorized questions and answers, search, a link per question), donations (campaign pages, goal progress, one-time and recurring donations via hosted checkout). Triggers: build me a store/blog/booking/rental/event/restaurant/portfolio/FAQ/donation site fast, take appointments fast, rent out rooms/cars/equipment headless, sell tickets or membership plans headless, collect donations headless, wix headless kit, connect a Wix business app with ready-made SDK code."
+    },
+    "wix/skills/wix-manage/SKILL.md": {
+      "hash": "07b5661f72f6db2cc0bc94645b2cecce404431736b2dd6a6379df753dbe7d8c2",
+      "source": "REST recipes to configure and manage a Wix site's business solutions — stores, bookings, donations, payments, CMS, and more. Open the matching recipe for the exact endpoint, method, and payload before calling — never guess a Wix API, never write Wix dashboard URL from memory. Routes to: automations, stores, bookings, donations, get-paid, CMS, contacts, forms, media, app-installation, custom-apps, pricing-plans, restaurants, ricos rich-content, sites, collaborators, blog, calendar, domains, events, site-properties, ecommerce, marketing, google-ads, google-business-profile, analytics, accessibility, seo, dashboard-navigation."
+    },
+    "wix/skills/wix-readme/SKILL.md": {
+      "hash": "93ec104aae6634452ff9a46f753f387a3ed27570674c6b0a603e46320d2d0897",
+      "source": "What the Wix plugin holds and how to work with Wix through it: the flow the Wix MCP README returns, an index of the plugin's skills with what each does, and the Wix MCP tools with what each does. Use when the plugin was just installed or when the user asks what the Wix plugin can do or which skill or tool fits a task."
+    },
+    "google-antigravity-sdk/SKILL.md": {
+      "hash": "fe05cac6c16a35cadc111ae6281f55f3a943ec89b72be1e7b6db9891bba3d900",
+      "source": "Design, implement, and debug autonomous AI agents and multi-agent systems using the Google Antigravity (AGY) SDK. ACTIVATE this skill when the user wants to create, configure, or orchestrate Google Antigravity agents."
+    }
+  },
+  "readmes": {
+    "wix/README.md": {
+      "hash": "cf555ff21197d858fb7061f0a24f2a1890db66331fcd519ed97f20adc4001ec0",
+      "reviewed": true
+    }
+  }
+}

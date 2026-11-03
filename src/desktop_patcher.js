@@ -200,6 +200,7 @@ function rebuildLocalizedMenu(menu) {
 // ═══════════════════════════════════════════════════════════════════
 (function() {
   const dictionary = ${JSON.stringify(dictionary, null, 2)};
+  const pluginReadmeDictionary = ${JSON.stringify(require('../scripts/desktop_plugin_readme_dictionary.json'))};
   const translateDynamic = ${translateDynamic.toString()};
 
   function translateTextNode(node) {
@@ -210,7 +211,9 @@ function rebuildLocalizedMenu(menu) {
     if (tag === 'script' || tag === 'style' || tag === 'pre' || tag === 'code') return;
     if (parent.isContentEditable) return;
     if (parent.closest && parent.closest('script,style,pre,code,textarea,input,.monaco-editor,[data-antigravity-tr-ignore]')) return;
-    if (parent.closest && parent.closest('.markdown,[data-message-author-role]') && !parent.closest('[role=tooltip],[data-testid=code-block-preview-button],[data-testid=code-block-raw-button]')) return;
+    const pluginReadme = parent.closest('#plugin-detail-tabpanel section[aria-label="Readme"] [data-markdown-root]');
+    if (parent.closest('.markdown,[data-markdown-root],[data-message-author-role]') && !pluginReadme && !parent.closest('[role=tooltip],[data-testid=code-block-preview-button],[data-testid=code-block-raw-button]')) return;
+    const textDictionary = pluginReadme ? (pluginReadme.querySelector('h1')?.textContent.trim() === 'Wix' ? pluginReadmeDictionary : {}) : dictionary;
 
     const val = node.nodeValue;
     if (!val) return;
@@ -225,8 +228,8 @@ function rebuildLocalizedMenu(menu) {
     }
 
     const normalized = trimmed.replace(/\\s+/g, ' ');
-    const translated = Object.prototype.hasOwnProperty.call(dictionary, trimmed) ? dictionary[trimmed] :
-      Object.prototype.hasOwnProperty.call(dictionary, normalized) ? dictionary[normalized] : translateDynamic(normalized);
+    const translated = Object.prototype.hasOwnProperty.call(textDictionary, trimmed) ? textDictionary[trimmed] :
+      Object.prototype.hasOwnProperty.call(textDictionary, normalized) ? textDictionary[normalized] : pluginReadme ? trimmed : translateDynamic(normalized);
     if (translated === trimmed) {
       // React splits sentences around inline links and dynamic scope names.
       let first = node;
@@ -236,7 +239,7 @@ function rebuildLocalizedMenu(menu) {
       if (parts.length > 1) {
         const raw = parts.map(part => part.nodeValue).join('');
         const combined = raw.trim().replace(/\\s+/g, ' ');
-        const combinedTranslation = Object.prototype.hasOwnProperty.call(dictionary, combined) ? dictionary[combined] : translateDynamic(combined);
+        const combinedTranslation = Object.prototype.hasOwnProperty.call(textDictionary, combined) ? textDictionary[combined] : pluginReadme ? combined : translateDynamic(combined);
         if (combinedTranslation !== combined) {
           first.nodeValue = raw.replace(raw.trim(), combinedTranslation);
           for (let i = 1; i < parts.length; i++) parts[i].nodeValue = '';

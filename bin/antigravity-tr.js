@@ -8,12 +8,20 @@ async function main() {
     console.log(`Antigravity Türkçe Yama
 Kullanım: node bin/antigravity-tr.js <komut>
   install-desktop      Masaüstü arayüzünü Türkçeleştir (2.17.0–2.23.1)
+  audit-plugins        Yeni/değişen eklenti metinlerini denetle (isteğe bağlı JSON rapor yolu)
   repair-desktop       Eski Türkçe yamadaki siyah ekran döngüsünü düzelt
   restore-desktop      Masaüstü yedeğini geri yükle (isteğe bağlı yedek yolu)
   install              IDE + Desktop + dil kuralları (mevcut kapsamlı kurucu)
   restore              IDE + Desktop yamalarını geri al
   help                 Yardım
 Kurulumdan önce uygulamaları kapatın. Gereksinim: Windows, Node.js >=22.12.`);
+    return;
+  }
+  if (command === 'audit-plugins') {
+    const report = require('../src/plugin_translation_audit').auditPluginTranslations();
+    if (backup) require('node:fs').writeFileSync(backup, JSON.stringify(report, null, 2) + '\n', 'utf8');
+    console.log(JSON.stringify({ checked: report.checked, issues: report.issues.map(({ source, ...issue }) => issue) }, null, 2));
+    if (report.issues.length) process.exitCode = 2;
     return;
   }
   const full = ['install', 'apply', 'restore', 'uninstall', 'revert'].includes(command);
@@ -30,6 +38,10 @@ Kurulumdan önce uygulamaları kapatın. Gereksinim: Windows, Node.js >=22.12.`)
     command === 'repair-desktop' ? await require('../src/desktop_repair').repairDesktopApp(paths) :
       await desktop.restoreDesktopApp(paths, backup);
   if (!(result.success || result.restored)) throw new Error(result.reason);
+  if (command === 'install-desktop') {
+    const audit = require('../src/plugin_translation_audit').auditPluginTranslations();
+    result.pluginTranslations = { checked: audit.checked, reviewRequired: audit.issues.map(({ file, field, reason }) => ({ file, field, reason })) };
+  }
   console.log(JSON.stringify(result, null, 2));
 }
 main().catch(error => { console.error('Hata: ' + error.message); process.exitCode = 1; });
