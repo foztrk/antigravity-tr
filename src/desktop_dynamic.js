@@ -1,5 +1,11 @@
 // Only recognized UI sentences are transformed; arbitrary numbers and content are untouched.
 function translateDynamic(text) {
+  const greeting = /^Hi ([^\r\n]+), what can we get done today\?$/.exec(text);
+  if (greeting) return 'Merhaba ' + greeting[1] + ', bugün neler yapalım?';
+  const connectorCount = /^(\d+) on( for this conversation)?$/.exec(text);
+  if (connectorCount) return connectorCount[2] ? 'Bu konuşmada ' + connectorCount[1] + ' etkin' : connectorCount[1] + ' etkin';
+  const toolCount = /^(\d+) tools?$/.exec(text);
+  if (toolCount) return toolCount[1] + ' araç';
   const deleteMcp = /^Are you sure you want to delete (.+)\? This will remove it from your MCP configuration\.$/.exec(text);
   if (deleteMcp) return deleteMcp[1] + ' adlı sunucuyu silmek istediğinizden emin misiniz? Bu işlem sunucuyu MCP yapılandırmanızdan kaldırır.';
   const uriError = /^Uri: ("[^"\r\n]+")[:] unknown uri scheme \(error ID: ([A-Za-z0-9-]+)\)$/.exec(text);

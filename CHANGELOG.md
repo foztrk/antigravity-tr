@@ -1,5 +1,13 @@
 # Değişiklikler
 
+## 1.0.30 — 2026-11-04
+
+- Desktop 2.29.0 desteği eklendi; gerçek arşivde dönüşüm ve tekrar kurulum doğrulandı.
+- İsimli karşılama, bağlayıcı menüsü, etkin bağlantı ve araç sayıları Türkçeleştirildi.
+- Öne çıkan kart etiketi, Keenable SELECT katalog açıklaması, tarayıcı geçmişi, ses, görünüm, erişilebilirlik ve konuşma ayarları tamamlandı.
+- React cümle parçaları tek sözcüklerden önce eşleştirilir; “Hayır automations yet” hatası giderildi.
+- 64 otomatik test geçti; dokuz görseldeki alanlar canlı arayüzde kontrol edildi. Kod, kullanıcı içeriği, dosya yolları ve ayar değerleri korunur.
+
 ## 1.0.29 — 2026-11-03
 
 - 67 katalog açıklaması, kategori başlıkları, gizlilik açıklaması ve MCP silme onayı çevrildi.
