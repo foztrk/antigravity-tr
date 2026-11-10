@@ -1,5 +1,9 @@
 // Only recognized UI sentences are transformed; arbitrary numbers and content are untouched.
 function translateDynamic(text) {
+  const shortGreeting = /^(Hi |Hello, |Welcome back, |Good to see you, )([^\r\n]+)\.$/.exec(text);
+  if (shortGreeting) return ({'Hi ':'Merhaba ', 'Hello, ':'Merhaba ', 'Welcome back, ':'Tekrar hoş geldiniz, ', 'Good to see you, ':'Sizi görmek güzel, '}[shortGreeting[1]]) + shortGreeting[2] + '.';
+  const useVoice = /^Use (Fola|Arlo|Cleo|Finn|Gero|Lora|Neno|Olin|Tari)$/.exec(text);
+  if (useVoice) return useVoice[1] + ' Sesini Kullan';
   const greeting = /^Hi ([^\r\n]+), what can we get done today\?$/.exec(text);
   if (greeting) return 'Merhaba ' + greeting[1] + ', bugün neler yapalım?';
   const connectorCount = /^(\d+) on( for this conversation)?$/.exec(text);

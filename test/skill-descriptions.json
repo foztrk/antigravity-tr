@@ -643,5 +643,10 @@
     "name": "wix\\skills\\wix-readme\\SKILL.md",
     "source": "What the Wix plugin holds and how to work with Wix through it: the flow the Wix MCP README returns, an index of the plugin's skills with what each does, and the Wix MCP tools with what each does. Use when the plugin was just installed or when the user asks what the Wix plugin can do or which skill or tool fits a task.",
     "translation": "Wix eklentisinin içeriğini ve kullanımını açıklar: Wix MCP README akışı, beceri dizini ve Wix MCP araçlarının görevleri. Eklenti yeni kurulduğunda veya yapabilecekleri ve uygun beceri/araç sorulduğunda kullanılır."
+  },
+  {
+    "name": "migrate-agent-settings",
+    "source": "Migrates the user's MCP servers, skills, slash commands, subagents, and instruction files from other coding agents (Claude Code, Codex, Cursor, Gemini CLI) into one new Antigravity plugin. Use when the user wants to bring over, import, or migrate their setup or config from another agent or tool. Don't use for installing Marketplace plugins or authoring a new plugin from scratch (use the plugin skill).",
+    "translation": "Kullanıcının diğer kodlama ajanlarındaki (Claude Code, Codex, Cursor, Gemini CLI) MCP sunucularını, becerilerini, eğik çizgi komutlarını, alt ajanlarını ve talimat dosyalarını yeni bir Antigravity eklentisine taşır. Başka bir ajan veya araçtaki kurulumun ya da yapılandırmanın aktarılması, içe alınması veya taşınması istendiğinde kullanılır. Pazar yeri eklentilerini kurmak veya sıfırdan eklenti geliştirmek için kullanılmaz; bunun için plugin becerisi kullanılır."
   }
 ]

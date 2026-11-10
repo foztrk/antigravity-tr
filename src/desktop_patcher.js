@@ -202,6 +202,7 @@ function rebuildLocalizedMenu(menu) {
   const dictionary = ${JSON.stringify(dictionary, null, 2)};
   const pluginReadmeDictionary = ${JSON.stringify(require('../scripts/desktop_plugin_readme_dictionary.json'))};
   const translateDynamic = ${translateDynamic.toString()};
+  const translatedTextParts = new WeakMap();
 
   function translateTextNode(node) {
     if (!node || node.nodeType !== 3) return;
@@ -233,13 +234,24 @@ function rebuildLocalizedMenu(menu) {
     const parts = [];
     for (let part = first; part && part.nodeType === 3; part = part.nextSibling) parts.push(part);
     if (parts.length > 1) {
-      const raw = parts.map(part => part.nodeValue).join('');
+      const originals = parts.map(part => {
+        const previous = translatedTextParts.get(part);
+        return previous && part.nodeValue === previous.translated ? previous.source : part.nodeValue;
+      });
+      const raw = originals.join('');
       const combined = raw.trim().replace(/\\s+/g, ' ');
       const combinedTranslation = Object.prototype.hasOwnProperty.call(textDictionary, combined) ? textDictionary[combined] : pluginReadme ? combined : translateDynamic(combined);
       if (combinedTranslation !== combined) {
-        first.nodeValue = raw.replace(raw.trim(), combinedTranslation);
-        for (let i = 1; i < parts.length; i++) parts[i].nodeValue = '';
+        for (let i = 0; i < parts.length; i++) {
+          const translated = i === 0 ? raw.replace(raw.trim(), combinedTranslation) : '';
+          translatedTextParts.set(parts[i], { source: originals[i], translated });
+          if (parts[i].nodeValue !== translated) parts[i].nodeValue = translated;
+        }
         return;
+      }
+      for (let i = 0; i < parts.length; i++) {
+        translatedTextParts.delete(parts[i]);
+        if (parts[i].nodeValue !== originals[i]) parts[i].nodeValue = originals[i];
       }
     }
     const normalized = trimmed.replace(/\\s+/g, ' ');
@@ -394,7 +406,7 @@ async function patchDesktopApp(paths) {
     const archive = path.join(paths.desktop.appPath, 'resources', 'app.asar');
     asar.uncacheAll();
     const version = JSON.parse(asar.extractFile(archive, 'package.json').toString()).version;
-    if (!['2.17.0', '2.18.1', '2.19.1', '2.21.1', '2.22.0', '2.23.0', '2.23.1', '2.24.0', '2.25.0', '2.26.0', '2.27.0', '2.28.0', '2.28.1', '2.28.2', '2.29.0'].includes(version)) throw new Error(`Desktop ${version} henüz doğrulanmadı; desteklenen sürümler: 2.17.0, 2.18.1, 2.19.1, 2.21.1, 2.22.0, 2.23.0, 2.23.1, 2.24.0, 2.25.0, 2.26.0, 2.27.0, 2.28.0, 2.28.1, 2.28.2, 2.29.0.`);
+    if (!['2.17.0', '2.18.1', '2.19.1', '2.21.1', '2.22.0', '2.23.0', '2.23.1', '2.24.0', '2.25.0', '2.26.0', '2.27.0', '2.28.0', '2.28.1', '2.28.2', '2.29.0', '2.30.0'].includes(version)) throw new Error(`Desktop ${version} henüz doğrulanmadı; desteklenen sürümler: 2.17.0, 2.18.1, 2.19.1, 2.21.1, 2.22.0, 2.23.0, 2.23.1, 2.24.0, 2.25.0, 2.26.0, 2.27.0, 2.28.0, 2.28.1, 2.28.2, 2.29.0, 2.30.0.`);
     const names = ['loadingOverlay.js', 'provisionSplash.js', 'tray.js', 'menu.js', 'preload.js', 'main.js', 'ipcHandlers.js', 'updater.js'];
     const sources = new Map();
     for (const name of names) {

@@ -1,5 +1,14 @@
 # Değişiklikler
 
+## 1.0.31 — 2026-11-10
+
+- Desktop 2.30.0 desteği eklendi; gerçek arşivde dönüşüm ve tekrar kurulum doğrulandı.
+- Dört dönüşümlü karşılama, GPT-OSS kaldırılma tarihi uyarısı, ses modu araç ipucu ve yeni arayüz düzeni seçenekleri çevrildi.
+- Ses seçici başlığı, dokuz ses için kullan düğmesi, karakter açıklamaları ve ses ayarları Türkçeleştirildi.
+- React yalnızca değişken parçayı güncellediğinde eski çevirinin kalması düzeltildi; Fola → Arlo → Fola geçişi canlı doğrulandı.
+- Gmail, Looker, Arize AX, invideo, Neo4j ve Spacefast katalog açıklamaları ile migrate-agent-settings açıklaması eklendi.
+- 66 otomatik test geçti; sekiz görseldeki alanlar canlı kontrol edildi. İsimler, tarihler, kod, kullanıcı içeriği ve ayar değerleri korunur.
+
 ## 1.0.30 — 2026-11-04
 
 - Desktop 2.29.0 desteği eklendi; gerçek arşivde dönüşüm ve tekrar kurulum doğrulandı.

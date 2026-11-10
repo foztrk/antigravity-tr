@@ -333,5 +333,35 @@
     "name": "zohobooks-antigravity",
     "source": "Run Zoho Books from Antigravity: invoicing, bills, banking, journals, projects, items, taxes, customization and automation.",
     "translation": "Antigravity üzerinden Zoho Books’u kullanın: faturalar, gelen faturalar, bankacılık, yevmiye kayıtları, projeler, ürünler, vergiler, özelleştirme ve otomasyon."
+  },
+  {
+    "name": "gmail",
+    "source": "Search, read, draft, and send emails in Gmail.",
+    "translation": "Gmail’de e-postaları arayın, okuyun, taslak hazırlayın ve gönderin."
+  },
+  {
+    "name": "looker",
+    "source": "Connect to your managed Looker MCP server to explore data, run saved Looks, build dashboards, and validate LookML.",
+    "translation": "Verileri keşfetmek, kayıtlı Look raporlarını çalıştırmak, panolar oluşturmak ve LookML’i doğrulamak için yönetilen Looker MCP sunucunuza bağlanın."
+  },
+  {
+    "name": "arize-skills",
+    "source": "Query Arize AX projects, traces, datasets, and experiments from Antigravity, with skills for tracing, evals, and prompt optimization.",
+    "translation": "İzleme, değerlendirme ve istem iyileştirme becerileriyle Antigravity üzerinden Arize AX projelerini, izlerini, veri kümelerini ve deneylerini sorgulayın."
+  },
+  {
+    "name": "invideo",
+    "source": "Connect your agent to invideo's AI-native video editor. It trims, grades and mixes on a real timeline while you watch every change land.",
+    "translation": "Ajanınızı invideo’nun yapay zekâ tabanlı video düzenleyicisine bağlayın. Siz her değişikliği izlerken gerçek bir zaman çizelgesinde kesme, renk düzenleme ve ses karıştırma işlemleri yapar."
+  },
+  {
+    "name": "neo4j",
+    "source": "Agent skills for Neo4j graph database — write Cypher queries, design graph models, use drivers, run imports, build GraphRAG pipelines, run GDS algorithms, and manage Aura instances.",
+    "translation": "Neo4j grafik veritabanı için ajan becerileri: Cypher sorguları yazın, grafik modelleri tasarlayın, sürücüleri kullanın, veri aktarın, GraphRAG işlem hatları oluşturun, GDS algoritmaları çalıştırın ve Aura örneklerini yönetin."
+  },
+  {
+    "name": "spacefast",
+    "source": "Turn an idea into a website, dashboard, report, or small web tool you can share. Build it in your conversation, or bring something you already made, and publish it with Spacefast.",
+    "translation": "Bir fikri paylaşılabilir web sitesine, panoya, rapora veya küçük bir web aracına dönüştürün. Sohbetinizde geliştirin veya önceden hazırladığınız çalışmayı getirip Spacefast ile yayınlayın."
   }
 ]
