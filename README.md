@@ -23,14 +23,14 @@
 
 Google Antigravity Desktop ve Antigravity IDE için topluluk tarafından geliştirilen kapsamlı Türkçe yerelleştirme araçları. Google'ın resmi ürünü veya resmi dil paketi değildir.
 
-Mevcut IDE çevirileri, ayar sözlükleri ve Türkçe asistan kuralları korunmuştur. **1.0.32 sürümü Desktop 2.31.0 desteği ve yeni arayüz çevirileri getirir.**
+Mevcut IDE çevirileri, ayar sözlükleri ve Türkçe asistan kuralları korunmuştur. **1.0.33 sürümü Desktop 2.31.0 izin, ses kısayolu ve tarayıcı ayarları çevirilerini tamamlar.**
 
 
 ## English overview
 
 Antigravity TR is an independent, open-source Turkish UI patch maintained by [Faruk Öztürk (@foztrk)](https://github.com/foztrk). It translates recognized interface labels in Antigravity Desktop on Windows, including menus, settings, permission dialogs, review panels, and dynamic status messages.
 
-**Current release: v1.0.32 · Desktop 2.31.0 · 66 automated tests.** The installer backs up the application archive and supports restoration. Tests cover translation behavior, repeated installation, and preservation of controls and user content. They do not establish complete visual coverage of every screen.
+**Current release: v1.0.33 · Desktop 2.31.0 · 66 automated tests.** The installer backs up the application archive and supports restoration. Tests cover translation behavior, repeated installation, and preservation of controls and user content. They do not establish complete visual coverage of every screen.
 
 This project is **not affiliated with or endorsed by Google**. It modifies local application resources and needs compatibility checks after updates. The latest release validates Desktop; the retained IDE installer has a separate, broader scope described below.
 

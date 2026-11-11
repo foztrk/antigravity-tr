@@ -1,5 +1,10 @@
 # Değişiklikler
 
+## 1.0.33 — 2026-11-11
+
+- Yerel ve uzaktan konuşma izinleri, mikrofon ve hoparlör kısayolları ile tarayıcı ayar açıklamaları Türkçeleştirildi.
+- Tarayıcı alt ajanı açıklamasındaki Google Chrome bağlantısı ve /browser komutu korundu.
+
 ## 1.0.32 — 2026-11-11
 
 - Desktop 2.31.0 desteği eklendi.
