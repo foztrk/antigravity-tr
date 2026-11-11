@@ -648,5 +648,20 @@
     "name": "migrate-agent-settings",
     "source": "Migrates the user's MCP servers, skills, slash commands, subagents, and instruction files from other coding agents (Claude Code, Codex, Cursor, Gemini CLI) into one new Antigravity plugin. Use when the user wants to bring over, import, or migrate their setup or config from another agent or tool. Don't use for installing Marketplace plugins or authoring a new plugin from scratch (use the plugin skill).",
     "translation": "Kullanıcının diğer kodlama ajanlarındaki (Claude Code, Codex, Cursor, Gemini CLI) MCP sunucularını, becerilerini, eğik çizgi komutlarını, alt ajanlarını ve talimat dosyalarını yeni bir Antigravity eklentisine taşır. Başka bir ajan veya araçtaki kurulumun ya da yapılandırmanın aktarılması, içe alınması veya taşınması istendiğinde kullanılır. Pazar yeri eklentilerini kurmak veya sıfırdan eklenti geliştirmek için kullanılmaz; bunun için plugin becerisi kullanılır."
+  },
+  {
+    "name": "wix-manage",
+    "source": "REST recipes to configure and manage a Wix site's business solutions — stores, bookings, donations, payments, CMS, and more. Open the matching recipe for the exact endpoint, method, and payload before calling — never guess a Wix API, never write Wix dashboard URL from memory. Routes to: automations, stores, bookings, donations, get-paid, CMS, contacts, forms, media, app-installation, custom-apps, pricing-plans, restaurants, ricos rich-content, sites, collaborators, blog, calendar, domains, events, site-properties, ecommerce, marketing, online-programs, google-ads, google-business-profile, analytics, accessibility, seo, dashboard-navigation.",
+    "translation": "Wix iş çözümlerini yapılandırmak ve yönetmek için REST tarifleri: mağazalar, rezervasyonlar, bağışlar, ödemeler, CMS ve diğerleri. Çağrıdan önce tam uç nokta, yöntem ve gövde için ilgili tarifi açar; Wix API’sini veya yönetim paneli URL’sini bellekten tahmin etmez. Otomasyonlar, mağaza, rezervasyon, bağış, ödeme, CMS, kişiler, formlar, medya, uygulama kurulumu, özel uygulama, fiyat planları, restoran, ricos içeriği, site, iş ortakları, blog, takvim, alan adları, etkinlik, site özellikleri, e-ticaret, pazarlama, çevrim içi programlar, Google Ads, Google Business Profile, analiz, erişilebilirlik, SEO ve yönetim paneli gezinmesini kapsar."
+  },
+  {
+    "name": "swarm",
+    "source": "(Preview & Quota Heavy) Run a swarm: several agents working in parallel on one task, each in its own conversation, collaborating through a shared message board. Use when the work splits into pieces that can be done at the same time, or when a second pair of eyes should check the first pair's work.",
+    "translation": "Önizleme · Yüksek kota kullanımı. Bir ajan ekibi çalıştırır. Birden fazla ajan aynı görev üzerinde kendi konuşmalarında paralel çalışır ve ortak mesaj panosunda iş birliği yapar. İş aynı anda yürütülebilecek parçalara ayrıldığında veya bir ajanın çalışmasını başka bir ajanın incelemesi gerektiğinde kullanılır."
+  },
+  {
+    "name": "swarm_monitor",
+    "source": "ONLY for the native-swarm worker whose brief says it is the monitor. On a timer, it checks whether the whole swarm has stalled and calls on the one member who can unstick it. Coordinators and other workers: do not load this.",
+    "translation": "Yalnızca görev tanımında izleyici olarak belirtilen yerleşik ajan ekibi üyesi içindir. Ekibin ilerlemesinin durup durmadığını düzenli aralıklarla denetler ve ilerlemeyi yeniden sağlayabilecek üyeyi çağırır. Koordinatörler ve diğer ekip üyeleri bu beceriyi yüklememelidir."
   }
 ]

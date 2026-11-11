@@ -1,5 +1,13 @@
 # Değişiklikler
 
+## 1.0.32 — 2026-11-11
+
+- Desktop 2.31.0 desteği eklendi.
+- Yeni karşılama cümleleri, izin ve model ipuçları ile görünüm etiketleri Türkçeleştirildi.
+- Elephant-Goldfish Model, CodeRabbit, Context7 ve Spacefast katalog açıklamaları güncellendi.
+- wix-manage, swarm ve swarm_monitor açıklamaları Türkçeleştirildi.
+- 66 otomatik test geçti ve çeviriler çalışan uygulamada doğrulandı.
+
 ## 1.0.31 — 2026-11-10
 
 - Desktop 2.30.0 desteği eklendi; gerçek arşivde dönüşüm ve tekrar kurulum doğrulandı.

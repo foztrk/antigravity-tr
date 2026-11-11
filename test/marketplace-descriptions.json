@@ -363,5 +363,25 @@
     "name": "spacefast",
     "source": "Turn an idea into a website, dashboard, report, or small web tool you can share. Build it in your conversation, or bring something you already made, and publish it with Spacefast.",
     "translation": "Bir fikri paylaşılabilir web sitesine, panoya, rapora veya küçük bir web aracına dönüştürün. Sohbetinizde geliştirin veya önceden hazırladığınız çalışmayı getirip Spacefast ile yayınlayın."
+  },
+  {
+    "name": "egm",
+    "source": "Develop ideas with context and review documents with fresh eyes.",
+    "translation": "Fikirlerinizi bağlamı dikkate alarak geliştirin ve belgeleri yeni bir gözle inceleyin."
+  },
+  {
+    "name": "coderabbit",
+    "source": "AI-powered code review, review-comment autofix, and repository configuration, powered by CodeRabbit.",
+    "translation": "CodeRabbit ile yapay zekâ destekli kod incelemesi yapın, inceleme yorumlarındaki sorunları otomatik düzeltin ve depoları yapılandırın."
+  },
+  {
+    "name": "context7",
+    "source": "Up-to-date documentation lookup. Pull version-specific documentation and code examples directly from source repositories into your coding agent's context.",
+    "translation": "Güncel belgelere erişin. Sürüme özel belgeleri ve kod örneklerini doğrudan kaynak depolarından kodlama ajanınızın bağlamına ekleyin."
+  },
+  {
+    "name": "spacefast",
+    "source": "Turn an idea into a website, dashboard, report, or small web tool you can share. Build it in chat or bring your own work, and publish it with Spacefast.",
+    "translation": "Bir fikri paylaşılabilir web sitesine, panoya, rapora veya küçük bir web aracına dönüştürün. Sohbette oluşturun veya kendi çalışmanızı getirip Spacefast ile yayınlayın."
   }
 ]
