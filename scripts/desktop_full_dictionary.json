@@ -3419,5 +3419,7 @@
   "Mute Voice Mic": "Ses Modunda Mikrofonu Sustur",
   "Mute Voice Speaker": "Ses Modunda Hoparlörü Sustur",
   "Configure built-in browser, link opening, and browser subagent preferences.": "Yerleşik tarayıcı, bağlantı açma ve tarayıcı alt ajanı tercihlerini yapılandırın.",
-  "Configure allowed and denied URLs for the browser subagent (invoked with /browser). Requires": "/browser komutuyla çağrılan tarayıcı alt ajanı için izin verilen ve engellenen adresleri yapılandırın. Gerekli tarayıcı"
+  "Configure allowed and denied URLs for the browser subagent (invoked with /browser). Requires": "/browser komutuyla çağrılan tarayıcı alt ajanı için izin verilen ve engellenen adresleri yapılandırın. Gerekli tarayıcı",
+  "Download files": "Dosya İndirme",
+  "Allow/deny agent browser file downloads from specific sites.": "Ajanın belirli sitelerden tarayıcı aracılığıyla dosya indirmesine izin verin veya bunu engelleyin."
 }
