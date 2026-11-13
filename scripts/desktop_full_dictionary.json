@@ -3421,5 +3421,11 @@
   "Configure built-in browser, link opening, and browser subagent preferences.": "Yerleşik tarayıcı, bağlantı açma ve tarayıcı alt ajanı tercihlerini yapılandırın.",
   "Configure allowed and denied URLs for the browser subagent (invoked with /browser). Requires": "/browser komutuyla çağrılan tarayıcı alt ajanı için izin verilen ve engellenen adresleri yapılandırın. Gerekli tarayıcı",
   "Download files": "Dosya İndirme",
-  "Allow/deny agent browser file downloads from specific sites.": "Ajanın belirli sitelerden tarayıcı aracılığıyla dosya indirmesine izin verin veya bunu engelleyin."
+  "Allow/deny agent browser file downloads from specific sites.": "Ajanın belirli sitelerden tarayıcı aracılığıyla dosya indirmesine izin verin veya bunu engelleyin.",
+  "Introducing Gemini 4 Hydrogen": "Gemini 4 Hydrogen ile tanışın",
+  "Our daily driver for rapid coding and dependable agentic execution!": "Hızlı kodlama ve güvenilir görev yürütme için günlük kullanım modelimiz!",
+  "Orchestrator (Argon)": "Orkestratör (Argon)",
+  "Argon that may offload routine steps to Hydrogen. Same Argon-level quality, fewer tokens used.": "Argon, rutin adımları Hydrogen’a devredebilir. Aynı Argon kalitesini daha az token kullanarak sunar.",
+  "Configure allowed and denied URLs for the browser subagent. It runs in the built-in browser, so no separate browser install is needed.": "Tarayıcı alt ajanı için izin verilen ve engellenen adresleri yapılandırın. Alt ajan yerleşik tarayıcıda çalışır, bu yüzden ayrı bir tarayıcı kurmanız gerekmez.",
+  "Unlock the power of agent swarms.": "Birden çok ajanın birlikte çalışmasını sağlayın."
 }
