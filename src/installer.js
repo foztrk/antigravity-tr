@@ -300,6 +300,19 @@ function patchAntigravityExtension(paths) {
         ['"title":"Accept Completion"', '"title":"Tamamlamayı Kabul Et"'],
         ['"title":"Escape Completion"', '"title":"Tamamlamadan Çık"'],
         ['"title":"Generate Commit Message"', '"title":"Commit İletisi Oluştur"'],
+        ['"title":"New Conversation"', '"title":"Yeni Konuşma"'],
+        ['"title":"Toggle Chat Focus"', '"title":"Sohbet Odağını Aç/Kapat"'],
+        ['"title":"Focus Panel"', '"title":"Panele Odaklan"'],
+        ['"title":"Accept Changes in All Files"', '"title":"Tüm Dosyalardaki Değişiklikleri Kabul Et"'],
+        ['"title":"Reject Changes in All Files"', '"title":"Tüm Dosyalardaki Değişiklikleri Reddet"'],
+        ['"title":"Accept Changes in Current File"', '"title":"Geçerli Dosyadaki Değişiklikleri Kabul Et"'],
+        ['"title":"Reject Changes in Current File"', '"title":"Geçerli Dosyadaki Değişiklikleri Reddet"'],
+        ['"title":"Open Settings"', '"title":"Ayarları Aç"'],
+        ['"title":"Sign In"', '"title":"Oturum Aç"'],
+        ['"title":"Sign Out"', '"title":"Oturumu Kapat"'],
+        ['"title":"Show Menu"', '"title":"Menüyü Göster"'],
+        ['"Auto-accept pending edits in background files when starting a new or queued chat turn (non-cumulative review: only the latest turn\'s diff is kept on re-edited files). When off, reviews accumulate across turns: all modified files stay open until you accept or reject them, later edits to the same file merge into one cumulative diff, and you are notified when reviews from earlier turns remain open."', '"Yeni veya sıraya alınmış bir sohbet turu başlatırken arka plandaki dosyalarda bekleyen düzenlemeleri otomatik olarak kabul edin (kümülatif olmayan inceleme: yeniden düzenlenen dosyalarda yalnızca son turun farkı tutulur). Kapalı olduğunda incelemeler turlar boyunca birikir: siz kabul edene veya reddedene kadar tüm değiştirilen dosyalar açık kalır, aynı dosyaya yapılan sonraki düzenlemeler tek bir kümülatif farkta birleşir ve önceki turlardan kalan incelemeler açık kaldığında size bildirim gönderilir."'],
+        ['"Report this host as the Antigravity IDE in agent UI telemetry."', '"Bu ana bilgisayarı ajan arayüzü telemetrisinde Antigravity IDE olarak bildir."'],
         ['"Port for the Antigravity background server (`agy --hub`). Leave at 0 (recommended) to allocate an ephemeral port automatically. Each VS Code window spawns its own `agy` server, so prefer setting a fixed port in Workspace Settings rather than User Settings; if the configured port is already in use by another window or process, Antigravity automatically falls back to an available ephemeral port."', '"Antigravity arka plan sunucusu (`agy --hub`) için bağlantı noktası. Geçici bir bağlantı noktasını otomatik olarak ayırmak için 0 (önerilen) değerinde bırakın. Her VS Code penceresi kendi `agy` sunucusunu başlatır; bu nedenle sabit bir bağlantı noktasını Kullanıcı Ayarları yerine Çalışma Alanı Ayarlarında belirlemeyi tercih edin. Yapılandırılan bağlantı noktası başka bir pencere veya işlem tarafından kullanılıyorsa Antigravity otomatik olarak kullanılabilir bir geçici bağlantı noktasına geçer."'],
         ['"Timeout in milliseconds to wait for the Antigravity backend language server to start up and pass health checks."', '"Antigravity arka uç dil sunucusunun başlaması ve sağlık kontrollerini geçmesi için beklenecek milisaniye cinsinden zaman aşımı."'],
         ['"Interval in milliseconds between post-startup /healthz liveness probes (minimum 1000; 4x slower when the Antigravity view is hidden or unfocused). After 3 consecutive missed probes the backend is restarted automatically. Set to 0 to disable heartbeat probing."', '"Başlangıç sonrası /healthz canlılık yoklamaları arasındaki milisaniye cinsinden aralık (en az 1000; Antigravity görünümü gizli veya odak dışı olduğunda 4 kat daha yavaş). Ardışık 3 başarısız yoklamadan sonra arka uç otomatik olarak yeniden başlatılır. Canlılık yoklamasını devre dışı bırakmak için 0 olarak ayarlayın."'],
@@ -430,8 +443,12 @@ function patchAntigravityExtension(paths) {
       }
 
       // Yerel agy.exe --hub HTTP/WebSocket çeviri vekil sunucusunu enjekte et
-      const stopWrapMatch = /([A-Za-z_$][\w$]*)\(await ([A-Za-z_$][\w$]*)\(this\.stop\(\)\)\)/.exec(v);
       const assignMatch = /this\.serverUrl=([A-Za-z_$][\w$]*);this\.port=([A-Za-z_$][\w$]*);this\.lastStartupError=void 0;this\.startHeartbeat\(\1,([A-Za-z_$][\w$]*)\);/.exec(v);
+      const scopeSlice = assignMatch ? v.slice(Math.max(0, assignMatch.index - 2500), assignMatch.index) : '';
+      const stopWrapMatches = scopeSlice
+        ? Array.from(scopeSlice.matchAll(/([A-Za-z_$][\w$]*)\(await ([A-Za-z_$][\w$]*)\(this\.stop\(\)\)\)/g))
+        : [];
+      const stopWrapMatch = stopWrapMatches.length ? stopWrapMatches[stopWrapMatches.length - 1] : null;
       const activateExportTarget = 'k.exportSymbol("activate",';
       if (stopWrapMatch && assignMatch && v.includes(activateExportTarget)) {
         const [, wrapA, wrapB] = stopWrapMatch;
@@ -1202,6 +1219,8 @@ function patchCodexExtension(paths) {
     ['"New Codex Agent"', '"Yeni Codex Ajanı"'],
     ['"Add to Codex Thread"', '"Codex İş Parçacığına Ekle"'],
     ['"Add File to Codex Thread"', '"Dosyayı Codex İş Parçacığına Ekle"'],
+    ['"Add to Codex Chat"', '"Codex Sohbetine Ekle"'],
+    ['"Add File to Codex Chat"', '"Dosyayı Codex Sohbetine Ekle"'],
     ['"New Chat in ChatGPT Sidebar"', '"ChatGPT Kenar Çubuğunda Yeni Sohbet"'],
     ['"Copy Codex CLI args for LSP MCP"', '"LSP MCP için Codex CLI Bağımsız Değişkenlerini Kopyala"'],
     ['"Codex Settings"', '"Codex Ayarları"']
