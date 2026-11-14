@@ -355,16 +355,20 @@ function patchMainWebFrameTranslator(mainFilePath) {
     if (content.includes('__agyMainTrScript')) return true;
     const trScript = buildGuardedDesktopTranslator();
     if (!trScript) return false;
-    const importAnchor = 'import{app as FD,protocol as ROa,session as $P,systemPreferences as SOa}from"electron";';
-    const hookAnchor = 'FD.on("web-contents-created",(r,i)=>{';
-    if (!content.includes(importAnchor) || !content.includes(hookAnchor)) return false;
+    const wcMatch = /\b([A-Za-z_$][\w$]*)\.on\("web-contents-created",\(([A-Za-z_$][\w$]*),([A-Za-z_$][\w$]*)\)=>\{/.exec(content);
+    if (!wcMatch) return false;
+    const appVar = wcMatch[1];
+    const wcVar = wcMatch[3];
+    const importRegex = new RegExp(`import\\{([^}]*\\bapp as ${appVar}\\b[^}]*)\\}from"electron";`);
+    const importMatch = importRegex.exec(content);
+    if (!importMatch) return false;
     content = content.replace(
-      importAnchor,
-      'import{app as FD,protocol as ROa,session as $P,systemPreferences as SOa,webFrameMain as _agWfm}from"electron";const __agyMainTrScript=' + JSON.stringify(trScript) + ';'
+      importMatch[0],
+      `import{${importMatch[1]},webFrameMain as _agWfm}from"electron";const __agyMainTrScript=${JSON.stringify(trScript)};`
     );
     content = content.replace(
-      hookAnchor,
-      hookAnchor + 'try{const _inj=f=>{try{if(f&&typeof f.url==="string"&&/^https?:\\/\\/(127\\.0\\.0\\.1|localhost):\\d+\\b/.test(f.url))f.executeJavaScript(__agyMainTrScript).catch(()=>{})}catch{}};i.on("did-frame-finish-load",(_e,_m,p,k)=>{try{_inj(_agWfm.fromId(p,k))}catch{}});i.on("dom-ready",()=>{try{for(const f of i.mainFrame?.framesInSubtree||[])_inj(f)}catch{}})}catch{};'
+      wcMatch[0],
+      wcMatch[0] + `try{const _inj=f=>{try{if(f&&typeof f.url==="string"&&/^https?:\\/\\/(127\\.0\\.0\\.1|localhost):\\d+\\b/.test(f.url))f.executeJavaScript(__agyMainTrScript).catch(()=>{})}catch{}};${wcVar}.on("did-frame-finish-load",(_e,_m,p,k)=>{try{_inj(_agWfm.fromId(p,k))}catch{}});${wcVar}.on("dom-ready",()=>{try{for(const f of ${wcVar}.mainFrame?.framesInSubtree||[])_inj(f)}catch{}})}catch{};`
     );
     fs.writeFileSync(mainFilePath, content, 'utf8');
     return true;

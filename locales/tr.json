@@ -8203,6 +8203,666 @@
       {
         "search": "?\"This plugin has been built by the official publisher.\":\"This plugin has been built by a verified reference publisher.\"",
         "replace": "?\"Bu eklenti resmi yayıncı tarafından oluşturulmuştur.\":\"Bu eklenti doğrulanmış bir referans yayıncı tarafından oluşturulmuştur.\""
+      },
+      {
+        "search": "{low:\"Low\",medium:\"Medium\",high:\"High\",xhigh:\"Extra\",max:\"Max\"}",
+        "replace": "{low:\"Düşük\",medium:\"Orta\",high:\"Yüksek\",xhigh:\"Ekstra\",max:\"Maks\"}"
+      },
+      {
+        "search": "?\"Best of N Models\":\"Model\"",
+        "replace": "?\"En İyi N Model\":\"Model\""
+      },
+      {
+        "search": "children:\"View Usage\"",
+        "replace": "children:\"Kullanımı Görüntüle\""
+      },
+      {
+        "search": "title:\"Usage\"",
+        "replace": "title:\"Kullanım\""
+      },
+      {
+        "search": "case\"standalone\":return\"No Project\"",
+        "replace": "case\"standalone\":return\"Proje Yok\""
+      },
+      {
+        "search": "\"Ask anything, @ to mention\"",
+        "replace": "\"Bir şey sorun, @ ile bahsedin\""
+      },
+      {
+        "search": "\", / for actions\"",
+        "replace": "\", / ile eylemler\""
+      },
+      {
+        "search": "return\"Always Proceed\"",
+        "replace": "return\"Her Zaman Devam Et\""
+      },
+      {
+        "search": "return\"Request Review\"",
+        "replace": "return\"İnceleme İste\""
+      },
+      {
+        "search": "default:return\"Proceed in Sandbox\"",
+        "replace": "default:return\"Kum Havuzunda Devam Et\""
+      },
+      {
+        "search": "tooltip:\"Stop Subagent\",ariaLabel:\"Stop subagent\"",
+        "replace": "tooltip:\"Alt Ajanı Durdur\",ariaLabel:\"Alt ajanı durdur\""
+      },
+      {
+        "search": "children:[\"Archive Conversation\"",
+        "replace": "children:[\"Sohbeti Arşivle\""
+      },
+      {
+        "search": ":\"Archive Conversation\"",
+        "replace": ":\"Sohbeti Arşivle\""
+      },
+      {
+        "search": "\"No license available for this project and location\"",
+        "replace": "\"Bu proje ve konum için kullanılabilir lisans yok\""
+      },
+      {
+        "search": "children:\"Cancel\"",
+        "replace": "children:\"İptal\""
+      },
+      {
+        "search": "children:\"Delete\"",
+        "replace": "children:\"Sil\""
+      },
+      {
+        "search": "children:\"Submit\"",
+        "replace": "children:\"Gönder\""
+      },
+      {
+        "search": "children:\"Skip\"",
+        "replace": "children:\"Atla\""
+      },
+      {
+        "search": "children:\"Close\"",
+        "replace": "children:\"Kapat\""
+      },
+      {
+        "search": "children:\"Refresh\"",
+        "replace": "children:\"Yenile\""
+      },
+      {
+        "search": "tooltip:\"Refresh\"",
+        "replace": "tooltip:\"Yenile\""
+      },
+      {
+        "search": "children:\"Retry\"",
+        "replace": "children:\"Tekrar Dene\""
+      },
+      {
+        "search": "children:\"Dismiss\"",
+        "replace": "children:\"Kapat\""
+      },
+      {
+        "search": "children:\"Configure\"",
+        "replace": "children:\"Yapılandır\""
+      },
+      {
+        "search": "children:\"Approve\"",
+        "replace": "children:\"Onayla\""
+      },
+      {
+        "search": "children:\"Reject\"",
+        "replace": "children:\"Reddet\""
+      },
+      {
+        "search": "children:\"Accept\"",
+        "replace": "children:\"Kabul Et\""
+      },
+      {
+        "search": "children:\"Decline\"",
+        "replace": "children:\"Reddet\""
+      },
+      {
+        "search": "children:\"Confirm\"",
+        "replace": "children:\"Onayla\""
+      },
+      {
+        "search": "children:\"Apply\"",
+        "replace": "children:\"Uygula\""
+      },
+      {
+        "search": "children:\"Reset\"",
+        "replace": "children:\"Sıfırla\""
+      },
+      {
+        "search": "children:\"Remove\"",
+        "replace": "children:\"Kaldır\""
+      },
+      {
+        "search": "children:\"Connect\"",
+        "replace": "children:\"Bağlan\""
+      },
+      {
+        "search": "children:\"Done\"",
+        "replace": "children:\"Bitti\""
+      },
+      {
+        "search": "children:\"Save\"",
+        "replace": "children:\"Kaydet\""
+      },
+      {
+        "search": "children:\"Edit\"",
+        "replace": "children:\"Düzenle\""
+      },
+      {
+        "search": "tooltip:\"Edit\"",
+        "replace": "tooltip:\"Düzenle\""
+      },
+      {
+        "search": "tooltip:\"Delete\"",
+        "replace": "tooltip:\"Sil\""
+      },
+      {
+        "search": "tooltip:\"Download\"",
+        "replace": "tooltip:\"İndir\""
+      },
+      {
+        "search": "ariaLabel:\"Download\"",
+        "replace": "ariaLabel:\"İndir\""
+      },
+      {
+        "search": "tooltip:\"Search\"",
+        "replace": "tooltip:\"Ara\""
+      },
+      {
+        "search": "ariaLabel:\"Search\"",
+        "replace": "ariaLabel:\"Ara\""
+      },
+      {
+        "search": "tooltip:\"Settings\"",
+        "replace": "tooltip:\"Ayarlar\""
+      },
+      {
+        "search": "tooltip:\"Rename\"",
+        "replace": "tooltip:\"Yeniden Adlandır\""
+      },
+      {
+        "search": "tooltip:\"Minimize\"",
+        "replace": "tooltip:\"Simge Durumuna Küçült\""
+      },
+      {
+        "search": "tooltip:\"Back\"",
+        "replace": "tooltip:\"Geri\""
+      },
+      {
+        "search": "tooltip:\"Clear\"",
+        "replace": "tooltip:\"Temizle\""
+      },
+      {
+        "search": "children:\"Clear\"",
+        "replace": "children:\"Temizle\""
+      },
+      {
+        "search": "children:\"Creating...\"",
+        "replace": "children:\"Oluşturuluyor...\""
+      },
+      {
+        "search": "children:\"Refreshing...\"",
+        "replace": "children:\"Yenileniyor...\""
+      },
+      {
+        "search": "children:\"Submitting...\"",
+        "replace": "children:\"Gönderiliyor...\""
+      },
+      {
+        "search": "children:\"Settings\"",
+        "replace": "children:\"Ayarlar\""
+      },
+      {
+        "search": "children:\"Back\"",
+        "replace": "children:\"Geri\""
+      },
+      {
+        "search": "children:\"Next\"",
+        "replace": "children:\"İleri\""
+      },
+      {
+        "search": "children:\"Previous\"",
+        "replace": "children:\"Önceki\""
+      },
+      {
+        "search": "children:\"Expand\"",
+        "replace": "children:\"Genişlet\""
+      },
+      {
+        "search": "children:\"Review\"",
+        "replace": "children:\"İncele\""
+      },
+      {
+        "search": "children:\"Preview\"",
+        "replace": "children:\"Önizleme\""
+      },
+      {
+        "search": "children:\"Manage\"",
+        "replace": "children:\"Yönet\""
+      },
+      {
+        "search": "children:\"Validate\"",
+        "replace": "children:\"Doğrula\""
+      },
+      {
+        "search": "children:\"Customize\"",
+        "replace": "children:\"Özelleştir\""
+      },
+      {
+        "search": "children:\"Authenticate\"",
+        "replace": "children:\"Kimliği Doğrula\""
+      },
+      {
+        "search": "children:\"Connected\"",
+        "replace": "children:\"Bağlandı\""
+      },
+      {
+        "search": "children:\"Installed\"",
+        "replace": "children:\"Yüklü\""
+      },
+      {
+        "search": "children:\"Disabled\"",
+        "replace": "children:\"Devre dışı\""
+      },
+      {
+        "search": "children:\"Blocked\"",
+        "replace": "children:\"Engellendi\""
+      },
+      {
+        "search": "children:\"Archived\"",
+        "replace": "children:\"Arşivlendi\""
+      },
+      {
+        "search": "children:\"Agents\"",
+        "replace": "children:\"Ajanlar\""
+      },
+      {
+        "search": "children:\"Extensions\"",
+        "replace": "children:\"Uzantılar\""
+      },
+      {
+        "search": "children:\"Workspaces\"",
+        "replace": "children:\"Çalışma Alanları\""
+      },
+      {
+        "search": "children:\"Projects\"",
+        "replace": "children:\"Projeler\""
+      },
+      {
+        "search": "children:\"Comments\"",
+        "replace": "children:\"Yorumlar\""
+      },
+      {
+        "search": "children:\"Customizations\"",
+        "replace": "children:\"Özelleştirmeler\""
+      },
+      {
+        "search": "children:\"Feedback\"",
+        "replace": "children:\"Geri Bildirim\""
+      },
+      {
+        "search": "children:\"Workspace\"",
+        "replace": "children:\"Çalışma Alanı\""
+      },
+      {
+        "search": "title:\"General\"",
+        "replace": "title:\"Genel\""
+      },
+      {
+        "search": "title:\"Account\"",
+        "replace": "title:\"Hesap\""
+      },
+      {
+        "search": "title:\"Browser\"",
+        "replace": "title:\"Tarayıcı\""
+      },
+      {
+        "search": "title:\"Terminal\"",
+        "replace": "title:\"Terminal\""
+      },
+      {
+        "search": "title:\"Terminals\"",
+        "replace": "title:\"Terminaller\""
+      },
+      {
+        "search": "title:\"Customizations\"",
+        "replace": "title:\"Özelleştirmeler\""
+      },
+      {
+        "search": "title:\"Automations\"",
+        "replace": "title:\"Otomasyonlar\""
+      },
+      {
+        "search": "title:\"Subagents\"",
+        "replace": "title:\"Alt Ajanlar\""
+      },
+      {
+        "search": "title:\"Conversations\"",
+        "replace": "title:\"Sohbetler\""
+      },
+      {
+        "search": "title:\"Plugins\"",
+        "replace": "title:\"Eklentiler\""
+      },
+      {
+        "search": "title:\"Extensions\"",
+        "replace": "title:\"Uzantılar\""
+      },
+      {
+        "search": "title:\"Agents\"",
+        "replace": "title:\"Ajanlar\""
+      },
+      {
+        "search": "title:\"Artifacts\"",
+        "replace": "title:\"Yapıtlar\""
+      },
+      {
+        "search": "title:\"Documents\"",
+        "replace": "title:\"Belgeler\""
+      },
+      {
+        "search": "title:\"Changes\"",
+        "replace": "title:\"Değişiklikler\""
+      },
+      {
+        "search": "title:\"Skills\"",
+        "replace": "title:\"Beceriler\""
+      },
+      {
+        "search": "title:\"Rules\"",
+        "replace": "title:\"Kurallar\""
+      },
+      {
+        "search": "title:\"Hooks\"",
+        "replace": "title:\"Kancalar\""
+      },
+      {
+        "search": "title:\"Commands\"",
+        "replace": "title:\"Komutlar\""
+      },
+      {
+        "search": "title:\"Notifications\"",
+        "replace": "title:\"Bildirimler\""
+      },
+      {
+        "search": "title:\"Sound\"",
+        "replace": "title:\"Ses\""
+      },
+      {
+        "search": "title:\"Recommended\"",
+        "replace": "title:\"Önerilen\""
+      },
+      {
+        "search": "title:\"Shortcuts\"",
+        "replace": "title:\"Kısayollar\""
+      },
+      {
+        "search": "title:\"Execution\"",
+        "replace": "title:\"Yürütme\""
+      },
+      {
+        "search": "title:\"Suggestions\"",
+        "replace": "title:\"Öneriler\""
+      },
+      {
+        "search": "title:\"Context\"",
+        "replace": "title:\"Bağlam\""
+      },
+      {
+        "search": "title:\"Quota\"",
+        "replace": "title:\"Kota\""
+      },
+      {
+        "search": "title:\"Updater\"",
+        "replace": "title:\"Güncelleyici\""
+      },
+      {
+        "search": "title:\"Appearance\"",
+        "replace": "title:\"Görünüm\""
+      },
+      {
+        "search": "title:\"Labs\"",
+        "replace": "title:\"Laboratuvar\""
+      },
+      {
+        "search": "title:\"Marketplace\"",
+        "replace": "title:\"Pazar Yeri\""
+      },
+      {
+        "search": "title:\"Setup\"",
+        "replace": "title:\"Kurulum\""
+      },
+      {
+        "search": "title:\"Advanced\"",
+        "replace": "title:\"Gelişmiş\""
+      },
+      {
+        "search": "title:\"Navigation\"",
+        "replace": "title:\"Gezinme\""
+      },
+      {
+        "search": "title:\"Reload\"",
+        "replace": "title:\"Yeniden Yükle\""
+      },
+      {
+        "search": "title:\"Forward\"",
+        "replace": "title:\"İleri\""
+      },
+      {
+        "search": "title:\"Back\"",
+        "replace": "title:\"Geri\""
+      },
+      {
+        "search": "title:\"Plan\"",
+        "replace": "title:\"Plan\""
+      },
+      {
+        "search": "title:\"Goals\"",
+        "replace": "title:\"Hedefler\""
+      },
+      {
+        "search": "title:\"Links\"",
+        "replace": "title:\"Bağlantılar\""
+      },
+      {
+        "search": "title:\"View\"",
+        "replace": "title:\"Görünüm\""
+      },
+      {
+        "search": "title:\"Window\"",
+        "replace": "title:\"Pencere\""
+      },
+      {
+        "search": "title:\"Review\"",
+        "replace": "title:\"İncele\""
+      },
+      {
+        "search": "title:\"Preview\"",
+        "replace": "title:\"Önizleme\""
+      },
+      {
+        "search": "title:\"Enable Notifications\"",
+        "replace": "title:\"Bildirimleri Etkinleştir\""
+      },
+      {
+        "search": "title:\"Playback speed (< / >)\"",
+        "replace": "title:\"Oynatma hızı (< / >)\""
+      },
+      {
+        "search": "placeholder:\"Filter topics...\"",
+        "replace": "placeholder:\"Konuları filtrele...\""
+      },
+      {
+        "search": "placeholder:\"Filter log lines...\"",
+        "replace": "placeholder:\"Günlük satırlarını filtrele...\""
+      },
+      {
+        "search": "placeholder:\"Find\"",
+        "replace": "placeholder:\"Bul\""
+      },
+      {
+        "search": "content:\"Worktrees are a git feature. This folder is shared as is.\"",
+        "replace": "content:\"Worktree'ler bir git özelliğidir. Bu klasör olduğu gibi paylaşılır.\""
+      },
+      {
+        "search": "children:\"No rate card for this model; showing comparable rates.\"",
+        "replace": "children:\"Bu model için ücret tablosu yok; karşılaştırılabilir oranlar gösteriliyor.\""
+      },
+      {
+        "search": "children:\"cumulative total for the conversation up to this point\"",
+        "replace": "children:\"konuşmanın bu noktaya kadarki kümülatif toplamı\""
+      },
+      {
+        "search": "children:\"(Optional, defaults to main)\"",
+        "replace": "children:\"(İsteğe bağlı, varsayılan: main)\""
+      },
+      {
+        "search": "ariaLabel:\"Open in Preview\"",
+        "replace": "ariaLabel:\"Önizlemede Aç\""
+      },
+      {
+        "search": "ariaLabel:\"Open preview in embedded pane\"",
+        "replace": "ariaLabel:\"Önizlemeyi gömülü bölmede aç\""
+      },
+      {
+        "search": "ariaLabel:\"Open in Notebook View\"",
+        "replace": "ariaLabel:\"Not Defteri Görünümünde Aç\""
+      },
+      {
+        "search": "ariaLabel:\"Pinned Actions\"",
+        "replace": "ariaLabel:\"Sabitlenen Eylemler\""
+      },
+      {
+        "search": "ariaLabel:\"Project options\"",
+        "replace": "ariaLabel:\"Proje seçenekleri\""
+      },
+      {
+        "search": "id:\"share\",label:\"Share\"",
+        "replace": "id:\"share\",label:\"Paylaş\""
+      },
+      {
+        "search": "id:\"stop\",label:\"Stop\"",
+        "replace": "id:\"stop\",label:\"Durdur\""
+      },
+      {
+        "search": "id:\"archive\",label:\"Archive\"",
+        "replace": "id:\"archive\",label:\"Arşivle\""
+      },
+      {
+        "search": "id:\"delete\",label:\"Delete\"",
+        "replace": "id:\"delete\",label:\"Sil\""
+      },
+      {
+        "search": "id:\"restore\",label:\"Restore\"",
+        "replace": "id:\"restore\",label:\"Geri Yükle\""
+      },
+      {
+        "search": "id:\"rename\",label:\"Rename\"",
+        "replace": "id:\"rename\",label:\"Yeniden Adlandır\""
+      },
+      {
+        "search": "id:\"overview\",label:\"Overview\"",
+        "replace": "id:\"overview\",label:\"Genel Bakış\""
+      },
+      {
+        "search": "id:\"accounts\",label:\"Accounts\"",
+        "replace": "id:\"accounts\",label:\"Hesaplar\""
+      },
+      {
+        "search": "id:\"skills\",label:\"Skills\"",
+        "replace": "id:\"skills\",label:\"Beceriler\""
+      },
+      {
+        "search": "id:\"agents\",label:\"Agents\"",
+        "replace": "id:\"agents\",label:\"Ajanlar\""
+      },
+      {
+        "search": "id:\"hooks\",label:\"Hooks\"",
+        "replace": "id:\"hooks\",label:\"Kancalar\""
+      },
+      {
+        "search": "id:\"rules\",label:\"Rules\"",
+        "replace": "id:\"rules\",label:\"Kurallar\""
+      },
+      {
+        "search": "id:\"sidecars\",label:\"Automations\"",
+        "replace": "id:\"sidecars\",label:\"Otomasyonlar\""
+      },
+      {
+        "search": "id:\"all\",label:\"Conversations\"",
+        "replace": "id:\"all\",label:\"Sohbetler\""
+      },
+      {
+        "search": "id:\"status-blocked\",label:\"Blocked\"",
+        "replace": "id:\"status-blocked\",label:\"Engellendi\""
+      },
+      {
+        "search": "id:\"status-idle\",label:\"Idle\"",
+        "replace": "id:\"status-idle\",label:\"Boşta\""
+      },
+      {
+        "search": "id:\"output\",label:\"Output\"",
+        "replace": "id:\"output\",label:\"Çıktı\""
+      },
+      {
+        "search": "id:\"stdout\",label:\"Logs\"",
+        "replace": "id:\"stdout\",label:\"Günlükler\""
+      },
+      {
+        "search": "id:\"stderr\",label:\"Errors\"",
+        "replace": "id:\"stderr\",label:\"Hatalar\""
+      },
+      {
+        "search": "id:\"deprecated-stdout\",label:\"Logs\"",
+        "replace": "id:\"deprecated-stdout\",label:\"Günlükler\""
+      },
+      {
+        "search": "id:\"deprecated-stderr\",label:\"Errors\"",
+        "replace": "id:\"deprecated-stderr\",label:\"Hatalar\""
+      },
+      {
+        "search": "id:\"copy\",label:\"Copy\"",
+        "replace": "id:\"copy\",label:\"Kopyala\""
+      },
+      {
+        "search": "id:\"cut\",label:\"Cut\"",
+        "replace": "id:\"cut\",label:\"Kes\""
+      },
+      {
+        "search": "id:\"paste\",label:\"Paste\"",
+        "replace": "id:\"paste\",label:\"Yapıştır\""
+      },
+      {
+        "search": "id:\"copy-selection\",label:\"Copy\"",
+        "replace": "id:\"copy-selection\",label:\"Kopyala\""
+      },
+      {
+        "search": "id:\"back\",label:\"Back\"",
+        "replace": "id:\"back\",label:\"Geri\""
+      },
+      {
+        "search": "id:\"forward\",label:\"Forward\"",
+        "replace": "id:\"forward\",label:\"İleri\""
+      },
+      {
+        "search": "id:\"reload\",label:\"Reload\"",
+        "replace": "id:\"reload\",label:\"Yeniden Yükle\""
+      },
+      {
+        "search": "id:\"uncommitted\",label:\"Uncommitted\"",
+        "replace": "id:\"uncommitted\",label:\"Kaydedilmemiş\""
+      },
+      {
+        "search": "children:e.tagTitle",
+        "replace": "children:({New:\"Yeni\",Notice:\"Bilgilendirme\",Unavailable:\"Kullanılamıyor\",Deprecated:\"Kullanımdan Kaldırıldı\",Beta:\"Beta\",Preview:\"Önizleme\"}[e.tagTitle]??e.tagTitle)"
+      },
+      {
+        "search": "title:e?\"Subagent\":\"Agent Script\"",
+        "replace": "title:e?\"Alt Ajan\":\"Ajan Betiği\""
+      },
+      {
+        "search": "title:t?\"Subagent\":\"Agent Script\"",
+        "replace": "title:t?\"Alt Ajan\":\"Ajan Betiği\""
       }
     ],
     "workbench": [
@@ -17665,6 +18325,666 @@
       {
         "search": "var bku=m(4205,null)",
         "replace": "var bku=\"Görünüm verilerini sağlayabilecek kayıtlı bir veri sağlayıcı yok.\""
+      },
+      {
+        "search": "{low:\"Low\",medium:\"Medium\",high:\"High\",xhigh:\"Extra\",max:\"Max\"}",
+        "replace": "{low:\"Düşük\",medium:\"Orta\",high:\"Yüksek\",xhigh:\"Ekstra\",max:\"Maks\"}"
+      },
+      {
+        "search": "?\"Best of N Models\":\"Model\"",
+        "replace": "?\"En İyi N Model\":\"Model\""
+      },
+      {
+        "search": "children:\"View Usage\"",
+        "replace": "children:\"Kullanımı Görüntüle\""
+      },
+      {
+        "search": "title:\"Usage\"",
+        "replace": "title:\"Kullanım\""
+      },
+      {
+        "search": "case\"standalone\":return\"No Project\"",
+        "replace": "case\"standalone\":return\"Proje Yok\""
+      },
+      {
+        "search": "\"Ask anything, @ to mention\"",
+        "replace": "\"Bir şey sorun, @ ile bahsedin\""
+      },
+      {
+        "search": "\", / for actions\"",
+        "replace": "\", / ile eylemler\""
+      },
+      {
+        "search": "return\"Always Proceed\"",
+        "replace": "return\"Her Zaman Devam Et\""
+      },
+      {
+        "search": "return\"Request Review\"",
+        "replace": "return\"İnceleme İste\""
+      },
+      {
+        "search": "default:return\"Proceed in Sandbox\"",
+        "replace": "default:return\"Kum Havuzunda Devam Et\""
+      },
+      {
+        "search": "tooltip:\"Stop Subagent\",ariaLabel:\"Stop subagent\"",
+        "replace": "tooltip:\"Alt Ajanı Durdur\",ariaLabel:\"Alt ajanı durdur\""
+      },
+      {
+        "search": "children:[\"Archive Conversation\"",
+        "replace": "children:[\"Sohbeti Arşivle\""
+      },
+      {
+        "search": ":\"Archive Conversation\"",
+        "replace": ":\"Sohbeti Arşivle\""
+      },
+      {
+        "search": "\"No license available for this project and location\"",
+        "replace": "\"Bu proje ve konum için kullanılabilir lisans yok\""
+      },
+      {
+        "search": "children:\"Cancel\"",
+        "replace": "children:\"İptal\""
+      },
+      {
+        "search": "children:\"Delete\"",
+        "replace": "children:\"Sil\""
+      },
+      {
+        "search": "children:\"Submit\"",
+        "replace": "children:\"Gönder\""
+      },
+      {
+        "search": "children:\"Skip\"",
+        "replace": "children:\"Atla\""
+      },
+      {
+        "search": "children:\"Close\"",
+        "replace": "children:\"Kapat\""
+      },
+      {
+        "search": "children:\"Refresh\"",
+        "replace": "children:\"Yenile\""
+      },
+      {
+        "search": "tooltip:\"Refresh\"",
+        "replace": "tooltip:\"Yenile\""
+      },
+      {
+        "search": "children:\"Retry\"",
+        "replace": "children:\"Tekrar Dene\""
+      },
+      {
+        "search": "children:\"Dismiss\"",
+        "replace": "children:\"Kapat\""
+      },
+      {
+        "search": "children:\"Configure\"",
+        "replace": "children:\"Yapılandır\""
+      },
+      {
+        "search": "children:\"Approve\"",
+        "replace": "children:\"Onayla\""
+      },
+      {
+        "search": "children:\"Reject\"",
+        "replace": "children:\"Reddet\""
+      },
+      {
+        "search": "children:\"Accept\"",
+        "replace": "children:\"Kabul Et\""
+      },
+      {
+        "search": "children:\"Decline\"",
+        "replace": "children:\"Reddet\""
+      },
+      {
+        "search": "children:\"Confirm\"",
+        "replace": "children:\"Onayla\""
+      },
+      {
+        "search": "children:\"Apply\"",
+        "replace": "children:\"Uygula\""
+      },
+      {
+        "search": "children:\"Reset\"",
+        "replace": "children:\"Sıfırla\""
+      },
+      {
+        "search": "children:\"Remove\"",
+        "replace": "children:\"Kaldır\""
+      },
+      {
+        "search": "children:\"Connect\"",
+        "replace": "children:\"Bağlan\""
+      },
+      {
+        "search": "children:\"Done\"",
+        "replace": "children:\"Bitti\""
+      },
+      {
+        "search": "children:\"Save\"",
+        "replace": "children:\"Kaydet\""
+      },
+      {
+        "search": "children:\"Edit\"",
+        "replace": "children:\"Düzenle\""
+      },
+      {
+        "search": "tooltip:\"Edit\"",
+        "replace": "tooltip:\"Düzenle\""
+      },
+      {
+        "search": "tooltip:\"Delete\"",
+        "replace": "tooltip:\"Sil\""
+      },
+      {
+        "search": "tooltip:\"Download\"",
+        "replace": "tooltip:\"İndir\""
+      },
+      {
+        "search": "ariaLabel:\"Download\"",
+        "replace": "ariaLabel:\"İndir\""
+      },
+      {
+        "search": "tooltip:\"Search\"",
+        "replace": "tooltip:\"Ara\""
+      },
+      {
+        "search": "ariaLabel:\"Search\"",
+        "replace": "ariaLabel:\"Ara\""
+      },
+      {
+        "search": "tooltip:\"Settings\"",
+        "replace": "tooltip:\"Ayarlar\""
+      },
+      {
+        "search": "tooltip:\"Rename\"",
+        "replace": "tooltip:\"Yeniden Adlandır\""
+      },
+      {
+        "search": "tooltip:\"Minimize\"",
+        "replace": "tooltip:\"Simge Durumuna Küçült\""
+      },
+      {
+        "search": "tooltip:\"Back\"",
+        "replace": "tooltip:\"Geri\""
+      },
+      {
+        "search": "tooltip:\"Clear\"",
+        "replace": "tooltip:\"Temizle\""
+      },
+      {
+        "search": "children:\"Clear\"",
+        "replace": "children:\"Temizle\""
+      },
+      {
+        "search": "children:\"Creating...\"",
+        "replace": "children:\"Oluşturuluyor...\""
+      },
+      {
+        "search": "children:\"Refreshing...\"",
+        "replace": "children:\"Yenileniyor...\""
+      },
+      {
+        "search": "children:\"Submitting...\"",
+        "replace": "children:\"Gönderiliyor...\""
+      },
+      {
+        "search": "children:\"Settings\"",
+        "replace": "children:\"Ayarlar\""
+      },
+      {
+        "search": "children:\"Back\"",
+        "replace": "children:\"Geri\""
+      },
+      {
+        "search": "children:\"Next\"",
+        "replace": "children:\"İleri\""
+      },
+      {
+        "search": "children:\"Previous\"",
+        "replace": "children:\"Önceki\""
+      },
+      {
+        "search": "children:\"Expand\"",
+        "replace": "children:\"Genişlet\""
+      },
+      {
+        "search": "children:\"Review\"",
+        "replace": "children:\"İncele\""
+      },
+      {
+        "search": "children:\"Preview\"",
+        "replace": "children:\"Önizleme\""
+      },
+      {
+        "search": "children:\"Manage\"",
+        "replace": "children:\"Yönet\""
+      },
+      {
+        "search": "children:\"Validate\"",
+        "replace": "children:\"Doğrula\""
+      },
+      {
+        "search": "children:\"Customize\"",
+        "replace": "children:\"Özelleştir\""
+      },
+      {
+        "search": "children:\"Authenticate\"",
+        "replace": "children:\"Kimliği Doğrula\""
+      },
+      {
+        "search": "children:\"Connected\"",
+        "replace": "children:\"Bağlandı\""
+      },
+      {
+        "search": "children:\"Installed\"",
+        "replace": "children:\"Yüklü\""
+      },
+      {
+        "search": "children:\"Disabled\"",
+        "replace": "children:\"Devre dışı\""
+      },
+      {
+        "search": "children:\"Blocked\"",
+        "replace": "children:\"Engellendi\""
+      },
+      {
+        "search": "children:\"Archived\"",
+        "replace": "children:\"Arşivlendi\""
+      },
+      {
+        "search": "children:\"Agents\"",
+        "replace": "children:\"Ajanlar\""
+      },
+      {
+        "search": "children:\"Extensions\"",
+        "replace": "children:\"Uzantılar\""
+      },
+      {
+        "search": "children:\"Workspaces\"",
+        "replace": "children:\"Çalışma Alanları\""
+      },
+      {
+        "search": "children:\"Projects\"",
+        "replace": "children:\"Projeler\""
+      },
+      {
+        "search": "children:\"Comments\"",
+        "replace": "children:\"Yorumlar\""
+      },
+      {
+        "search": "children:\"Customizations\"",
+        "replace": "children:\"Özelleştirmeler\""
+      },
+      {
+        "search": "children:\"Feedback\"",
+        "replace": "children:\"Geri Bildirim\""
+      },
+      {
+        "search": "children:\"Workspace\"",
+        "replace": "children:\"Çalışma Alanı\""
+      },
+      {
+        "search": "title:\"General\"",
+        "replace": "title:\"Genel\""
+      },
+      {
+        "search": "title:\"Account\"",
+        "replace": "title:\"Hesap\""
+      },
+      {
+        "search": "title:\"Browser\"",
+        "replace": "title:\"Tarayıcı\""
+      },
+      {
+        "search": "title:\"Terminal\"",
+        "replace": "title:\"Terminal\""
+      },
+      {
+        "search": "title:\"Terminals\"",
+        "replace": "title:\"Terminaller\""
+      },
+      {
+        "search": "title:\"Customizations\"",
+        "replace": "title:\"Özelleştirmeler\""
+      },
+      {
+        "search": "title:\"Automations\"",
+        "replace": "title:\"Otomasyonlar\""
+      },
+      {
+        "search": "title:\"Subagents\"",
+        "replace": "title:\"Alt Ajanlar\""
+      },
+      {
+        "search": "title:\"Conversations\"",
+        "replace": "title:\"Sohbetler\""
+      },
+      {
+        "search": "title:\"Plugins\"",
+        "replace": "title:\"Eklentiler\""
+      },
+      {
+        "search": "title:\"Extensions\"",
+        "replace": "title:\"Uzantılar\""
+      },
+      {
+        "search": "title:\"Agents\"",
+        "replace": "title:\"Ajanlar\""
+      },
+      {
+        "search": "title:\"Artifacts\"",
+        "replace": "title:\"Yapıtlar\""
+      },
+      {
+        "search": "title:\"Documents\"",
+        "replace": "title:\"Belgeler\""
+      },
+      {
+        "search": "title:\"Changes\"",
+        "replace": "title:\"Değişiklikler\""
+      },
+      {
+        "search": "title:\"Skills\"",
+        "replace": "title:\"Beceriler\""
+      },
+      {
+        "search": "title:\"Rules\"",
+        "replace": "title:\"Kurallar\""
+      },
+      {
+        "search": "title:\"Hooks\"",
+        "replace": "title:\"Kancalar\""
+      },
+      {
+        "search": "title:\"Commands\"",
+        "replace": "title:\"Komutlar\""
+      },
+      {
+        "search": "title:\"Notifications\"",
+        "replace": "title:\"Bildirimler\""
+      },
+      {
+        "search": "title:\"Sound\"",
+        "replace": "title:\"Ses\""
+      },
+      {
+        "search": "title:\"Recommended\"",
+        "replace": "title:\"Önerilen\""
+      },
+      {
+        "search": "title:\"Shortcuts\"",
+        "replace": "title:\"Kısayollar\""
+      },
+      {
+        "search": "title:\"Execution\"",
+        "replace": "title:\"Yürütme\""
+      },
+      {
+        "search": "title:\"Suggestions\"",
+        "replace": "title:\"Öneriler\""
+      },
+      {
+        "search": "title:\"Context\"",
+        "replace": "title:\"Bağlam\""
+      },
+      {
+        "search": "title:\"Quota\"",
+        "replace": "title:\"Kota\""
+      },
+      {
+        "search": "title:\"Updater\"",
+        "replace": "title:\"Güncelleyici\""
+      },
+      {
+        "search": "title:\"Appearance\"",
+        "replace": "title:\"Görünüm\""
+      },
+      {
+        "search": "title:\"Labs\"",
+        "replace": "title:\"Laboratuvar\""
+      },
+      {
+        "search": "title:\"Marketplace\"",
+        "replace": "title:\"Pazar Yeri\""
+      },
+      {
+        "search": "title:\"Setup\"",
+        "replace": "title:\"Kurulum\""
+      },
+      {
+        "search": "title:\"Advanced\"",
+        "replace": "title:\"Gelişmiş\""
+      },
+      {
+        "search": "title:\"Navigation\"",
+        "replace": "title:\"Gezinme\""
+      },
+      {
+        "search": "title:\"Reload\"",
+        "replace": "title:\"Yeniden Yükle\""
+      },
+      {
+        "search": "title:\"Forward\"",
+        "replace": "title:\"İleri\""
+      },
+      {
+        "search": "title:\"Back\"",
+        "replace": "title:\"Geri\""
+      },
+      {
+        "search": "title:\"Plan\"",
+        "replace": "title:\"Plan\""
+      },
+      {
+        "search": "title:\"Goals\"",
+        "replace": "title:\"Hedefler\""
+      },
+      {
+        "search": "title:\"Links\"",
+        "replace": "title:\"Bağlantılar\""
+      },
+      {
+        "search": "title:\"View\"",
+        "replace": "title:\"Görünüm\""
+      },
+      {
+        "search": "title:\"Window\"",
+        "replace": "title:\"Pencere\""
+      },
+      {
+        "search": "title:\"Review\"",
+        "replace": "title:\"İncele\""
+      },
+      {
+        "search": "title:\"Preview\"",
+        "replace": "title:\"Önizleme\""
+      },
+      {
+        "search": "title:\"Enable Notifications\"",
+        "replace": "title:\"Bildirimleri Etkinleştir\""
+      },
+      {
+        "search": "title:\"Playback speed (< / >)\"",
+        "replace": "title:\"Oynatma hızı (< / >)\""
+      },
+      {
+        "search": "placeholder:\"Filter topics...\"",
+        "replace": "placeholder:\"Konuları filtrele...\""
+      },
+      {
+        "search": "placeholder:\"Filter log lines...\"",
+        "replace": "placeholder:\"Günlük satırlarını filtrele...\""
+      },
+      {
+        "search": "placeholder:\"Find\"",
+        "replace": "placeholder:\"Bul\""
+      },
+      {
+        "search": "content:\"Worktrees are a git feature. This folder is shared as is.\"",
+        "replace": "content:\"Worktree'ler bir git özelliğidir. Bu klasör olduğu gibi paylaşılır.\""
+      },
+      {
+        "search": "children:\"No rate card for this model; showing comparable rates.\"",
+        "replace": "children:\"Bu model için ücret tablosu yok; karşılaştırılabilir oranlar gösteriliyor.\""
+      },
+      {
+        "search": "children:\"cumulative total for the conversation up to this point\"",
+        "replace": "children:\"konuşmanın bu noktaya kadarki kümülatif toplamı\""
+      },
+      {
+        "search": "children:\"(Optional, defaults to main)\"",
+        "replace": "children:\"(İsteğe bağlı, varsayılan: main)\""
+      },
+      {
+        "search": "ariaLabel:\"Open in Preview\"",
+        "replace": "ariaLabel:\"Önizlemede Aç\""
+      },
+      {
+        "search": "ariaLabel:\"Open preview in embedded pane\"",
+        "replace": "ariaLabel:\"Önizlemeyi gömülü bölmede aç\""
+      },
+      {
+        "search": "ariaLabel:\"Open in Notebook View\"",
+        "replace": "ariaLabel:\"Not Defteri Görünümünde Aç\""
+      },
+      {
+        "search": "ariaLabel:\"Pinned Actions\"",
+        "replace": "ariaLabel:\"Sabitlenen Eylemler\""
+      },
+      {
+        "search": "ariaLabel:\"Project options\"",
+        "replace": "ariaLabel:\"Proje seçenekleri\""
+      },
+      {
+        "search": "id:\"share\",label:\"Share\"",
+        "replace": "id:\"share\",label:\"Paylaş\""
+      },
+      {
+        "search": "id:\"stop\",label:\"Stop\"",
+        "replace": "id:\"stop\",label:\"Durdur\""
+      },
+      {
+        "search": "id:\"archive\",label:\"Archive\"",
+        "replace": "id:\"archive\",label:\"Arşivle\""
+      },
+      {
+        "search": "id:\"delete\",label:\"Delete\"",
+        "replace": "id:\"delete\",label:\"Sil\""
+      },
+      {
+        "search": "id:\"restore\",label:\"Restore\"",
+        "replace": "id:\"restore\",label:\"Geri Yükle\""
+      },
+      {
+        "search": "id:\"rename\",label:\"Rename\"",
+        "replace": "id:\"rename\",label:\"Yeniden Adlandır\""
+      },
+      {
+        "search": "id:\"overview\",label:\"Overview\"",
+        "replace": "id:\"overview\",label:\"Genel Bakış\""
+      },
+      {
+        "search": "id:\"accounts\",label:\"Accounts\"",
+        "replace": "id:\"accounts\",label:\"Hesaplar\""
+      },
+      {
+        "search": "id:\"skills\",label:\"Skills\"",
+        "replace": "id:\"skills\",label:\"Beceriler\""
+      },
+      {
+        "search": "id:\"agents\",label:\"Agents\"",
+        "replace": "id:\"agents\",label:\"Ajanlar\""
+      },
+      {
+        "search": "id:\"hooks\",label:\"Hooks\"",
+        "replace": "id:\"hooks\",label:\"Kancalar\""
+      },
+      {
+        "search": "id:\"rules\",label:\"Rules\"",
+        "replace": "id:\"rules\",label:\"Kurallar\""
+      },
+      {
+        "search": "id:\"sidecars\",label:\"Automations\"",
+        "replace": "id:\"sidecars\",label:\"Otomasyonlar\""
+      },
+      {
+        "search": "id:\"all\",label:\"Conversations\"",
+        "replace": "id:\"all\",label:\"Sohbetler\""
+      },
+      {
+        "search": "id:\"status-blocked\",label:\"Blocked\"",
+        "replace": "id:\"status-blocked\",label:\"Engellendi\""
+      },
+      {
+        "search": "id:\"status-idle\",label:\"Idle\"",
+        "replace": "id:\"status-idle\",label:\"Boşta\""
+      },
+      {
+        "search": "id:\"output\",label:\"Output\"",
+        "replace": "id:\"output\",label:\"Çıktı\""
+      },
+      {
+        "search": "id:\"stdout\",label:\"Logs\"",
+        "replace": "id:\"stdout\",label:\"Günlükler\""
+      },
+      {
+        "search": "id:\"stderr\",label:\"Errors\"",
+        "replace": "id:\"stderr\",label:\"Hatalar\""
+      },
+      {
+        "search": "id:\"deprecated-stdout\",label:\"Logs\"",
+        "replace": "id:\"deprecated-stdout\",label:\"Günlükler\""
+      },
+      {
+        "search": "id:\"deprecated-stderr\",label:\"Errors\"",
+        "replace": "id:\"deprecated-stderr\",label:\"Hatalar\""
+      },
+      {
+        "search": "id:\"copy\",label:\"Copy\"",
+        "replace": "id:\"copy\",label:\"Kopyala\""
+      },
+      {
+        "search": "id:\"cut\",label:\"Cut\"",
+        "replace": "id:\"cut\",label:\"Kes\""
+      },
+      {
+        "search": "id:\"paste\",label:\"Paste\"",
+        "replace": "id:\"paste\",label:\"Yapıştır\""
+      },
+      {
+        "search": "id:\"copy-selection\",label:\"Copy\"",
+        "replace": "id:\"copy-selection\",label:\"Kopyala\""
+      },
+      {
+        "search": "id:\"back\",label:\"Back\"",
+        "replace": "id:\"back\",label:\"Geri\""
+      },
+      {
+        "search": "id:\"forward\",label:\"Forward\"",
+        "replace": "id:\"forward\",label:\"İleri\""
+      },
+      {
+        "search": "id:\"reload\",label:\"Reload\"",
+        "replace": "id:\"reload\",label:\"Yeniden Yükle\""
+      },
+      {
+        "search": "id:\"uncommitted\",label:\"Uncommitted\"",
+        "replace": "id:\"uncommitted\",label:\"Kaydedilmemiş\""
+      },
+      {
+        "search": "children:t.tagTitle",
+        "replace": "children:({New:\"Yeni\",Notice:\"Bilgilendirme\",Unavailable:\"Kullanılamıyor\",Deprecated:\"Kullanımdan Kaldırıldı\",Beta:\"Beta\",Preview:\"Önizleme\"}[t.tagTitle]??t.tagTitle)"
+      },
+      {
+        "search": "title:e?\"Subagent\":\"Agent Script\"",
+        "replace": "title:e?\"Alt Ajan\":\"Ajan Betiği\""
+      },
+      {
+        "search": "K(987,\"Share\")",
+        "replace": "K(987,\"Paylaş\")"
       }
     ],
     "nlsMessages": [

@@ -351,12 +351,33 @@ function patchAntigravityExtension(paths) {
       try { fs.chmodSync(agyVscodeFile, 0o666); } catch (e) {}
       let v = fs.readFileSync(`${agyVscodeFile}.bak`, 'utf8');
       const vscodeReps = [
-        // Durum çubuğu
+        // Durum çubuğu ve durum menüsü (v2.6 & v2.7)
         ['b.name="Antigravity Settings";b.text="Antigravity - Settings";b.tooltip="Open Antigravity Settings"', 'b.name="Antigravity Ayarları";b.text="Antigravity - Ayarlar";b.tooltip="Antigravity Ayarlarını Aç"'],
+        ['signedOut:{text:"$(sign-in) Antigravity: Sign in",tooltip:"Not signed in to Antigravity. Click to sign in."', 'signedOut:{text:"$(sign-in) Antigravity: Oturum Aç",tooltip:"Antigravity oturumu açılmadı. Oturum açmak için tıklayın."'],
+        ['`Antigravity \\u2014 signed in as ${b.email}`', '`Antigravity \\u2014 ${b.email} olarak oturum açıldı`'],
+        ['placeHolder:"Select an Antigravity action"', 'placeHolder:"Bir Antigravity eylemi seçin"'],
+        ['label:"$(add) New Conversation"', 'label:"$(add) Yeni Konuşma"'],
+        ['label:"$(comment) Add Selection to Chat"', 'label:"$(comment) Seçimi Sohbete Ekle"'],
+        ['label:"$(layout-sidebar-left) Focus Panel"', 'label:"$(layout-sidebar-left) Panele Odaklan"'],
+        ['{label:"Review",kind:', '{label:"İnceleme",kind:'],
+        ['label:"$(check-all) Accept Changes in All Files"', 'label:"$(check-all) Tüm Dosyalardaki Değişiklikleri Kabul Et"'],
+        ['label:"$(close-all) Reject Changes in All Files"', 'label:"$(close-all) Tüm Dosyalardaki Değişiklikleri Reddet"'],
+        ['{label:"Settings",kind:', '{label:"Ayarlar",kind:'],
+        ['label:"$(gear) Open Settings"', 'label:"$(gear) Ayarları Aç"'],
+        ['label:"$(shield) Manage Data Sharing & Telemetry"', 'label:"$(shield) Veri Paylaşımı ve Telemetriyi Yönet"'],
+        ['label:"$(diff) Toggle Inline Diff"', 'label:"$(diff) Satır İçi Fark Görünümünü Aç/Kapat"'],
+        ['{label:"Help",kind:', '{label:"Yardım",kind:'],
+        ['label:"$(feedback) Provide Feedback"', 'label:"$(feedback) Geri Bildirimde Bulun"'],
+        ['label:"$(book) Open Changelog"', 'label:"$(book) Değişiklik Günlüğünü Aç"'],
+        ['label:"$(law) Show Third Party Notices"', 'label:"$(law) Üçüncü Taraf Bildirimlerini Göster"'],
+        ['label:"$(history) Reset Conversation State"', 'label:"$(history) Sohbet Durumunu Sıfırla"'],
+        ['{label:"Account",kind:', '{label:"Hesap",kind:'],
+        ['label:"$(account) Sign Out"', 'label:"$(account) Oturumu Kapat"'],
+        ['label:"$(sign-in) Sign In"', 'label:"$(sign-in) Oturum Aç"'],
         // Yükleme ve bağlantı ekranları
         ['<div class="product-subtitle">for VS Code</div>', '<div class="product-subtitle">VS Code için</div>'],
-        ['tv("Loading Antigravity...")', 'tv("Antigravity Yükleniyor...")'],
-        ['tv("Checking your setup...")', 'tv("Kurulumunuz kontrol ediliyor...")'],
+        ['("Loading Antigravity...")', '("Antigravity Yükleniyor...")'],
+        ['("Checking your setup...")', '("Kurulumunuz kontrol ediliyor...")'],
         ["'Still reconnecting to Antigravity...'", "'Hâlâ Antigravity ile yeniden bağlantı kuruluyor...'"],
         ["'Reconnecting to Antigravity...'", "'Antigravity ile yeniden bağlantı kuruluyor...'"],
         ["'Still connecting to Antigravity...'", "'Hâlâ Antigravity ile bağlantı kuruluyor...'"],
@@ -409,10 +430,13 @@ function patchAntigravityExtension(paths) {
       }
 
       // Yerel agy.exe --hub HTTP/WebSocket çeviri vekil sunucusunu enjekte et
-      const serverAssignTarget = 'this.serverUrl=P;this.port=Wc;this.lastStartupError=void 0;this.startHeartbeat(P,mb);';
-      const serverAssignReplacement = 'P=B(await F(__agyTrEnsureProxy(this,Wc,P)));this.serverUrl=P;this.port=Wc;this.lastStartupError=void 0;this.startHeartbeat(P,mb);';
+      const stopWrapMatch = /([A-Za-z_$][\w$]*)\(await ([A-Za-z_$][\w$]*)\(this\.stop\(\)\)\)/.exec(v);
+      const assignMatch = /this\.serverUrl=([A-Za-z_$][\w$]*);this\.port=([A-Za-z_$][\w$]*);this\.lastStartupError=void 0;this\.startHeartbeat\(\1,([A-Za-z_$][\w$]*)\);/.exec(v);
       const activateExportTarget = 'k.exportSymbol("activate",';
-      if (v.includes(serverAssignTarget) && v.includes(activateExportTarget)) {
+      if (stopWrapMatch && assignMatch && v.includes(activateExportTarget)) {
+        const [, wrapA, wrapB] = stopWrapMatch;
+        const [serverAssignTarget, urlVar, portVar] = assignMatch;
+        const serverAssignReplacement = `${urlVar}=${wrapA}(await ${wrapB}(__agyTrEnsureProxy(this,${portVar},${urlVar})));${serverAssignTarget}`;
         const guardedTranslator = buildGuardedDesktopTranslator();
         const proxyHelperCode = `
 function __agyTrEnsureProxy(mgr, targetPort, fallbackUrl) {
@@ -426,15 +450,21 @@ function __agyTrEnsureProxy(mgr, targetPort, fallbackUrl) {
       var net = require('node:net');
       var trScript = ${JSON.stringify(guardedTranslator)};
       var bundleReps = [
-        ['P4={low:"Low",medium:"Medium",high:"High",xhigh:"Extra",max:"Max"}', 'P4={low:"Düşük",medium:"Orta",high:"Yüksek",xhigh:"Ekstra",max:"Maks"}'],
+        ['{low:"Low",medium:"Medium",high:"High",xhigh:"Extra",max:"Max"}', '{low:"Düşük",medium:"Orta",high:"Yüksek",xhigh:"Ekstra",max:"Maks"}'],
+        ['"Best of N Models":"Model"', '"En İyi N Model":"Model"'],
+        ['children:"No models available"', 'children:"Kullanılabilir model yok"'],
         ['"Ask anything, @ to mention"', '"Bir şey sorun, @ ile bahsedin"'],
         [', / for actions', ', / ile eylemler'],
+        ['case"standalone":return"No Project"', 'case"standalone":return"Proje Yok"'],
         ['case "standalone":return"No Project"', 'case "standalone":return"Proje Yok"'],
         ['case "git":return"Git Project"', 'case "git":return"Git Projesi"'],
         ['case "workspace":return"VS Code Workspace"', 'case "workspace":return"VS Code Çalışma Alanı"'],
+        ['children:"View Usage"', 'children:"Kullanımı Görüntüle"'],
         [',"View Usage")', ',"Kullanımı Görüntüle")'],
+        ['title:"Usage"', 'title:"Kullanım"'],
         ['children:"New"})', 'children:"Yeni"})'],
         ['children:"Notice"', 'children:"Bilgilendirme"'],
+        ['children:"Unavailable"', 'children:"Kullanılamıyor"'],
         ['placeholder:"Search projects..."', 'placeholder:"Projelerde ara..."'],
         ['"Add a Project"', '"Proje Ekle"'],
         ['"Select a folder to start working with the agent"', '"Ajanla çalışmaya başlamak için bir klasör seçin"'],
