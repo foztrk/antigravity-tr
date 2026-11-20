@@ -22,6 +22,7 @@ test('baseline quota keeps date separate from the credit overage sentence', () =
 });
 test('weekly limit notice preserves the changing refresh duration', () => {
   const {translateDynamic}=require('../src/desktop_dynamic');
+  assert.equal(translateDynamic('Weekly limit, resets in 6d 22h'), 'Haftalık limit, 6 gün 22 saat sonra yenilenir');
   assert.equal(translateDynamic('You have hit your weekly limit, the 5-hour limit does not currently apply. Your weekly limit will fully refresh in 4 days, 23 hours.'), 'Haftalık limitinize ulaştınız; beş saatlik limit şu anda geçerli değil. Haftalık limitiniz 4 gün, 23 saat sonra tamamen yenilenir.');
 });
 

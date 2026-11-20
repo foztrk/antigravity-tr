@@ -3,7 +3,13 @@ const fs = require('node:fs');
 const path = require('node:path');
 const vm = require('node:vm');
 const { translateDynamic } = require('./desktop_dynamic');
+const { loadSharedTranslations } = require('./translation_dictionary');
 const { rewriteArchive, restoreArchive } = require('./desktop_archive');
+
+function loadDesktopTranslations() {
+  const dictionary = require('../scripts/desktop_full_dictionary.json');
+  return { ...loadSharedTranslations(), ...dictionary };
+}
 
 function transformDesktopSources(input) {
   const sources = new Map(input);
@@ -148,8 +154,8 @@ function rebuildLocalizedMenu(menu) {
     if (!content.includes('// ANTIGRAVITY_TR_NATIVE_CONTEXT')) {
       const anchor = 'function buildContextMenuTemplate(items, onSelect) {';
       if (!content.includes(anchor)) throw new Error('Yerel sağ tık menüsü yapısı doğrulanamadı.');
-      const labels = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'scripts', 'desktop_full_dictionary.json'), 'utf8'));
-      content = content.replace(anchor, anchor + '\n    // ANTIGRAVITY_TR_NATIVE_CONTEXT\n    const labels = ' + JSON.stringify(labels) + ';\n    items = items.map(item => ({ ...item, label: Object.prototype.hasOwnProperty.call(labels, item.label) ? labels[item.label] : item.label }));');
+      const labels = loadDesktopTranslations();
+      content = content.replace(anchor, () => anchor + '\n    // ANTIGRAVITY_TR_NATIVE_CONTEXT\n    const labels = ' + JSON.stringify(labels) + ';\n    items = items.map(item => ({ ...item, label: Object.prototype.hasOwnProperty.call(labels, item.label) ? labels[item.label] : item.label }));');
     }
     sources.set(ipcPath, content);
   }
@@ -157,11 +163,7 @@ function rebuildLocalizedMenu(menu) {
   // 7. preload.js Yamalama
   const preloadPath = fileName('preload.js');
   if (sources.has(preloadPath)) {
-    const dictFile = path.join(__dirname, '..', 'scripts', 'desktop_full_dictionary.json');
-    let dictionary = {};
-    if (fs.existsSync(dictFile)) {
-      dictionary = JSON.parse(fs.readFileSync(dictFile, 'utf8'));
-    }
+    const dictionary = loadDesktopTranslations();
 
     Object.assign(dictionary, {
       "File": "Dosya",

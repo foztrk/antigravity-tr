@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
+const { spawnSync } = require('node:child_process');
 
 /**
  * Dosya için .bak yedeği alır (eğer daha önce alınmamışsa).
@@ -76,7 +77,7 @@ function updateProductChecksums(paths) {
 /**
  * Hedef bundle dosyasına kural listesini uygular.
  */
-function patchFile(filePath, rules) {
+function patchFile(filePath, rules, translateUi) {
   if (!fs.existsSync(filePath)) {
     return { success: false, reason: `Dosya bulunamadı: ${filePath}` };
   }
@@ -100,6 +101,20 @@ function patchFile(filePath, rules) {
     }
   }
 
+  if (translateUi) {
+    const translated = translateUi(content);
+    if (translated !== content) {
+      const checked = spawnSync(process.execPath, ['--check', '--input-type=module'], {
+        input: translated,
+        encoding: 'utf8',
+        windowsHide: true
+      });
+      if (checked.status !== 0) throw new Error(`Sözdizimi doğrulanamadı: ${filePath}\n${(checked.stderr || checked.error?.message || '').slice(-800)}`);
+      content = translated;
+      matchCount++;
+    }
+  }
+
   // 3. Değişiklik varsa dosyaya yaz
   if (matchCount > 0) {
     fs.writeFileSync(filePath, content, 'utf8');
@@ -120,6 +135,10 @@ function patchFile(filePath, rules) {
   };
 }
 
+function extractPlaceholderSignature(str) {
+  return (String(str).match(/\$\{[^{}]+\}|\{\d+\}/g) || []).sort().join('\0');
+}
+
 /**
  * nls.messages.json dosyasını hem nls.keys.json + main.i18n.json ile hem de özel kurallarla güvenli biçimde günceller.
  */
@@ -133,6 +152,18 @@ function patchNlsFile(filePath, nlsRules, options = {}) {
   const msgs = JSON.parse(fs.existsSync(bakPath) ? fs.readFileSync(bakPath, 'utf8') : fs.readFileSync(filePath, 'utf8'));
   const origMsgs = msgs.slice();
   let matchCount = 0;
+
+  let enSourceMsgs = origMsgs;
+  if (options.enNlsFile && fs.existsSync(options.enNlsFile)) {
+    try {
+      const enBak = options.enNlsFile + '.bak';
+      const srcPath = fs.existsSync(enBak) ? enBak : options.enNlsFile;
+      const parsed = JSON.parse(fs.readFileSync(srcPath, 'utf8'));
+      if (Array.isArray(parsed) && parsed.length === msgs.length) {
+        enSourceMsgs = parsed;
+      }
+    } catch (e) {}
+  }
 
   let flatKeys = null;
   if (options.nlsKeysFile && fs.existsSync(options.nlsKeysFile)) {
@@ -154,9 +185,17 @@ function patchNlsFile(filePath, nlsRules, options = {}) {
       for (let i = 0; i < flatKeys.length; i++) {
         const { mod, key } = flatKeys[i];
         const trVal = contents[mod]?.[key];
-        if (typeof trVal === 'string' && trVal.length > 0 && msgs[i] !== trVal) {
-          msgs[i] = trVal;
-          matchCount++;
+        if (typeof trVal === 'string' && trVal.length > 0) {
+          if (extractPlaceholderSignature(enSourceMsgs[i]) === extractPlaceholderSignature(trVal)) {
+            if (msgs[i] !== trVal) {
+              msgs[i] = trVal;
+              matchCount++;
+            }
+          } else if (msgs[i] !== enSourceMsgs[i]) {
+            // Yer tutucu uyuşmazlığı varsa eski bozuk çeviriyi İngilizce kaynağa sıfırla
+            msgs[i] = enSourceMsgs[i];
+            matchCount++;
+          }
         }
       }
     } catch (e) {}
@@ -169,18 +208,6 @@ function patchNlsFile(filePath, nlsRules, options = {}) {
       if (!keyToIndices.has(mk)) keyToIndices.set(mk, []);
       keyToIndices.get(mk).push(i);
     }
-  }
-
-  let enSourceMsgs = origMsgs;
-  if (options.enNlsFile && fs.existsSync(options.enNlsFile)) {
-    try {
-      const enBak = options.enNlsFile + '.bak';
-      const srcPath = fs.existsSync(enBak) ? enBak : options.enNlsFile;
-      const parsed = JSON.parse(fs.readFileSync(srcPath, 'utf8'));
-      if (Array.isArray(parsed) && parsed.length === msgs.length) {
-        enSourceMsgs = parsed;
-      }
-    } catch (e) {}
   }
 
   for (const rule of nlsRules) {
@@ -230,6 +257,19 @@ function patchNlsFile(filePath, nlsRules, options = {}) {
     }
   }
 
+  const currentMsgs = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+  matchCount = 0;
+  for (let i = 0; i < msgs.length; i++) {
+    const source = enSourceMsgs[i];
+    const signature = extractPlaceholderSignature(source);
+    if (signature !== extractPlaceholderSignature(msgs[i])) msgs[i] = source;
+    const shared = options.sharedTranslations?.[source];
+    if (msgs[i] === source && typeof shared === 'string' && signature === extractPlaceholderSignature(shared)) {
+      msgs[i] = shared;
+    }
+    if (msgs[i] !== currentMsgs[i]) matchCount++;
+  }
+
   if (matchCount > 0) {
     fs.writeFileSync(filePath, JSON.stringify(msgs), 'utf8');
     return {
@@ -276,18 +316,18 @@ function findClpNlsFiles(configPath) {
 /**
  * Tüm Antigravity bundle dosyalarını yamalar ve checksums doğrulamalarını günceller.
  */
-function applyAllPatches(paths, dictionary) {
+function applyAllPatches(paths, dictionary, translateUi) {
   const results = [];
 
   // 1. jetskiAgent yaması
   if (paths.ide && paths.ide.jetskiFile && dictionary.rules.jetskiAgent) {
-    const res = patchFile(paths.ide.jetskiFile, dictionary.rules.jetskiAgent);
+    const res = patchFile(paths.ide.jetskiFile, dictionary.rules.jetskiAgent, translateUi);
     results.push({ target: 'jetskiAgent (Sohbet & AI Arayüzü)', file: paths.ide.jetskiFile, ...res });
   }
 
   // 2. workbench yaması
   if (paths.ide && paths.ide.workbenchFile && dictionary.rules.workbench) {
-    const res = patchFile(paths.ide.workbenchFile, dictionary.rules.workbench);
+    const res = patchFile(paths.ide.workbenchFile, dictionary.rules.workbench, translateUi);
     results.push({ target: 'workbench (Editör Arayüzü)', file: paths.ide.workbenchFile, ...res });
   }
 
@@ -298,7 +338,7 @@ function applyAllPatches(paths, dictionary) {
       ...(dictionary.rules.jetskiAgent || []),
       ...(dictionary.rules.workbench || [])
     ];
-    const res = patchFile(paths.ide.mainFile, mainRules);
+    const res = patchFile(paths.ide.mainFile, mainRules, translateUi);
     patchMainWebFrameTranslator(paths.ide.mainFile);
     results.push({ target: 'main (Ana İşlem & Güncelleme Arayüzü)', file: paths.ide.mainFile, ...res });
   }
@@ -309,7 +349,8 @@ function applyAllPatches(paths, dictionary) {
   const nlsOptions = {
     nlsKeysFile: paths.ide?.nlsKeysFile,
     mainI18nFile,
-    enNlsFile: paths.ide?.nlsFile
+    enNlsFile: paths.ide?.nlsFile,
+    sharedTranslations: dictionary.translations
   };
 
   // 3. nls.messages.json yaması (Hızlı Aç vb.)

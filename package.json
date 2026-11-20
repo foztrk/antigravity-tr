@@ -10,7 +10,7 @@
     "start": "node bin/antigravity-tr.js",
     "install-tr": "node bin/antigravity-tr.js install",
     "restore": "node bin/antigravity-tr.js restore",
-    "scan": "node -e \"console.log(require('./src/scanner').scanUiStrings())\"",
+    "scan": "node -e \"require('./src/scanner').scanUiStrings().then(strings => console.log(JSON.stringify(strings, null, 2))).catch(error => { console.error(error.message); process.exitCode = 1 })\"",
     "test": "node --test test/*.test.js"
   },
   "keywords": [
@@ -38,6 +38,7 @@
   },
   "dependencies": {
     "@electron/asar": "4.3.1",
+    "acorn": "8.15.0",
     "playwright-core": "^1.63.0"
   },
   "files": [

@@ -116,6 +116,11 @@ function translateDynamic(text) {
     return value.replace(/(\d+)\s*(days?|hours?|minutes?|seconds?|d|h|m|s)\b/g,
       (_, n, unit) => n + ' ' + ({ d: 'gün', h: 'saat', m: 'dakika', s: 'saniye' }[unit[0]]));
   }
+  const weeklyReset = /^Weekly limit, resets in (.+)$/.exec(text);
+  if (weeklyReset) {
+    const time = duration(weeklyReset[1]);
+    if (time) return 'Haftalık limit, ' + time + ' sonra yenilenir';
+  }
   let match = /^Resets in (.+)$/.exec(text);
   if (match) { const time = duration(match[1]); return time ? time + ' sonra yenilenir' : text; }
   match = /^You have hit your weekly limit, the 5-hour limit does not currently apply\. Your weekly limit will fully refresh in (.+)\.$/.exec(text);

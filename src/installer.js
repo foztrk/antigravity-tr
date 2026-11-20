@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 const { getPaths } = require('./config');
+const { scanBundle, translateUiProperties } = require('./scanner');
 const { applyAllPatches, restoreAllPatches, ensureBackup, buildGuardedDesktopTranslator } = require('./patcher');
 const { patchAllExtensions } = require('./extension_descriptions');
 const { patchDesktopApp, restoreDesktopApp } = require('./desktop_patcher');
@@ -311,6 +312,8 @@ function patchAntigravityExtension(paths) {
         ['"title":"Sign In"', '"title":"Oturum Aç"'],
         ['"title":"Sign Out"', '"title":"Oturumu Kapat"'],
         ['"title":"Show Menu"', '"title":"Menüyü Göster"'],
+        ['"title":"Find in Conversation"', '"title":"Sohbette Bul"'],
+        ['"Path to a PEM-encoded CA certificate file (for example, a corporate TLS inspection root CA) trusted by the Antigravity extension and language server alongside system root certificates."', '"Antigravity uzantısı ve dil sunucusu tarafından sistem kök sertifikalarının yanında güvenilen PEM kodlu bir CA sertifika dosyasının yolu (örneğin kurumsal TLS denetim kök CA\'sı)."'],
         ['"Auto-accept pending edits in background files when starting a new or queued chat turn (non-cumulative review: only the latest turn\'s diff is kept on re-edited files). When off, reviews accumulate across turns: all modified files stay open until you accept or reject them, later edits to the same file merge into one cumulative diff, and you are notified when reviews from earlier turns remain open."', '"Yeni veya sıraya alınmış bir sohbet turu başlatırken arka plandaki dosyalarda bekleyen düzenlemeleri otomatik olarak kabul edin (kümülatif olmayan inceleme: yeniden düzenlenen dosyalarda yalnızca son turun farkı tutulur). Kapalı olduğunda incelemeler turlar boyunca birikir: siz kabul edene veya reddedene kadar tüm değiştirilen dosyalar açık kalır, aynı dosyaya yapılan sonraki düzenlemeler tek bir kümülatif farkta birleşir ve önceki turlardan kalan incelemeler açık kaldığında size bildirim gönderilir."'],
         ['"Report this host as the Antigravity IDE in agent UI telemetry."', '"Bu ana bilgisayarı ajan arayüzü telemetrisinde Antigravity IDE olarak bildir."'],
         ['"Port for the Antigravity background server (`agy --hub`). Leave at 0 (recommended) to allocate an ephemeral port automatically. Each VS Code window spawns its own `agy` server, so prefer setting a fixed port in Workspace Settings rather than User Settings; if the configured port is already in use by another window or process, Antigravity automatically falls back to an available ephemeral port."', '"Antigravity arka plan sunucusu (`agy --hub`) için bağlantı noktası. Geçici bir bağlantı noktasını otomatik olarak ayırmak için 0 (önerilen) değerinde bırakın. Her VS Code penceresi kendi `agy` sunucusunu başlatır; bu nedenle sabit bir bağlantı noktasını Kullanıcı Ayarları yerine Çalışma Alanı Ayarlarında belirlemeyi tercih edin. Yapılandırılan bağlantı noktası başka bir pencere veya işlem tarafından kullanılıyorsa Antigravity otomatik olarak kullanılabilir bir geçici bağlantı noktasına geçer."'],
@@ -421,6 +424,8 @@ function patchAntigravityExtension(paths) {
         ['"Antigravity: Sign-in successful"', '"Antigravity: Oturum açma başarılı"'],
         ['"Antigravity conversation state reset."', '"Antigravity sohbet durumu sıfırlandı."'],
         ['`Antigravity Inline Diff ${pb?"disabled":"enabled"}.`', '`Antigravity Satır İçi Fark Görünümü ${pb?"devre dışı bırakıldı":"etkinleştirildi"}.`'],
+        ['`Antigravity Inline Diff ${Na?"disabled":"enabled"}.`', '`Antigravity Satır İçi Fark Görünümü ${Na?"devre dışı bırakıldı":"etkinleştirildi"}.`'],
+        ['LEGACY_TELEMETRY_NOTICE_ACTION_LABEL:"Open Account settings"', 'LEGACY_TELEMETRY_NOTICE_ACTION_LABEL:"Hesap ayarlarını aç"'],
         ['"Changing the Antigravity server port requires reloading the window to take effect."', '"Antigravity sunucu bağlantı noktasını değiştirmek, etkili olması için pencerenin yeniden yüklenmesini gerektirir."'],
         ['"Reload Window"', '"Pencereyi Yeniden Yükle"'],
         ['"Inline diffs work best with Auto Save off. Turn off Auto Save, or switch to side-by-side diffs."', '"Satır içi farklar en iyi Otomatik Kaydetme kapalıyken çalışır. Otomatik Kaydetmeyi kapatın veya yan yana fark görünümüne geçin."'],
@@ -1106,6 +1111,7 @@ function patchClaudeExtension(paths) {
     ['"Accept this change"', '"Bu değişikliği kabul et"'],
     ['"Reject this change"', '"Bu değişikliği reddet"'],
     ['Claude Code: Insert @-Mention Reference', 'Claude Code: @-Bahsetme Başvurusu Ekle'],
+    ['Claude Code: Add to Chat', 'Claude Code: Sohbete Ekle'],
     ['Claude Code: Install Plugin', 'Claude Code: Eklenti Yükle'],
     ['Claude Code: Insert At-Mentioned', 'Claude Code: @-Bahsedileni Ekle'],
     ['Claude Code: Show Logs', 'Claude Code: Günlükleri Göster'],
@@ -1223,7 +1229,8 @@ function patchCodexExtension(paths) {
     ['"Add File to Codex Chat"', '"Dosyayı Codex Sohbetine Ekle"'],
     ['"New Chat in ChatGPT Sidebar"', '"ChatGPT Kenar Çubuğunda Yeni Sohbet"'],
     ['"Copy Codex CLI args for LSP MCP"', '"LSP MCP için Codex CLI Bağımsız Değişkenlerini Kopyala"'],
-    ['"Codex Settings"', '"Codex Ayarları"']
+    ['"Codex Settings"', '"Codex Ayarları"'],
+    ['"Codex is a coding agent that works with you everywhere you code — included in ChatGPT Plus, Pro, Business, Edu, and Enterprise plans."', '"Codex, kod yazdığınız her yerde sizinle çalışan bir kodlama ajanıdır — ChatGPT Plus, Pro, Business, Edu ve Enterprise planlarına dahildir."']
   ];
 
   for (const d of dirs) {
@@ -1900,7 +1907,14 @@ async function install() {
 
   // 4. Özel Bileşen Yamaları
   console.log('4. Antigravity arayüz bileşenleri yamalanıyor...');
-  const patchResults = applyAllPatches(paths, dict);
+  const protectedPairs = new Set();
+  for (const file of [paths.ide?.jetskiFile, paths.ide?.workbenchFile, paths.ide?.mainFile]) {
+    if (!file || !fs.existsSync(file)) continue;
+    const original = fs.existsSync(file + '.bak') ? file + '.bak' : file;
+    for (const value of scanBundle(fs.readFileSync(original, 'utf8')).protectedPairs) protectedPairs.add(value);
+  }
+  const translateUi = dict.translations && (source => translateUiProperties(source, dict.translations, protectedPairs));
+  const patchResults = applyAllPatches(paths, dict, translateUi);
   for (const r of patchResults) {
     if (r.modified) {
       console.log(`   [✓] ${r.target}: ${r.matches} dize Türkçeleştirildi.`);
