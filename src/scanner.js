@@ -197,7 +197,8 @@ async function scanUiInventory(paths = getPaths()) {
     asar.uncacheAll();
     for (const entry of asar.listPackage(archive)) {
       const name = entry.replace(/^[/\\]/, '').replaceAll('\\', '/');
-      if (/\.[cm]?js$/i.test(name) && !asar.statFile(archive, name).files) addBundle(archive + ':' + name, asar.extractFile(archive, name).toString('utf8'));
+      const archivePath = path.normalize(name);
+      if (/\.[cm]?js$/i.test(name) && !asar.statFile(archive, archivePath).files) addBundle(archive + ':' + name, asar.extractFile(archive, archivePath).toString('utf8'));
     }
   }
   return { entries, files: [...files], protectedPairs };

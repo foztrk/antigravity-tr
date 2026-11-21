@@ -2,11 +2,13 @@ const fs = require('node:fs');
 const path = require('node:path');
 const os = require('node:os');
 const { createHash } = require('node:crypto');
-const dictionary = require('../scripts/desktop_full_dictionary.json');
+const { loadSharedTranslations } = require('./translation_dictionary');
+const desktopTranslations = require('../scripts/desktop_full_dictionary.json');
 const inventory = require('../scripts/desktop_plugin_inventory.json');
 
 // Compare reviewed source snapshots. Never rewrite agent instructions or guess YAML.
 function auditPluginTranslations(root = path.join(os.homedir(), '.gemini', 'config', 'plugins')) {
+  const dictionary = { ...loadSharedTranslations(), ...desktopTranslations };
   const issues = [];
   let checked = 0;
   const hash = data => createHash('sha256').update(data).digest('hex');

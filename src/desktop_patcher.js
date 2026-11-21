@@ -4,6 +4,7 @@ const path = require('node:path');
 const vm = require('node:vm');
 const { translateDynamic } = require('./desktop_dynamic');
 const { loadSharedTranslations } = require('./translation_dictionary');
+const { translateUiProperties } = require('./scanner');
 const { rewriteArchive, restoreArchive } = require('./desktop_archive');
 
 function loadDesktopTranslations() {
@@ -232,6 +233,14 @@ function rebuildLocalizedMenu(menu) {
     if (!val) return;
     const trimmed = val.trim();
     if (!trimmed) return;
+    if (parent.closest('[data-testid="customizations-marketplace"]')) {
+      const titles = { Science: 'Bilim', 'Science Overview': 'Bilime Genel Bakış', Genomics: 'Genomik',
+        'Structural Biology': 'Yapısal Biyoloji', 'Scientific Literature': 'Bilimsel Literatür', Chemistry: 'Kimya', Robotics: 'Robotik' };
+      if (Object.hasOwn(titles, trimmed)) {
+        node.nodeValue = val.replace(trimmed, titles[trimmed]);
+        return;
+      }
+    }
     if (parent.matches('span[data-screenshot-volatile="true"].min-w-4') && parent.closest('.select-none.cursor-pointer')) {
       const timestamp = /^(\\d+)(mo|d|h|m|s)$/.exec(trimmed);
       if (timestamp) {
@@ -408,6 +417,26 @@ function rebuildLocalizedMenu(menu) {
     sources.set(preloadPath, preloadContent);
   }
 
+  const dialogs = {
+    'Connect a device': 'Cihaz bağla',
+    'Select Download Folder': 'İndirme Klasörünü Seç',
+    'Open workspace': 'Çalışma Alanını Aç',
+    'Open workspaces': 'Çalışma Alanlarını Aç',
+    'Folder is on the Windows filesystem': 'Klasör Windows dosya sisteminde',
+    'WSL distro not found': 'WSL dağıtımı bulunamadı',
+    'Confirm Quit': 'Çıkışı Onayla',
+    'Are you sure you want to quit?': 'Çıkmak istediğinizden emin misiniz?',
+    'There may be agents or background tasks running.': 'Ajanlar veya arka plan görevleri çalışıyor olabilir.',
+    'Choose a Passkey': 'Geçiş Anahtarı Seç',
+    'Sign in to ${rpLabel}': '${rpLabel} hesabında oturum aç',
+    'Select a passkey account to continue:': 'Devam etmek için bir geçiş anahtarı hesabı seçin:',
+    'Antigravity opened on Windows instead.': 'Antigravity Windows üzerinde açıldı.',
+    'The WSL distro "${WSL_DISTRO}" is no longer installed.': '"${WSL_DISTRO}" WSL dağıtımı artık yüklü değil.'
+  };
+  for (const name of ['deviceChooser.js', 'webauthn.js', 'main.js', 'ipcHandlers.js']) {
+    const key = fileName(name);
+    if (sources.has(key)) sources.set(key, translateUiProperties(sources.get(key), dialogs));
+  }
   for (const [name, source] of sources) new vm.Script(source, { filename: name });
   return sources;
 }
@@ -418,12 +447,16 @@ async function patchDesktopApp(paths) {
     const archive = path.join(paths.desktop.appPath, 'resources', 'app.asar');
     asar.uncacheAll();
     const version = JSON.parse(asar.extractFile(archive, 'package.json').toString()).version;
-    if (!['2.17.0', '2.18.1', '2.19.1', '2.21.1', '2.22.0', '2.23.0', '2.23.1', '2.24.0', '2.25.0', '2.26.0', '2.27.0', '2.28.0', '2.28.1', '2.28.2', '2.29.0', '2.30.0', '2.31.0', '2.31.2', '2.32.1', '2.32.2', '2.33.0'].includes(version)) throw new Error(`Desktop ${version} henüz doğrulanmadı; desteklenen sürümler: 2.17.0, 2.18.1, 2.19.1, 2.21.1, 2.22.0, 2.23.0, 2.23.1, 2.24.0, 2.25.0, 2.26.0, 2.27.0, 2.28.0, 2.28.1, 2.28.2, 2.29.0, 2.30.0, 2.31.0, 2.31.2, 2.32.1, 2.32.2, 2.33.0.`);
+    if (!['2.17.0', '2.18.1', '2.19.1', '2.21.1', '2.22.0', '2.23.0', '2.23.1', '2.24.0', '2.25.0', '2.26.0', '2.27.0', '2.28.0', '2.28.1', '2.28.2', '2.29.0', '2.30.0', '2.31.0', '2.31.2', '2.32.1', '2.32.2', '2.33.0', '2.34.0'].includes(version)) throw new Error(`Desktop ${version} henüz doğrulanmadı; desteklenen sürümler: 2.17.0, 2.18.1, 2.19.1, 2.21.1, 2.22.0, 2.23.0, 2.23.1, 2.24.0, 2.25.0, 2.26.0, 2.27.0, 2.28.0, 2.28.1, 2.28.2, 2.29.0, 2.30.0, 2.31.0, 2.31.2, 2.32.1, 2.32.2, 2.33.0, 2.34.0.`);
     const names = ['loadingOverlay.js', 'provisionSplash.js', 'tray.js', 'menu.js', 'preload.js', 'main.js', 'ipcHandlers.js', 'updater.js'];
     const sources = new Map();
     for (const name of names) {
       const key = 'dist/' + name;
       sources.set(key, asar.extractFile(archive, path.normalize(key)).toString('utf8'));
+    }
+    const entries = new Set(asar.listPackage(archive).map(entry => entry.replace(/^[/\\]/, '').replaceAll('\\', '/')));
+    for (const key of ['dist/deviceChooser.js', 'dist/webauthn.js']) {
+      if (entries.has(key)) sources.set(key, asar.extractFile(archive, path.normalize(key)).toString('utf8'));
     }
     const next = transformDesktopSources(sources);
     const changes = new Map([...next].filter(([name, value]) => value !== sources.get(name)).map(([name, value]) => [name, Buffer.from(value)]));
