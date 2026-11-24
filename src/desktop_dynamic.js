@@ -1,7 +1,7 @@
 // Only recognized UI sentences are transformed; arbitrary numbers and content are untouched.
 function translateDynamic(text) {
-  const modelEffort = /^(?:(Orchestrator) )?((?:Gemini|Claude) [\w. -]+) Extra High$/.exec(text);
-  if (modelEffort) return (modelEffort[1] ? 'Orkestratör ' : '') + modelEffort[2] + ' Çok Yüksek';
+  const modelEffort = /^(?:(Orchestrator|Orkestratör) )?((?:Gemini|Claude) [\w. -]+?) (Extra High|High|Medium|Low)$/.exec(text);
+  if (modelEffort) return (modelEffort[1] ? 'Orkestratör ' : '') + modelEffort[2] + ' ' + ({ 'Extra High': 'Çok Yüksek', High: 'Yüksek', Medium: 'Orta', Low: 'Düşük' }[modelEffort[3]]);
   const editingFile = /^Editing (\S+\.[\w-]+)$/.exec(text);
   if (editingFile) return editingFile[1] + ' düzenleniyor';
   const buildGreeting = /^Hey ([^\r\n]+), what should we build today\?$/.exec(text);
