@@ -437,6 +437,29 @@ function rebuildLocalizedMenu(menu) {
     const key = fileName(name);
     if (sources.has(key)) sources.set(key, translateUiProperties(sources.get(key), dialogs));
   }
+  const securityPath = fileName('webviewPopupSecurity.js');
+  if (sources.has(securityPath)) {
+    let source = sources.get(securityPath);
+    const labels = {
+      'Not secure': 'Güvenli Değil', '⚠ Not secure': '⚠ Güvenli Değil',
+      'Connection info…': 'Bağlantı Bilgileri…', 'Connection info': 'Bağlantı Bilgileri',
+      'Your connection to this site is not secure': 'Bu siteyle bağlantınız güvenli değil',
+      'You should not enter any sensitive information on this site (for ': 'Bu siteye hassas bilgilerinizi (örneğin ',
+      'example, passwords or credit cards), because it could be stolen by ': 'parolalarınızı veya kredi kartı bilgilerinizi) girmeyin. ',
+      'attackers.': 'Saldırganlar bu bilgileri çalabilir.',
+      'Connection is secure': 'Bağlantı güvenli',
+      'Your information (for example, passwords or credit card numbers) is ': 'Parola veya kredi kartı numarası gibi bilgileriniz ',
+      'private when it is sent to this site.': 'bu siteye gönderilirken gizli kalır.',
+      'Connection security information is not available for this page': 'Bu sayfa için bağlantı güvenliği bilgisi yok',
+      'Certificate is valid': 'Sertifika geçerli', 'Certificate details': 'Sertifika Ayrıntıları',
+      'This page': 'Bu Sayfa', unknown: 'bilinmiyor'
+    };
+    for (const [from, to] of Object.entries(labels)) source = source.replaceAll("'" + from + "'", JSON.stringify(to));
+    const fields = { Error: 'Hata', 'Issued to': 'Sertifika Sahibi', 'Issued by': 'Sertifika Veren Kuruluş',
+      'Valid from': 'Geçerlilik Başlangıcı', 'Valid until': 'Geçerlilik Sonu', Protocol: 'Protokol' };
+    for (const [from, to] of Object.entries(fields)) source = source.replaceAll('`' + from + ': ${', '`' + to + ': ${');
+    sources.set(securityPath, source);
+  }
   for (const [name, source] of sources) new vm.Script(source, { filename: name });
   return sources;
 }
@@ -447,7 +470,7 @@ async function patchDesktopApp(paths) {
     const archive = path.join(paths.desktop.appPath, 'resources', 'app.asar');
     asar.uncacheAll();
     const version = JSON.parse(asar.extractFile(archive, 'package.json').toString()).version;
-    if (!['2.17.0', '2.18.1', '2.19.1', '2.21.1', '2.22.0', '2.23.0', '2.23.1', '2.24.0', '2.25.0', '2.26.0', '2.27.0', '2.28.0', '2.28.1', '2.28.2', '2.29.0', '2.30.0', '2.31.0', '2.31.2', '2.32.1', '2.32.2', '2.33.0', '2.34.0'].includes(version)) throw new Error(`Desktop ${version} henüz doğrulanmadı; desteklenen sürümler: 2.17.0, 2.18.1, 2.19.1, 2.21.1, 2.22.0, 2.23.0, 2.23.1, 2.24.0, 2.25.0, 2.26.0, 2.27.0, 2.28.0, 2.28.1, 2.28.2, 2.29.0, 2.30.0, 2.31.0, 2.31.2, 2.32.1, 2.32.2, 2.33.0, 2.34.0.`);
+    if (!['2.17.0', '2.18.1', '2.19.1', '2.21.1', '2.22.0', '2.23.0', '2.23.1', '2.24.0', '2.25.0', '2.26.0', '2.27.0', '2.28.0', '2.28.1', '2.28.2', '2.29.0', '2.30.0', '2.31.0', '2.31.2', '2.32.1', '2.32.2', '2.33.0', '2.34.0', '2.35.1'].includes(version)) throw new Error(`Desktop ${version} henüz doğrulanmadı; desteklenen sürümler: 2.17.0, 2.18.1, 2.19.1, 2.21.1, 2.22.0, 2.23.0, 2.23.1, 2.24.0, 2.25.0, 2.26.0, 2.27.0, 2.28.0, 2.28.1, 2.28.2, 2.29.0, 2.30.0, 2.31.0, 2.31.2, 2.32.1, 2.32.2, 2.33.0, 2.34.0, 2.35.1.`);
     const names = ['loadingOverlay.js', 'provisionSplash.js', 'tray.js', 'menu.js', 'preload.js', 'main.js', 'ipcHandlers.js', 'updater.js'];
     const sources = new Map();
     for (const name of names) {
@@ -455,7 +478,7 @@ async function patchDesktopApp(paths) {
       sources.set(key, asar.extractFile(archive, path.normalize(key)).toString('utf8'));
     }
     const entries = new Set(asar.listPackage(archive).map(entry => entry.replace(/^[/\\]/, '').replaceAll('\\', '/')));
-    for (const key of ['dist/deviceChooser.js', 'dist/webauthn.js']) {
+    for (const key of ['dist/deviceChooser.js', 'dist/webauthn.js', 'dist/webviewPopupSecurity.js']) {
       if (entries.has(key)) sources.set(key, asar.extractFile(archive, path.normalize(key)).toString('utf8'));
     }
     const next = transformDesktopSources(sources);
