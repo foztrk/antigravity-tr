@@ -276,6 +276,9 @@ function patchAntigravityExtension(paths) {
       let pkg = fs.readFileSync(`${agyPkgFile}.bak`, 'utf8');
       const pkgReps = [
         ['"Bring Google\'s agent-first development platform into Visual Studio Code."', '"Google\'ın ajan öncelikli geliştirme platformunu Visual Studio Code\'a taşıyın."'],
+        ['"Bring Google\'s agent-first development platform to Visual Studio Code."', '"Google\'ın ajan öncelikli geliştirme platformunu Visual Studio Code\'a taşıyın."'],
+        ['"label":"More Actions..."', '"label":"Daha Fazla Eylem..."'],
+        ['"deprecationMessage":"Internal channel setting"', '"deprecationMessage":"Dahili kanal ayarı"'],
         ['"displayName":"Antigravity Artifact Viewer"', '"displayName":"Antigravity Yapıt Görüntüleyici"'],
         ['"displayName":"Antigravity Settings Viewer"', '"displayName":"Antigravity Ayarlar Görüntüleyici"'],
         ['"title":"Show Third Party Notices"', '"title":"Üçüncü Taraf Bildirimlerini Göster"'],
@@ -313,6 +316,17 @@ function patchAntigravityExtension(paths) {
         ['"title":"Sign Out"', '"title":"Oturumu Kapat"'],
         ['"title":"Show Menu"', '"title":"Menüyü Göster"'],
         ['"title":"Find in Conversation"', '"title":"Sohbette Bul"'],
+        ['"title":"Add to Antigravity Chat"', '"title":"Antigravity Sohbetine Ekle"'],
+        ['"title":"Undo Inline Diff Change"', '"title":"Satır İçi Fark Değişikliğini Geri Al"'],
+        ['"title":"Redo Inline Diff Change"', '"title":"Satır İçi Fark Değişikliğini Yinele"'],
+        ['"title":"Cancel / Stop Generation"', '"title":"Üretimi İptal Et / Durdur"'],
+        ['"title":"Search / Pick Conversation"', '"title":"Konuşma Ara / Seç"'],
+        ['"title":"Toggle Model Selector"', '"title":"Model Seçiciyi Aç/Kapat"'],
+        ['"title":"Select Previous Conversation"', '"title":"Önceki Konuşmayı Seç"'],
+        ['"title":"Select Next Conversation"', '"title":"Sonraki Konuşmayı Seç"'],
+        ['"Keybinding scheme for Antigravity shortcuts in VS Code."', '"VS Code içindeki Antigravity kısayolları için tuş atama şeması."'],
+        ['"Use VS Code friendly shortcuts (Cmd+L / Ctrl+L for chat, Cmd+Shift+L for new conversation, Cmd+Shift+A for search) to avoid colliding with built-in IDE shortcuts."', '"Yerleşik IDE kısayollarıyla çakışmayı önlemek için VS Code uyumlu kısayolları kullanın (sohbet için Cmd+L / Ctrl+L, yeni konuşma için Cmd+Shift+L, arama için Cmd+Shift+A)."'],
+        ['"Use standalone Antigravity chords (Ctrl+I / Cmd+I Focus Input or Add Selection, Ctrl+Shift+O / Cmd+Shift+O New Conversation, Ctrl+K / Cmd+K Conversation Picker in chat, Ctrl+, / Cmd+, Antigravity Settings, Ctrl+[/] / Cmd+[/] History Navigation). Replaces Go to Symbol in Editor (Ctrl+Shift+O / Cmd+Shift+O) and Trigger Suggest (Ctrl+I / Cmd+I), and rebinds VS Code Settings to Ctrl+Alt+, / Cmd+Option+,."', '"Bağımsız Antigravity tuş kombinasyonlarını kullanın (Ctrl+I / Cmd+I Girdiye Odaklan veya Seçim Ekle, Ctrl+Shift+O / Cmd+Shift+O Yeni Konuşma, sohbette Ctrl+K / Cmd+K Konuşma Seçici, Ctrl+, / Cmd+, Antigravity Ayarları, Ctrl+[/] / Cmd+[/] Geçmiş Gezintisi). Düzenleyicide Sembole Git (Ctrl+Shift+O / Cmd+Shift+O) ve Öneriyi Tetikle (Ctrl+I / Cmd+I) kısayollarının yerini alır; VS Code Ayarlarını Ctrl+Alt+, / Cmd+Option+, olarak yeniden atar."'],
         ['"Path to a PEM-encoded CA certificate file (for example, a corporate TLS inspection root CA) trusted by the Antigravity extension and language server alongside system root certificates."', '"Antigravity uzantısı ve dil sunucusu tarafından sistem kök sertifikalarının yanında güvenilen PEM kodlu bir CA sertifika dosyasının yolu (örneğin kurumsal TLS denetim kök CA\'sı)."'],
         ['"Auto-accept pending edits in background files when starting a new or queued chat turn (non-cumulative review: only the latest turn\'s diff is kept on re-edited files). When off, reviews accumulate across turns: all modified files stay open until you accept or reject them, later edits to the same file merge into one cumulative diff, and you are notified when reviews from earlier turns remain open."', '"Yeni veya sıraya alınmış bir sohbet turu başlatırken arka plandaki dosyalarda bekleyen düzenlemeleri otomatik olarak kabul edin (kümülatif olmayan inceleme: yeniden düzenlenen dosyalarda yalnızca son turun farkı tutulur). Kapalı olduğunda incelemeler turlar boyunca birikir: siz kabul edene veya reddedene kadar tüm değiştirilen dosyalar açık kalır, aynı dosyaya yapılan sonraki düzenlemeler tek bir kümülatif farkta birleşir ve önceki turlardan kalan incelemeler açık kaldığında size bildirim gönderilir."'],
         ['"Report this host as the Antigravity IDE in agent UI telemetry."', '"Bu ana bilgisayarı ajan arayüzü telemetrisinde Antigravity IDE olarak bildir."'],
@@ -388,6 +402,8 @@ function patchAntigravityExtension(paths) {
         ['label:"$(law) Show Third Party Notices"', 'label:"$(law) Üçüncü Taraf Bildirimlerini Göster"'],
         ['label:"$(history) Reset Conversation State"', 'label:"$(history) Sohbet Durumunu Sıfırla"'],
         ['{label:"Account",kind:', '{label:"Hesap",kind:'],
+        ['{label:"Account",\r\nkind:', '{label:"Hesap",\r\nkind:'],
+        ['{label:"Account",\nkind:', '{label:"Hesap",\nkind:'],
         ['label:"$(account) Sign Out"', 'label:"$(account) Oturumu Kapat"'],
         ['label:"$(sign-in) Sign In"', 'label:"$(sign-in) Oturum Aç"'],
         // Yükleme ve bağlantı ekranları
@@ -441,11 +457,43 @@ function patchAntigravityExtension(paths) {
         ['"Dismiss"', '"Kapat"'],
         ['"Open review"', '"İncelemeyi aç"'],
         ['"Reload from disk"', '"Diskten yeniden yükle"'],
-        ['"Save agent version"', '"Ajan sürümünü kaydet"']
+        ['"Save agent version"', '"Ajan sürümünü kaydet"'],
+        ['b.title=`${m} Settings`', 'b.title=`${m} Ayarları`'],
+        ['c.name="Antigravity";', 'c.name="Antigravity Ayarları";'],
+        ['title:"Installing Antigravity Backend"', 'title:"Antigravity Arka Ucu Yükleniyor"'],
+        ['message:"Checking for releases..."', 'message:"Sürümler denetleniyor..."'],
+        ['message:"Verifying Ed25519 signature..."', 'message:"Ed25519 imzası doğrulanıyor..."'],
+        ['message:"Unpacking archive..."', 'message:"Arşiv açılıyor..."'],
+        ['message:"Waiting for another window to finish installing..."', 'message:"Başka bir pencerenin yüklemeyi tamamlaması bekleniyor..."'],
+        ['message:`Downloading (${process.platform}-${process.arch})...`', 'message:`İndiriliyor (${process.platform}-${process.arch})...`'],
+        ['"Changing proxy or CA certificate settings requires reloading the window for Antigravity to apply them."', '"Proxy veya CA sertifikası ayarlarının Antigravity tarafından uygulanması için pencerenin yeniden yüklenmesi gerekiyor."'],
+        ['`${d} changed on disk, so its inline review was ended. The editor still has the unsaved agent version.`', '`${d} diskte değiştiği için satır içi inceleme sonlandırıldı. Düzenleyicide hâlâ kaydedilmemiş ajan sürümü bulunuyor.`'],
+        ['`${d} changed on disk, so its inline review was ended.`', '`${d} diskte değiştiği için satır içi inceleme sonlandırıldı.`'],
+        ['`The agent\'s change in ${c} replaces a line you edited. Reject that change to keep your line.`', '`Ajanın ${c} dosyasındaki değişikliği sizin düzenlediğiniz bir satırı değiştiriyor. Kendi satırınızı korumak için bu değişikliği reddedin.`'],
+        ['`Antigravity: Port ${a} (antigravity.serverPort) is already in use by another window or process. Using port ${b} for this window.`', '`Antigravity: ${a} numaralı bağlantı noktası (antigravity.serverPort) başka bir pencere veya işlem tarafından kullanılıyor. Bu pencere için ${b} numaralı bağlantı noktası kullanılıyor.`'],
+        ['c=`Antigravity Backend v${a} is ready. Restart the agent server to apply the update.`', 'c=`Antigravity Arka Ucu v${a} hazır. Güncellemeyi uygulamak için ajan sunucusunu yeniden başlatın.`'],
+        ['`Failed to submit feedback: ${p instanceof Error?p.message:String(p)}`', '`Geri bildirim gönderilemedi: ${p instanceof Error?p.message:String(p)}`'],
+        ['`Unable to open ${a.fileUri}: ${m instanceof Error?m.message:String(m)}`', '`${a.fileUri} açılamadı: ${m instanceof Error?m.message:String(m)}`']
       ];
       for (const [en, tr] of vscodeReps) {
         v = v.replaceAll(en, tr);
       }
+      v = v.replace(
+        /`Antigravity Inline Diff \$\{([A-Za-z_$][\w$]*)\?"disabled":"enabled"\}\.`/g,
+        '`Antigravity Satır İçi Fark Görünümü ${$1?"devre dışı bırakıldı":"etkinleştirildi"}.`'
+      );
+      v = v.replace(
+        /`Failed to open ThirdPartyNotices\.txt: \$\{([A-Za-z_$][\w$]*)\s+instanceof\r?\nError\?\1\.message:\1\}`/g,
+        '`ThirdPartyNotices.txt açılamadı: ${$1 instanceof Error?$1.message:$1}`'
+      );
+      v = v.replace(
+        /"Open Settings"\)\)\.then\(([A-Za-z_$][\w$]*)=>\{if\(\1==="Open Settings"\)/g,
+        '"Ayarları Aç")).then($1=>{if($1==="Ayarları Aç")'
+      );
+      v = v.replace(
+        /"Restart Agent Server","Later"\)\)\.then\(([A-Za-z_$][\w$]*)=>\{if\(\1==="Restart Agent Server"\)/g,
+        '"Ajan Sunucusunu Yeniden Başlat","Daha Sonra")).then($1=>{if($1==="Ajan Sunucusunu Yeniden Başlat")'
+      );
 
       // Yerel agy.exe --hub HTTP/WebSocket çeviri vekil sunucusunu enjekte et
       const assignMatch = /this\.serverUrl=([A-Za-z_$][\w$]*);this\.port=([A-Za-z_$][\w$]*);this\.lastStartupError=void 0;this\.startHeartbeat\(\1,([A-Za-z_$][\w$]*)\);/.exec(v);
@@ -1118,7 +1166,10 @@ function patchClaudeExtension(paths) {
     ['Claude Code: Toggle Focus view', 'Claude Code: Odak Görünümünü Aç/Kapat'],
     ['Claude Code: Mark Session as Unread', 'Claude Code: Oturumu Okunmadı Olarak İşaretle'],
     ['Claude Code: Rename Session Tab', 'Claude Code: Oturum Sekmesini Yeniden Adlandır'],
-    ['Claude Code: Add Session Tab to Group', 'Claude Code: Oturum Sekmesini Gruba Ekle']
+    ['Claude Code: Add Session Tab to Group', 'Claude Code: Oturum Sekmesini Gruba Ekle'],
+    ['Claude Code: Resolve Merge Conflicts', 'Claude Code: Birleştirme Çakışmalarını Çöz'],
+    ['Fix with Claude Code', 'Claude Code ile Düzelt'],
+    ['Claude Code: Add Cell to Chat', 'Claude Code: Hücreyi Sohbete Ekle']
   ];
 
   const extJsReplacements = [
