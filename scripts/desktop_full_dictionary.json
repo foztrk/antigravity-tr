@@ -3558,5 +3558,7 @@
   "Model cannot be changed while the agent is running": "Ajan çalışırken model değiştirilemez.",
   "Error": "Hata",
   "Error ID:": "Hata Kimliği:",
-  "Individual quota reached. Please upgrade your subscription to increase your limits.": "Kişisel kotanıza ulaştınız. Kullanım limitlerinizi artırmak için aboneliğinizi yükseltin."
+  "Individual quota reached. Please upgrade your subscription to increase your limits.": "Kişisel kotanıza ulaştınız. Kullanım limitlerinizi artırmak için aboneliğinizi yükseltin.",
+  "Runs on this machine": "Bu bilgisayarda çalışır.",
+  "Runs in a cloud environment": "Bulut ortamında çalışır."
 }
