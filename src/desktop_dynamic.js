@@ -118,9 +118,23 @@ function translateDynamic(text) {
   if (text === 'tokens)') return 'token)';
   function duration(value) {
     if (!/^(?:\d+\s*(?:days?|hours?|minutes?|seconds?|d|h|m|s)(?:,?\s*|$))+$/.test(value)) return null;
+    value = value.replace(/([dhms])(?=\d)/g, '$1 ');
     return value.replace(/(\d+)\s*(days?|hours?|minutes?|seconds?|d|h|m|s)\b/g,
       (_, n, unit) => n + ' ' + ({ d: 'gün', h: 'saat', m: 'dakika', s: 'saniye' }[unit[0]]));
   }
+  const quotaReached = /^(Error\s+)?Individual quota reached\. Please upgrade your subscription to increase your limits\. Resets in (.+)\.$/.exec(text);
+  if (quotaReached) {
+    const time = duration(quotaReached[2]);
+    if (time) return (quotaReached[1] ? 'Hata: ' : '') + 'Kişisel kotanıza ulaştınız. Kullanım limitlerinizi artırmak için aboneliğinizi yükseltin. Kota ' + time + ' sonra yenilenir.';
+  }
+  const workSummary = /^Worked for (.+?)\s*[·•]\s*(\d+) updates?$/.exec(text);
+  if (workSummary) {
+    const time = duration(workSummary[1]);
+    if (time) return time + ' çalıştı · ' + workSummary[2] + ' güncelleme';
+  }
+  const updates = /^(\d+) updates?$/.exec(text);
+  if (updates) return updates[1] + ' güncelleme';
+  if (/^Error ID: [\w-]+$/.test(text)) return 'Hata Kimliği: ' + text.slice('Error ID: '.length);
   const weeklyReset = /^Weekly limit, resets in (.+)$/.exec(text);
   if (weeklyReset) {
     const time = duration(weeklyReset[1]);

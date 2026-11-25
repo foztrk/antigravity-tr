@@ -3549,5 +3549,14 @@
   "U.S. immigration law research: published and unpublished BIA/AAO and federal cases, INA/CFR, USCIS policy, citator validity checks, and visa bulletins.": "ABD göçmenlik hukukunu araştırın. Yayımlanmış ve yayımlanmamış BIA, AAO ve federal mahkeme kararlarını, INA ve CFR hükümlerini, USCIS politikalarını ve vize bültenlerini inceleyin. Kararların geçerliliğini atıf kayıtlarıyla kontrol edin.",
   "Transcribe meetings, interviews, podcasts and videos in 119 languages, then write minutes, show notes and subtitles from the transcripts.": "Toplantıları, görüşmeleri, podcast’leri ve videoları 119 dilde yazıya dökün. Dökümlerden toplantı tutanakları, bölüm notları ve altyazılar hazırlayın.",
   "See what GPTBot, ClaudeBot, PerplexityBot and other AI crawlers get from a website. Skills and a remote MCP server for robots.txt checks, AI visibility scans and agent directory listings.": "GPTBot, ClaudeBot, PerplexityBot ve diğer yapay zekâ tarayıcılarının bir sitede hangi içeriğe eriştiğini görün. robots.txt kontrolleri, yapay zekâ görünürlüğü taramaları ve ajan dizini listelemeleri için beceriler ve uzak bir MCP sunucusu içerir.",
-  "Search European procurement data and manage your tender pipeline.": "Avrupa’daki kamu alımı verilerini arayın ve ihale süreçlerinizi yönetin."
+  "Search European procurement data and manage your tender pipeline.": "Avrupa’daki kamu alımı verilerini arayın ve ihale süreçlerinizi yönetin.",
+  "You can prompt the model to try again or start a new conversation if the error persists.": "Modelden yeniden denemesini isteyebilirsiniz. Hata devam ederse yeni bir konuşma başlatın.",
+  "See our troubleshooting guide for more help.": "Daha fazla yardım için sorun giderme kılavuzumuza bakın.",
+  "See our": "Daha fazla yardım için",
+  "troubleshooting guide": "sorun giderme kılavuzumuza",
+  "for more help.": "bakın.",
+  "Model cannot be changed while the agent is running": "Ajan çalışırken model değiştirilemez.",
+  "Error": "Hata",
+  "Error ID:": "Hata Kimliği:",
+  "Individual quota reached. Please upgrade your subscription to increase your limits.": "Kişisel kotanıza ulaştınız. Kullanım limitlerinizi artırmak için aboneliğinizi yükseltin."
 }
