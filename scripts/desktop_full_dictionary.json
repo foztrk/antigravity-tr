@@ -3560,5 +3560,10 @@
   "Error ID:": "Hata Kimliği:",
   "Individual quota reached. Please upgrade your subscription to increase your limits.": "Kişisel kotanıza ulaştınız. Kullanım limitlerinizi artırmak için aboneliğinizi yükseltin.",
   "Runs on this machine": "Bu bilgisayarda çalışır.",
-  "Runs in a cloud environment": "Bulut ortamında çalışır."
+  "Runs in a cloud environment": "Bulut ortamında çalışır.",
+  "Collection of tools for tandem mass spectrometry (MS/MS) analysis, including spectrum preprocessing, GNPS and MoNA spectral library search, SIRIUS formula prediction, and MetFrag and MAGMa fragment annotation.": "Tandem kütle spektrometrisi (MS/MS) analizi için araçlar. Spektrum ön işleme, GNPS ve MoNA kütüphanelerinde arama, SIRIUS ile formül tahmini ve MetFrag ile MAGMa üzerinden fragman açıklamalarını kapsar.",
+  "Manage Any.do personal tasks, workspace boards and sections, subtasks, reminders, and connected calendar events from your agent.": "Ajanınızla Any.do’daki kişisel görevleri, çalışma alanı panolarını ve bölümlerini, alt görevleri, hatırlatıcıları ve bağlı takvim etkinliklerini yönetin.",
+  "Create and edit images with Kling Image 4.0, generate Kling 4.0 and Flash videos with supported HDR settings, reuse Elements, and track tasks.": "Kling Image 4.0 ile görsel oluşturup düzenleyin. Desteklenen HDR ayarlarıyla Kling 4.0 ve Flash videoları üretin, Elements öğelerini yeniden kullanın ve görevleri takip edin.",
+  "Bring Claude, GPT, Muse, Kimi & more into Antigravity. Run a multi-model panel with cross-model reactions, or ask one model for a second opinion.": "Claude, GPT, Muse, Kimi ve diğer modelleri Antigravity’de kullanın. Modellerin birbirlerinin yanıtlarına yorum yaptığı bir panel çalıştırın veya tek bir modelden ikinci görüş alın.",
+  "Automatic check for updates": "Güncellemeleri Otomatik Denetle"
 }
